@@ -1,0 +1,11 @@
+dataops/modelling/dbt_packages/*
+dataops/streamlit/retail/app.py
+dataops/snowflake/sole-output/*
+dataops/snowflake/databases.yml
+dataops/snowflake/roles.yml
+dataops/snowflake/warehouses.yml
+logs/
+snowflake.log
+snowflake-provider/
+vault-content/vault.yml
+homepage/__pycache__/** 

@@ -1,0 +1,11 @@
+include:
+  - /pipelines/includes/bootstrap.yml
+
+  ## Build Event Instructions Homepage
+  - /pipelines/includes/local_includes/build_homepage.yml
+
+  ## Share Data to Attendee
+  - /pipelines/includes/local_includes/share_data_to_attendee.yml
+
+  ## Configure Attendee Account
+  - /pipelines/includes/local_includes/configure_attendee_account.yml
