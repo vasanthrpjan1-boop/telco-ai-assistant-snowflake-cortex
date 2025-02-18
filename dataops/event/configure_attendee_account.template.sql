@@ -16,6 +16,7 @@ grant MANAGE GRANTS on account to role {{ env.EVENT_ATTENDEE_ROLE }};
 grant CREATE INTEGRATION on account to role {{ env.EVENT_ATTENDEE_ROLE }};
 grant CREATE APPLICATION PACKAGE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
 grant CREATE APPLICATION on account to role {{ env.EVENT_ATTENDEE_ROLE }};
+grant IMPORT SHARE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
 
 
 -- Create the warehouse
@@ -47,10 +48,13 @@ grant USAGE on warehouse {{ env.EVENT_WAREHOUSE }} to role {{ env.EVENT_ATTENDEE
 -- Ensure ADMIN can use ACCOUNTADMIN role
 grant role ACCOUNTADMIN to user {{ env.EVENT_ADMIN_NAME }};
 
--- Alter the user to use the role and warehouse
+-- Alter the users to set default role and warehouse
 use role USERADMIN;
 alter user {{ env.EVENT_USER_NAME }} set
     DEFAULT_ROLE = {{ env.EVENT_ATTENDEE_ROLE }}
+    DEFAULT_WAREHOUSE = {{ env.EVENT_WAREHOUSE }};
+alter user {{ env.EVENT_ADMIN_NAME }} set
+    DEFAULT_ROLE = ACCOUNTADMIN
     DEFAULT_WAREHOUSE = {{ env.EVENT_WAREHOUSE }};
 
 -- Create the database and schemas using {{ env.EVENT_ATTENDEE_ROLE }}
@@ -59,13 +63,8 @@ use role {{ env.EVENT_ATTENDEE_ROLE }};
 create or replace database {{ env.DATAOPS_DATABASE }};
 create or replace schema {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }};
 
+-- If data sharing enambled, create a database from the share
 {% if env.EVENT_DATA_SHARING == "true" %}
--- Import data share
-
--- Grant the necessary priviliges to {{ env.EVENT_ATTENDEE_ROLE }} in order to create db from share.
-use role ACCOUNTADMIN;
-grant IMPORT SHARE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
-
 use role {{ env.EVENT_ATTENDEE_ROLE }};
 create database if not exists {{ env.EVENT_SHARE }} from share {{ env.DATAOPS_SHARE_ACCOUNT | replace('-', '.') | upper }}.{{ env.EVENT_SHARE }};
 grant imported privileges on database {{ env.EVENT_SHARE }} to role PUBLIC;
