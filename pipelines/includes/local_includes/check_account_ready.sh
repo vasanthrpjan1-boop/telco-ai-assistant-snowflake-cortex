@@ -10,7 +10,7 @@ while [ $ATTEMPT -le $MAX_RETRIES ]; do
     echo "Attempt $ATTEMPT of $MAX_RETRIES"
     
     # Make request and capture response code
-    HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$DATAOPS_SNOWFLAKE_ACCOUNT")
+    HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$DATAOPS_SNOWFLAKE_ACCOUNT.snowflakecomputing.com")
     
     if [ $HTTP_CODE -eq 404 ]; then
         if [ $ATTEMPT -eq $MAX_RETRIES ]; then
