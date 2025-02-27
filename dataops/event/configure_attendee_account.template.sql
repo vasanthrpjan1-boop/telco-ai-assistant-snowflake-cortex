@@ -21,17 +21,22 @@ GRANT ROLE policy_admin TO USER IDENTIFIER($name);
 
 USE ROLE policy_admin;
 
-CREATE AUTHENTICATION POLICY IF NOT EXISTS event_authentication_policy
+CREATE AUTHENTICATION POLICY IF NOT EXISTS event_authentication_policy;
+
+ALTER AUTHENTICATION POLICY event_authentication_policy SET
   MFA_ENROLLMENT=OPTIONAL
   CLIENT_TYPES = ('ALL')
   AUTHENTICATION_METHODS = ('ALL');
 
-BEGIN
-    ALTER ACCOUNT SET AUTHENTICATION POLICY event_authentication_policy;
-EXCEPTION
-    WHEN STATEMENT_ERROR THEN
-        RETURN SQLERRM;
-END;
+EXECUTE IMMEDIATE $$
+    BEGIN
+        ALTER ACCOUNT SET AUTHENTICATION POLICY event_authentication_policy;
+    EXCEPTION
+        WHEN STATEMENT_ERROR THEN
+            RETURN SQLERRM;
+    END;
+$$
+;
 ---------------------------------
 
 
