@@ -5,6 +5,7 @@ USE ROLE ACCOUNTADMIN;
 
 create or replace warehouse {{ env.EVENT_WAREHOUSE }}
     AUTO_SUSPEND = 60;
+use warehouse {{ env.EVENT_WAREHOUSE }};
 
 ----- Disable mandatory MFA -----
 USE ROLE ACCOUNTADMIN;
