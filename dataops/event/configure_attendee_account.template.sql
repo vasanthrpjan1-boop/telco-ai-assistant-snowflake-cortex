@@ -1,5 +1,35 @@
 -- Configure Attendee Account
 
+----- Disable mandatory MFA -----
+USE ROLE ACCOUNTADMIN;
+
+CREATE OR REPLACE DATABASE policy_db;
+USE DATABASE policy_db;
+
+CREATE OR REPLACE SCHEMA policies;
+USE SCHEMA policies;
+
+CREATE ROLE IF NOT EXISTS policy_admin;
+
+GRANT USAGE ON DATABASE policy_db TO ROLE policy_admin;
+GRANT USAGE ON SCHEMA policy_db.policies TO ROLE policy_admin;
+GRANT CREATE AUTHENTICATION POLICY ON SCHEMA policy_db.policies TO ROLE policy_admin;
+GRANT APPLY AUTHENTICATION POLICY ON ACCOUNT TO ROLE policy_admin;
+
+SET name = (SELECT CURRENT_USER());   
+GRANT ROLE policy_admin TO USER IDENTIFIER($name) ;
+
+USE ROLE policy_admin;
+
+CREATE AUTHENTICATION POLICY event_authentication_policy
+  MFA_ENROLLMENT=OPTIONAL
+  CLIENT_TYPES = ('SNOWFLAKE_UI')
+  AUTHENTICATION_METHODS = ('PASSWORD');
+
+ALTER ACCOUNT SET AUTHENTICATION POLICY event_authentication_policy;
+---------------------------------
+
+
 -- Create the Attendee role if it does not exist
 use role SECURITYADMIN;
 create role if not exists {{ env.EVENT_ATTENDEE_ROLE }};
