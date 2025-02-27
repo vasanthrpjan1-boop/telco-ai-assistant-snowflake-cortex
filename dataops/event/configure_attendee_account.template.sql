@@ -16,18 +16,6 @@ USE DATABASE policy_db;
 CREATE SCHEMA IF NOT EXISTS policies;
 USE SCHEMA policies;
 
-CREATE ROLE IF NOT EXISTS policy_admin;
-
-GRANT USAGE ON DATABASE policy_db TO ROLE policy_admin;
-GRANT USAGE ON SCHEMA policy_db.policies TO ROLE policy_admin;
-GRANT CREATE AUTHENTICATION POLICY ON SCHEMA policy_db.policies TO ROLE policy_admin;
-GRANT APPLY AUTHENTICATION POLICY ON ACCOUNT TO ROLE policy_admin;
-
-SET name = (SELECT CURRENT_USER());
-GRANT ROLE policy_admin TO USER IDENTIFIER($name);
-
-USE ROLE policy_admin;
-
 CREATE AUTHENTICATION POLICY IF NOT EXISTS event_authentication_policy;
 
 ALTER AUTHENTICATION POLICY event_authentication_policy SET
