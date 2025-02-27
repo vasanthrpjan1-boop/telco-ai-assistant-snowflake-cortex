@@ -32,7 +32,7 @@ BEGIN
 EXCEPTION
     WHEN STATEMENT_ERROR THEN
         ALTER ACCOUNT SET AUTHENTICATION POLICY event_authentication_policy;
-END;
+END
 ---------------------------------
 
 
