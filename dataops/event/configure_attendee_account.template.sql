@@ -1,5 +1,11 @@
 -- Configure Attendee Account
 
+-- Create the warehouse
+USE ROLE ACCOUNTADMIN;
+
+create or replace warehouse {{ env.EVENT_WAREHOUSE }}
+    AUTO_SUSPEND = 60;
+
 ----- Disable mandatory MFA -----
 USE ROLE ACCOUNTADMIN;
 
@@ -57,11 +63,6 @@ grant CREATE INTEGRATION on account to role {{ env.EVENT_ATTENDEE_ROLE }};
 grant CREATE APPLICATION PACKAGE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
 grant CREATE APPLICATION on account to role {{ env.EVENT_ATTENDEE_ROLE }};
 grant IMPORT SHARE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
-
-
--- Create the warehouse
-create or replace warehouse {{ env.EVENT_WAREHOUSE }}
-    AUTO_SUSPEND = 60;
 
 -- Create the users
 use role USERADMIN;
