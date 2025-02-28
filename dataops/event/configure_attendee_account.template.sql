@@ -1,32 +1,37 @@
 -- Configure Attendee Account
 
+-- Create the warehouse
+USE ROLE ACCOUNTADMIN;
+
+create or replace warehouse {{ env.EVENT_WAREHOUSE }}
+    AUTO_SUSPEND = 60;
+use warehouse {{ env.EVENT_WAREHOUSE }};
+
 ----- Disable mandatory MFA -----
 USE ROLE ACCOUNTADMIN;
 
-CREATE OR REPLACE DATABASE policy_db;
+CREATE DATABASE IF NOT EXISTS policy_db;
 USE DATABASE policy_db;
 
-CREATE OR REPLACE SCHEMA policies;
+CREATE SCHEMA IF NOT EXISTS policies;
 USE SCHEMA policies;
 
-CREATE ROLE IF NOT EXISTS policy_admin;
+CREATE AUTHENTICATION POLICY IF NOT EXISTS event_authentication_policy;
 
-GRANT USAGE ON DATABASE policy_db TO ROLE policy_admin;
-GRANT USAGE ON SCHEMA policy_db.policies TO ROLE policy_admin;
-GRANT CREATE AUTHENTICATION POLICY ON SCHEMA policy_db.policies TO ROLE policy_admin;
-GRANT APPLY AUTHENTICATION POLICY ON ACCOUNT TO ROLE policy_admin;
-
-SET name = (SELECT CURRENT_USER());   
-GRANT ROLE policy_admin TO USER IDENTIFIER($name) ;
-
-USE ROLE policy_admin;
-
-CREATE AUTHENTICATION POLICY event_authentication_policy
+ALTER AUTHENTICATION POLICY event_authentication_policy SET
   MFA_ENROLLMENT=OPTIONAL
-  CLIENT_TYPES = ('SNOWFLAKE_UI', 'DRIVERS')
-  AUTHENTICATION_METHODS = ('PASSWORD', 'KEYPAIR');
+  CLIENT_TYPES = ('ALL')
+  AUTHENTICATION_METHODS = ('ALL');
 
-ALTER ACCOUNT SET AUTHENTICATION POLICY event_authentication_policy;
+EXECUTE IMMEDIATE $$
+    BEGIN
+        ALTER ACCOUNT SET AUTHENTICATION POLICY event_authentication_policy;
+    EXCEPTION
+        WHEN STATEMENT_ERROR THEN
+            RETURN SQLERRM;
+    END;
+$$
+;
 ---------------------------------
 
 
@@ -47,11 +52,6 @@ grant CREATE INTEGRATION on account to role {{ env.EVENT_ATTENDEE_ROLE }};
 grant CREATE APPLICATION PACKAGE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
 grant CREATE APPLICATION on account to role {{ env.EVENT_ATTENDEE_ROLE }};
 grant IMPORT SHARE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
-
-
--- Create the warehouse
-create or replace warehouse {{ env.EVENT_WAREHOUSE }}
-    AUTO_SUSPEND = 60;
 
 -- Create the users
 use role USERADMIN;
