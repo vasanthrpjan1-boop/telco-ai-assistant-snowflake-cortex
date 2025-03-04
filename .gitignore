@@ -1,5 +1,5 @@
 dataops/modelling/dbt_packages/*
-dataops/streamlit/retail/app.py
+# This entry is no longer needed as streamlit has moved to solution/streamlit
 dataops/snowflake/sole-output/*
 dataops/snowflake/databases.yml
 dataops/snowflake/roles.yml
@@ -8,4 +8,4 @@ logs/
 snowflake.log
 snowflake-provider/
 vault-content/vault.yml
-homepage/__pycache__/** 
+solution/homepage/__pycache__/**
