@@ -20,6 +20,8 @@ DATAOPS_PREFIX is used to create unique names for the resources created by the p
 | Build Homepage             | Pipeline Initialisation  | This job builds the event instructions specific for attendee. |
 | Share Data To Attendee     | Data Sharing             | (Optional) This job shares data with the attendee account.    |
 | Configure Attendee Account | Attendee Account Setup   | This job configures the attendee account.                     |
+| Deploy Notebooks           | Additional Configuration | This job deploys notebooks to the attendee account.           |
+| Deploy Streamlit           | Additional Configuration | This job deploys Streamlit to the attendee account.           |
 
 ### SQL scripts
 
@@ -29,6 +31,8 @@ The following SQL scripts are used to setup an attendee account. Written as Jinj
 |---------------------------------|----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
 | share_data_to_attendee.sql      | [dataops/event/share_data_to_attendee.template.sql](dataops/event/share_data_to_attendee.template.sql)         | This script makes a data share available to the attendee account. |
 | configure_attendee_account.sql  | [dataops/event/configure_attendee_account.template.sql](dataops/event/configure_attendee_account.template.sql) | This script configures the attendee account.                      |
+| deploy_notebooks.sql            | [dataops/event/deploy_notebooks.template.sql](dataops/event/deploy_notebooks.template.sql)                     | This script deploys an example notebook to the attendee account.  |
+| deploy_streamlit.sql            | [dataops/event/deploy_streamlit.template.sql](dataops/event/deploy_streamlit.template.sql)                     | This script deploys an example Streamlit app to the attendee account. |
 
 ### Event Configuration Variables set in the project
 
@@ -49,6 +53,10 @@ These variables are set in this project, with default values to be changed in th
 | EVENT_ADMIN_PASSWORD          | The password for the admin user.                                |
 | EVENT_DATA_SHARING            | The flag to enable data sharing with the attendee account.      |
 | EVENT_SHARE                   | The share to be shared with the attendee account.               |
+| EVENT_DEPLOY_NOTEBOOKS        | The flag to enable notebook deployment to the attendee account. |
+| NOTEBOOKS_SCHEMA              | The schema for the example notebook.                            |
+| EVENT_DEPLOY_STREAMLIT        | The flag to enable Streamlit app deployment to the attendee account. |
+| STREAMLIT_SCHEMA              | The schema for the example Streamlit app.                       |
 
 ### Event Configuration Variables from Event Management App
 
@@ -93,6 +101,7 @@ At the end of the Configure Attendee Account job, this .env file gets created as
 To run the homepage in a develop workspace, run the following commands:
 
 ```bash
+cd solution/homepage
 $(pyenv which pip) install -U -r requirements.txt
 mkdocs serve
 ```
