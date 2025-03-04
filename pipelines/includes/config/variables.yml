@@ -28,6 +28,12 @@ variables:
   EVENT_DATA_SHARING: "true"
   EVENT_SHARE: DEFAULT_SHARE
 
+  EVENT_DEPLOY_NOTEBOOKS: "true"
+  NOTEBOOKS_SCHEMA: NOTEBOOKS
+
+  EVENT_DEPLOY_STREAMLIT: "true"
+  STREAMLIT_SCHEMA: STREAMLIT
+
   ## DataOps Vault and secrets
   ## See https://docs.dataops.live/docs/concepts/vault/
   ## You should set this to something long and unique to you
