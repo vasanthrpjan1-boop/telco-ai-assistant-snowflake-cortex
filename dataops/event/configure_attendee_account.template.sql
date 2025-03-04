@@ -93,6 +93,77 @@ use role {{ env.EVENT_ATTENDEE_ROLE }};
 create or replace database {{ env.DATAOPS_DATABASE }};
 create or replace schema {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }};
 
+-----create notebook and streamlit stages
+CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT1 DIRECTORY = (ENABLE = TRUE) ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
+CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT2 DIRECTORY = (ENABLE = TRUE) ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
+CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT3 DIRECTORY = (ENABLE = TRUE) ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
+
+CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NOTEBOOK1 DIRECTORY = (ENABLE = TRUE) ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
+CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NOTEBOOK2 DIRECTORY = (ENABLE = TRUE) ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
+
+
+------put notebook files in stages
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/Notebooks/buy_or_sell/buy_or_sell.ipynb @{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NOTEBOOK1 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/Notebooks/buy_or_sell/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NOTEBOOK1 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/Notebooks/sound_analysis/sound_service.ipynb @{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NOTEBOOK2 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/Notebooks/sound_analysis/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NOTEBOOK2 auto_compress = false overwrite = true;
+
+------put streamlit files in stages
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/Streamlit/cortex_analyst/app.py @{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT1 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/Streamlit/cortex_analyst/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT1 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/Streamlit/rcortex_analyst/config.toml @{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT1/.streamlit auto_compress = false overwrite = true;
+
+
+-------put streamlit 2 in stage
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/Streamlit/cortex_chat/app.py @{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT2 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/Streamlit/cortex_chat/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT2 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/Streamlit/cortex_chat/config.toml @{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT2/.streamlit auto_compress = false overwrite = true;
+
+-------put streamlit 3 in stage
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/Streamlit/cortex_search/app.py @{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT3 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/Streamlit/cortex_search/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT3 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/solution/Streamlit/cortex_search/config.toml @{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT3/.streamlit auto_compress = false overwrite = true;
+
+
+--create notebooks
+CREATE OR REPLACE NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.BUY_OR_SELL
+FROM '@{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NOTEBOOK1'
+MAIN_FILE = 'buy_or_sell.ipynb'
+QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}';
+
+ALTER NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.BUY_OR_SELL ADD LIVE VERSION FROM LAST;
+
+
+CREATE OR REPLACE NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.ANALYSE_SOUND
+FROM '@{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NOTEBOOK2'
+MAIN_FILE = 'sound_service.ipynb'
+QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}';
+
+ALTER NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.ANALYSE_SOUND ADD LIVE VERSION FROM LAST;
+
+
+-----CREATE STREAMLITS
+
+CREATE OR REPLACE STREAMLIT {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.cortex_analyst
+ROOT_LOCATION = '@{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT1'
+MAIN_FILE = 'app.py'
+QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}'
+COMMENT = '{"origin":"sf_sit", "name":"cortex_analyst", "version":{"major":1, "minor":0}, "attributes":{"is_quickstart":0, "source":"streamlit"}}';
+
+CREATE OR REPLACE STREAMLIT {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.CORTEX_CHAT
+ROOT_LOCATION = '@{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT2'
+MAIN_FILE = 'app.py'
+QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}'
+COMMENT = '{"origin":"sf_sit", "name":"CORTEX_CHAT", "version":{"major":1, "minor":0}, "attributes":{"is_quickstart":0, "source":"streamlit"}}';
+
+CREATE OR REPLACE STREAMLIT {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.CORTEX_SEARCH
+ROOT_LOCATION = '@{{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.STREAMLIT3'
+MAIN_FILE = 'app.py'
+QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}'
+COMMENT = '{"origin":"sf_sit", "name":"CORTEX_SEARCH", "version":{"major":1, "minor":0}, "attributes":{"is_quickstart":0, "source":"streamlit"}}';
+
+
+
 -- If data sharing enambled, create a database from the share
 {% if env.EVENT_DATA_SHARING == "true" %}
 use role {{ env.EVENT_ATTENDEE_ROLE }};
