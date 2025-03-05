@@ -15,3 +15,6 @@ include:
 
   ## Deploy Example Streamlit App
   - /pipelines/includes/local_includes/deploy_streamlit.yml
+
+    ## Deploy Document AI
+  - /pipelines/includes/local_includes/deploy_documentai.yml
