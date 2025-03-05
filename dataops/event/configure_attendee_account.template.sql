@@ -79,6 +79,7 @@ grant USAGE on warehouse {{ env.EVENT_WAREHOUSE }} to role {{ env.EVENT_ATTENDEE
 
 -- Ensure ADMIN can use ACCOUNTADMIN role
 grant role ACCOUNTADMIN to user {{ env.EVENT_ADMIN_NAME }};
+grant role ACCOUNTADMIN to user {{env.EVENT_USER_NAME }};
 
 -- Alter the users to set default role and warehouse
 use role USERADMIN;
