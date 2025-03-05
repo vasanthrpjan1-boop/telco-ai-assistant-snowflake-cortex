@@ -5,10 +5,10 @@ CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}
 CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK2 DIRECTORY = (ENABLE = TRUE) ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
 
 ------put notebook files in stages
-PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/Notebook/buy_or_sell/buy_or_sell.ipynb @{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK1 auto_compress = false overwrite = true;
-PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/Notebook/buy_or_sell/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK1 auto_compress = false overwrite = true;
-PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/Notebook/sound_analysis/sound_service.ipynb @{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK2 auto_compress = false overwrite = true;
-PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/Notebook/sound_analysis/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK2 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/notebooks/buy_or_sell/buy_or_sell.ipynb @{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK1 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/notebooks/buy_or_sell/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK1 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/notebooks/sound_analysis/sound_service.ipynb @{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK2 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/notebooks/sound_analysis/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK2 auto_compress = false overwrite = true;
 
 --create notebooks
 CREATE OR REPLACE NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.BUY_OR_SELL
