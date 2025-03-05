@@ -1,12 +1,47 @@
 use role {{ env.EVENT_ATTENDEE_ROLE }};
 
 create schema if not exists {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }};
-create stage if not exists {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.EXAMPLE_STREAMLIT_STAGE;
+-----create notebook and streamlit stages
+CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT1 DIRECTORY = (ENABLE = TRUE) ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
+CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT2 DIRECTORY = (ENABLE = TRUE) ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
+CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3 DIRECTORY = (ENABLE = TRUE) ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
 
-PUT file:///{{ env.CI_PROJECT_DIR}}/solution/streamlit/app.py @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.EXAMPLE_STREAMLIT_STAGE auto_compress = false overwrite = true;
-PUT file:///{{ env.CI_PROJECT_DIR}}/solution/streamlit/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.EXAMPLE_STREAMLIT_STAGE auto_compress = false overwrite = true;
 
-CREATE OR REPLACE STREAMLIT {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.EXAMPLE_STREAMLIT
-    ROOT_LOCATION = '@{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.EXAMPLE_STREAMLIT_STAGE'
-    MAIN_FILE = 'app.py'
-    QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}';
+------put streamlit files in stages
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_analyst/app.py @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT1 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_analyst/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT1 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/rcortex_analyst/config.toml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT1/.streamlit auto_compress = false overwrite = true;
+
+
+-------put streamlit 2 in stage
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_chat/app.py @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT2 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_chat/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT2 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_chat/config.toml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT2/.streamlit auto_compress = false overwrite = true;
+
+-------put streamlit 3 in stage
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_search/app.py @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_search/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_search/config.toml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3/.streamlit auto_compress = false overwrite = true;
+
+
+-----CREATE STREAMLITS
+
+CREATE OR REPLACE STREAMLIT {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.cortex_analyst
+ROOT_LOCATION = '@{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT1'
+MAIN_FILE = 'app.py'
+QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}'
+COMMENT = '{"origin":"sf_sit", "name":"cortex_analyst", "version":{"major":1, "minor":0}, "attributes":{"is_quickstart":0, "source":"streamlit"}}';
+
+CREATE OR REPLACE STREAMLIT {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.CORTEX_CHAT
+ROOT_LOCATION = '@{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT2'
+MAIN_FILE = 'app.py'
+QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}'
+COMMENT = '{"origin":"sf_sit", "name":"CORTEX_CHAT", "version":{"major":1, "minor":0}, "attributes":{"is_quickstart":0, "source":"streamlit"}}';
+
+CREATE OR REPLACE STREAMLIT {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.CORTEX_SEARCH
+ROOT_LOCATION = '@{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3'
+MAIN_FILE = 'app.py'
+QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}'
+COMMENT = '{"origin":"sf_sit", "name":"CORTEX_SEARCH", "version":{"major":1, "minor":0}, "attributes":{"is_quickstart":0, "source":"streamlit"}}';
+
+
