@@ -25,6 +25,7 @@ This walkthrough contains everything you need. We will also demonstrate a number
 ### Getting started
 
 1 [Logging in and ready to build](step1.md)
+2 [Build a Document AI model](step2.md)
 
 
 ### Freebie
