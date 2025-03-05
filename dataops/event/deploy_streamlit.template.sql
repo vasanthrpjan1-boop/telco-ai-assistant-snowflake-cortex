@@ -10,7 +10,7 @@ CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}
 ------put streamlit files in stages
 PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_analyst/app.py @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT1 auto_compress = false overwrite = true;
 PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_analyst/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT1 auto_compress = false overwrite = true;
-PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/rcortex_analyst/config.toml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT1/.streamlit auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_analyst/config.toml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT1/.streamlit auto_compress = false overwrite = true;
 
 
 -------put streamlit 2 in stage
