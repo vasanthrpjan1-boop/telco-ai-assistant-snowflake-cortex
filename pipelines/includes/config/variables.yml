@@ -33,6 +33,8 @@ variables:
 
   EVENT_DEPLOY_STREAMLIT: "true"
   STREAMLIT_SCHEMA: STREAMLIT
+
+  EVENT_DEPLOY_DOCUMENT_AI: "true"
   DOCUMENT_AI_SCHEMA: DOCUMENT_AI
 
   ## DataOps Vault and secrets
