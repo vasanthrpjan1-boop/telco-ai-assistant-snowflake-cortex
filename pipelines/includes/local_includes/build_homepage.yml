@@ -17,7 +17,7 @@ Build Homepage:
     - mkdocs build
   artifacts:
     paths:
-      - $CI_PROJECT_DIR/solution/homepage/site
+      - $CI_PROJECT_DIR/dataops/event/homepage/site
     expose_as: "dataopsreport"
     name: "Homepage"
     expire_in: 4 weeks
