@@ -19,3 +19,7 @@ CREATE STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.infographic
 PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/document_ai/fake_analyst_reports/*.pdf @{{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.analyst_reports auto_compress = false overwrite = true;
 PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/document_ai/snowflake_infographics/*.pdf @{{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.infographics auto_compress = false overwrite = true;
 PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/document_ai/snowflake_infographics/*.png @{{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.infographics auto_compress = false overwrite = true;
+
+ALTER STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.infographics REFRESH;
+
+ALTER STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.analyst_reports REFRESH;
