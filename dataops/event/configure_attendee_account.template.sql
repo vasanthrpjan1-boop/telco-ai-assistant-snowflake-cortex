@@ -3,6 +3,8 @@
 -- Create the warehouse
 USE ROLE ACCOUNTADMIN;
 
+GRANT USAGE ON SCHEMA doc_ai_schema to role ACCOUNTADMIN;
+
 create or replace warehouse {{ env.EVENT_WAREHOUSE }}
     AUTO_SUSPEND = 60;
 use warehouse {{ env.EVENT_WAREHOUSE }};

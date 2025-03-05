@@ -34,6 +34,8 @@ variables:
   EVENT_DEPLOY_STREAMLIT: "true"
   STREAMLIT_SCHEMA: STREAMLIT
 
+  DOCUMENT_AI_SCHEMA: DOCUMENT_AI
+
   ## DataOps Vault and secrets
   ## See https://docs.dataops.live/docs/concepts/vault/
   ## You should set this to something long and unique to you
