@@ -1,19 +1,19 @@
 USE ROLE ACCOUNTADMIN;
 
-create schema if not exists {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI}};
+create schema if not exists {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA}};
 
 GRANT DATABASE ROLE SNOWFLAKE.DOCUMENT_INTELLIGENCE_CREATOR TO ROLE {{env.EVENT_ATTENDEE_ROLE}};
-GRANT CREATE snowflake.ml.document_intelligence on schema {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI }} to role {{env.EVENT_ATTENDEE_ROLE}};
+GRANT CREATE snowflake.ml.document_intelligence on schema {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }} to role {{env.EVENT_ATTENDEE_ROLE}};
 GRANT CREATE MODEL ON SCHEMA {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI }} TO ROLE {{env.EVENT_ATTENDEE_ROLE}};
 use role {{ env.EVENT_ATTENDEE_ROLE }};
 
 
 use role {{ env.EVENT_ATTENDEE_ROLE }};
-CREATE STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI }}.analyst_reports
+CREATE STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.analyst_reports
   DIRECTORY = (enable = true)
   ENCRYPTION = (type = 'snowflake_sse');
 
-CREATE STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI }}.infographics
+CREATE STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.infographics
   DIRECTORY = (enable = true)
   ENCRYPTION = (type = 'snowflake_sse');
 
