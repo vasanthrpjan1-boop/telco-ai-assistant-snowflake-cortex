@@ -1,4 +1,4 @@
-Deploy Streamlit:
+Deploy DocumentAI:
   extends:
     - .agent_tag
   stage: "Additional Configuration"
