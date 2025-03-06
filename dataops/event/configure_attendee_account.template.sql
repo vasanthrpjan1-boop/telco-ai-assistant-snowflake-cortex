@@ -95,6 +95,7 @@ use role {{ env.EVENT_ATTENDEE_ROLE }};
 
 create or replace database {{ env.DATAOPS_DATABASE }};
 create or replace schema {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }};
+create or replace schema {{env.DATAOPS_DATABASE }}.{{env.DOCUMENT_AI_SCHEMA}};
 
 
 -- If data sharing enambled, create a database from the share
