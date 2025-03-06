@@ -98,5 +98,5 @@ All 4 documents should now be marked as **Accepted**.
 
 You will see that there is a model accuracy.  This accuracy figure will be due to how many answers document ai initially predicted correctly or not.  If the accuracy score is low, you may wish to **Train model** this will train the model with the **corrected answers**.
 
-- Press Train Model then **start training**.  This can take some time - especially if you are training large documents of multiple pages.
+- Press Train Model then **start training**.  This can take some time - especially if you are training large documents of multiple pages.  If you do not wish to train the model, then you can simply press **publish version** this will then use the default answers without any tuning of the model.
 
