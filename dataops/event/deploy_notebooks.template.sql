@@ -7,7 +7,7 @@ CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}
 ------put notebook files in stages
 PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/notebooks/buy_or_sell/buy_or_sell.ipynb @{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK1 auto_compress = false overwrite = true;
 PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/notebooks/buy_or_sell/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK1 auto_compress = false overwrite = true;
-PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/notebooks/sound_analysis/sound_service.ipynb @{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK2 auto_compress = false overwrite = true;
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/notebooks/sound_analysis/sound_service_with_transcripts.ipynb @{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK2 auto_compress = false overwrite = true;
 PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/notebooks/sound_analysis/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK2 auto_compress = false overwrite = true;
 
 --create notebooks
