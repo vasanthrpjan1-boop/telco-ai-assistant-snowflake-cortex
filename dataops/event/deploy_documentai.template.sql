@@ -23,3 +23,9 @@ PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/document_ai/snowflake_infogra
 ALTER STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.infographics REFRESH;
 
 ALTER STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.analyst_reports REFRESH;
+
+CREATE STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.earnings_calls
+  DIRECTORY = (enable = true)
+  ENCRYPTION = (type = 'snowflake_sse');
+
+PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/sound_files/*.mp3 @{{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.earnings_calls auto_compress = false overwrite = true;

@@ -1,4 +1,4 @@
-# 2 - Get Data from the marketplace
+# 2 - Get Data from the Market place
 
 Firstly, it would be good to get some data from the marketplace to understand the latest stock prices of **Snowflake Shares**.
 
