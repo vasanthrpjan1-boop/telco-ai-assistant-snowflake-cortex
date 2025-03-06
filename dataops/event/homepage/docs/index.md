@@ -1,8 +1,8 @@
-# {{ getenv("EVENT_NAME","[unknown event]") }} - DataOps.live
+# {{ getenv("EVENT_NAME","[unknown event]") }} - Snowflake Accelerating with AI Hands on Lab
 
 ## Why are we here?
 
-To learn about Snowflake, with a hands on approach.
+To learn about you can leverage AI within Snowflake - to gain better insights with your data. with a hands on approach.
 
 ## The lab environment
 
