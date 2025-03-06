@@ -1,16 +1,18 @@
 site_name: Event
 nav:
   - Event:
-      - index.md
+    - index.md
+    - Lab Steps:
       - step1.md
       - step2.md
       - step3.md
       - step4.md
       - step5.md
       - step6.md
-      - about_dataops.md
-  - Get your free license:
+      - step7.md
+  - Get your free Dataops license:
       - cta.md
+      - about_dataops.md
   - FAQs:
       - faqs.md
 site_url: ""
