@@ -14,6 +14,8 @@ This dataset is structured in nature - but updates on a daily basis.
 
 - Press **Done**
 
-- We will use this dataset later in the lab.  Let's now gather some unstructured datasets
+We now have some structured data available to use for Analysis
 
-- Navigate to Step 3 - Document AI
+- Navigate to Step 3 -  Cortex Analyst
+
+
