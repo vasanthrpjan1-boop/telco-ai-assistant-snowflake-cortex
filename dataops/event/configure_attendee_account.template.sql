@@ -94,7 +94,7 @@ alter user {{ env.EVENT_ADMIN_NAME }} set
 use role {{ env.EVENT_ATTENDEE_ROLE }};
 
 create database IF NOT EXISTS {{ env.DATAOPS_DATABASE }};
-create or schema IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }};
+create schema IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }};
 create schema IF NOT EXISTS {{env.DATAOPS_DATABASE }}.{{env.DOCUMENT_AI_SCHEMA}};
 
 
