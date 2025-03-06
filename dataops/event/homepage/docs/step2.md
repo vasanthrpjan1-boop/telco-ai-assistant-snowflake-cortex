@@ -22,11 +22,11 @@ Press Create
 
 We now need upload some documents into Document AI in order to build a train model.  The first Model we will build are analyst reports.  The reports we we will be using are completely fictional.
 
-- **Download** The Analyst Reports **<a href="assets/downloads/fake_docs.zip" download>here</a>**
+- **Download** The Analyst Reports **<a href="downloads/fake_docs.zip" download>here</a>**
 
 The Second model we will build are consistant infographic style reports.  These are quartely publically available snowflake reports.
 
-- **Download** the Infographics **<a href="assets/downloads/infographics.zip" download> here</a>**
+- **Download** the Infographics **<a href="downloads/infographics.zip" download> here</a>**
 
 
 ### Uploading the Documents to the model
