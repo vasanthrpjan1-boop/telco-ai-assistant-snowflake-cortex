@@ -10,7 +10,7 @@ In this section you will learn how to build and train a Document AI which will e
 
     ![alt text](assets/docai/D002.png)
 
-- Under Build name, type in **SNOWFLAKE_INFOGRAPHICS**
+- Under Build name, type in **ANALYST_REPORTS**
 
 - Choose the **DATAOPS_EVENT_PROD** for the database and **DOCUMENT_AI** for the Schema
 
