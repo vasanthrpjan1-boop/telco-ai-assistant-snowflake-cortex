@@ -5,7 +5,7 @@ USE ROLE ACCOUNTADMIN;
 
 
 
-create or replace warehouse {{ env.EVENT_WAREHOUSE }}
+create warehouse IF NOT EXISTS {{ env.EVENT_WAREHOUSE }}
     AUTO_SUSPEND = 60;
 use warehouse {{ env.EVENT_WAREHOUSE }};
 
@@ -57,14 +57,14 @@ grant IMPORT SHARE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
 
 -- Create the users
 use role USERADMIN;
-create or replace user {{ env.EVENT_USER_NAME }}
+create user IF NOT EXISTS {{ env.EVENT_USER_NAME }}
     PASSWORD = '{{ env.EVENT_USER_PASSWORD }}'
     LOGIN_NAME = {{ env.EVENT_USER_NAME }}
     FIRST_NAME = '{{ env.EVENT_USER_FIRST_NAME }}'
     LAST_NAME = '{{ env.EVENT_USER_LAST_NAME }}'
     MUST_CHANGE_PASSWORD = false
     TYPE = PERSON;
-create or replace user {{ env.EVENT_ADMIN_NAME }}
+create user IF NOT EXISTS {{ env.EVENT_ADMIN_NAME }}
     PASSWORD = '{{ env.EVENT_ADMIN_PASSWORD }}'
     LOGIN_NAME = {{ env.EVENT_ADMIN_NAME }}
     FIRST_NAME = '{{ env.EVENT_ADMIN_FIRST_NAME }}'
@@ -93,9 +93,9 @@ alter user {{ env.EVENT_ADMIN_NAME }} set
 -- Create the database and schemas using {{ env.EVENT_ATTENDEE_ROLE }}
 use role {{ env.EVENT_ATTENDEE_ROLE }};
 
-create or replace database {{ env.DATAOPS_DATABASE }};
-create or replace schema {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }};
-create or replace schema {{env.DATAOPS_DATABASE }}.{{env.DOCUMENT_AI_SCHEMA}};
+create database IF NOT EXISTS {{ env.DATAOPS_DATABASE }};
+create or schema IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }};
+create schema IF NOT EXISTS {{env.DATAOPS_DATABASE }}.{{env.DOCUMENT_AI_SCHEMA}};
 
 
 -- If data sharing enambled, create a database from the share
