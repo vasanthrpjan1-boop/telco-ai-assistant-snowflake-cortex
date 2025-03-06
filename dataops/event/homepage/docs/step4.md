@@ -1,4 +1,4 @@
-# 4 - Build a Document AI model
+# 4 - Build and Run a Document AI model
 
 In this section you will learn how to build and train a Document AI which will enable you to extract important structured content out of unstructured documents.
 
@@ -155,3 +155,6 @@ You will now have a second model which will allow you to extract the infographic
 
 Let's now go back to the **notebook**
 
+### Calling the new model as a function
+
+The notebook has the SQL pre defined, so you can now call the model you have just created to extract the structured information out of new unstructured documents which are currently residing in a stage.

@@ -1,3 +1,5 @@
-# 6 - Create a Cortex Agent to Gain Insights from your data
+# 6 - Bring everything together and create a search service
 
-We now have datasets in both structured and unstructured format.  Lets see how A **Cortex Agent** will allow users to ask questions about their data all in one place.
+We now have quite a bit of data  - now how do we find it all? this is where you will build a search searvice
+
+

@@ -1,9 +1,15 @@
 # 1 - Logging in and ready to start
 
-If you are here, you have already completed the registration process, and your prebuilt Snowflake environment details are shown on your event page. It will look similar to:
+Within the previous screen, you should have logged into snowflake which would have opened up in a new tab and should look like this:
 
-![alt text](assets/Screenshot1.png){: style="width:500px; display: block; margin-left: auto; margin-right: auto;"}
+![homepage](assets/step1/home_page.png)
 
-You can always get back to your registration page and see your information by clicking here: [Personalized Event Homepage](https://go.dataops.live/{{ getenv("EVENT_SLUG") }}){target="\_blank"}
+If you cannot find the snowflake URL, you can go back to the registration page and view your unique Snowflake link by clicking here: [Personalized Event Homepage](https://go.dataops.live/{{ getenv("EVENT_SLUG") }}){target="\_blank"}
 
-<!-- [Claim your free access to the DataOps.live platform](cta.md) -->
+
+Upon logging in, you may be prompted to add your email address.  It is important to input your email address for accessing market place data.  You will be accessing marketplace data in this lab.
+
+Once you have logged in, populated your email address and closed down any welcome messages, proceed to step 2 - **Get Data from the Market Place**.  This is where you will get structured financial data open to the public.
+
+
+
