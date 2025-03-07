@@ -8,11 +8,11 @@ use role {{ env.EVENT_ATTENDEE_ROLE }};
 GRANT CREATE snowflake.ml.document_intelligence on schema {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }} to role {{env.EVENT_ATTENDEE_ROLE}};
 GRANT CREATE MODEL ON SCHEMA {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }} TO ROLE {{env.EVENT_ATTENDEE_ROLE}};
 
-CREATE STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.analyst_reports
+CREATE OR REPLACE STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.analyst_reports
   DIRECTORY = (enable = true)
   ENCRYPTION = (type = 'snowflake_sse');
 
-CREATE STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.infographics
+CREATE OR REPLACE STAGE  {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.infographics
   DIRECTORY = (enable = true)
   ENCRYPTION = (type = 'snowflake_sse');
 
@@ -24,7 +24,7 @@ ALTER STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.infographics
 
 ALTER STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.analyst_reports REFRESH;
 
-CREATE STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.earnings_calls
+CREATE OR REPLACE STAGE {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }}.earnings_calls
   DIRECTORY = (enable = true)
   ENCRYPTION = (type = 'snowflake_sse');
 
