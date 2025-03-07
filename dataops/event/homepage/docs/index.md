@@ -36,7 +36,7 @@ Please note that the Analyst reports for this lab are completely fictious and fi
 
 5 [Build everything together and create a search service](step5.md)
 
-6 [Create a Cortex Agent to Gain insights from your data](step6.md)
+6 [Create a Cortex Agent to Gain insights from all of your data data](step6.md)
 
 
 

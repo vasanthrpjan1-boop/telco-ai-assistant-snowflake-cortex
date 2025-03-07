@@ -3,7 +3,7 @@
 -- Create the warehouse
 USE ROLE ACCOUNTADMIN;
 
-
+ALTER ACCOUNT SET CORTEX_ENABLED_CROSS_REGION = 'AWS_US';
 
 create warehouse IF NOT EXISTS {{ env.EVENT_WAREHOUSE }}
     AUTO_SUSPEND = 60;
@@ -96,6 +96,7 @@ use role {{ env.EVENT_ATTENDEE_ROLE }};
 create database IF NOT EXISTS {{ env.DATAOPS_DATABASE }};
 create schema IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }};
 create schema IF NOT EXISTS {{env.DATAOPS_DATABASE }}.{{env.DOCUMENT_AI_SCHEMA}};
+create schema IF NOT EXISTS {{env.DATAOPS_DATABASE }}.{{env.CORTEX_ANALYST_SCHEMA}};
 
 
 -- If data sharing enambled, create a database from the share

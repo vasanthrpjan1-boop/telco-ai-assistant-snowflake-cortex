@@ -37,6 +37,9 @@ variables:
   EVENT_DEPLOY_DOCUMENT_AI: "true"
   DOCUMENT_AI_SCHEMA: DOCUMENT_AI
 
+  EVENT_DEPLOY_CORTEX_ANALYST: "true"
+  CORTEX_ANALYST_SCHEMA: CORTEX_ANALYST
+
   ## DataOps Vault and secrets
   ## See https://docs.dataops.live/docs/concepts/vault/
   ## You should set this to something long and unique to you
