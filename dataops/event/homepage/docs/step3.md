@@ -22,9 +22,13 @@ Once you have completed the notebook, return here
 ### Use Cortex Analyst to Explore the data
 It is easy to create an app in order to gain insights from structured data.  **Cortex Analyst** allows the user to ask questions in natural language and will return the result in an appropiate format.  Let's Begin:
 
-- Go back to the home page and click on **AI & ML**
+- From the navigation bar on the right, hover over the **AI & ML** icon and click on **Studio**
 
-- Press **Try** on **Cortex Analyst**
+![alt text](assets/analyst/C002.png)
+
+- When prompted, end the notebook session to proceed.
+
+- Press **Try** on **Cortex Analyst**.
 
 ![create build](assets/analyst/C001.png)
 
@@ -39,7 +43,7 @@ Below you will see the **Semantic Model** wizard.  This will create a YAML file 
 
 - Populate the fields as the screenshot below:
 
-![alt text](image.png)
+![alt text](assets/analyst/C004.png)
 
 - Press **Next**
 
@@ -57,14 +61,33 @@ What is the stock prices for SNOW shares by month?
 
 Press **Next**
 
-- Under the **DATAOPS_EVENT_PROD.DEFAULT_SCHEMA** view, select the **STOCK_PRICES** view.
+- Under the **DATAOPS_EVENT_PROD.DEFAULT_SCHEMA** view, select the **STOCK_PRICES** table.
 - Press **Next**
-- Select all relevent columns and then press **Done**
+- Select all fields
+- Press **Done**
 
-Next, you will need to specify what fields are Dimensions, Time Dimensions, Facts, Named Fields or Metrics.  As you try this out, you will see example outputs
+Next, you will need to specify what fields are Dimensions, Time Dimensions, Facts, Named Fields or Metrics.  Cortex suggests where they should be placed - at this point, you have the ability to override where needed.
+
+As you try this out, you will see example outputs
 
 ![alt text](assets/analyst/C003.png)
 
-- Press *Save* to save the YAML file which will be used in Streamlit
 
-- Let's now move to **Step 4** to start collecting unstructured data about the share prices.
+
+- Press **Save** to save the YAML file which will be used in Streamlit
+
+### Try out the results using Streamlit
+
+- Go to the homepage then navigate to **Projects / Streamlit**
+
+- Click on **Cortex Analyst**
+
+- In the question Type in this as an example:
+
+    *show me the top 10 stock gains in the last 7 days*
+
+- Explore with different questions
+
+So you have done some exploration using AI to explore Structured data from the marketplace
+
+Let's now move to **Step 4** to start collecting unstructured data about the share prices.
