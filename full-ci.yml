@@ -20,4 +20,4 @@ include:
   - /pipelines/includes/local_includes/deploy_documentai.yml
 
       ## Deploy Cortex Analyst
-  - /pipelines/includes/local_includes/cortex_analyst.yml
+  - /pipelines/includes/local_includes/deploy_cortex_analyst.yml
