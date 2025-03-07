@@ -2,7 +2,7 @@
 use role {{ env.EVENT_ATTENDEE_ROLE }};
 
 
-CREATE STAGE {{ env.DATAOPS_DATABASE }}.{{ env.CORTEX_ANALYST_SCHEMA }}.cortex_analyst
+CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.CORTEX_ANALYST_SCHEMA }}.cortex_analyst
   DIRECTORY = (enable = true)
   ENCRYPTION = (type = 'snowflake_sse');
 
