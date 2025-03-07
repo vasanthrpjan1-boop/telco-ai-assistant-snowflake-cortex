@@ -18,3 +18,6 @@ include:
 
     ## Deploy Document AI
   - /pipelines/includes/local_includes/deploy_documentai.yml
+
+      ## Deploy Cortex Analyst
+  - /pipelines/includes/local_includes/cortex_analyst.yml
