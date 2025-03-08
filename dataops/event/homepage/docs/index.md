@@ -2,7 +2,7 @@
 
 ## Why are we here?
 
-To learn about you can leverage AI within Snowflake - to gain better insights with your data. with a hands on approach.
+To learn about you can leverage the latest AI technologies right within the Snowflake platform.  When AI is deeply embedded in your trusted data platform, the possibilities are endless.
 
 ## The lab environment
 
@@ -14,9 +14,7 @@ A complete lab environment has been built for you automatically. This includes:
 - **Snowflake Database**: {{ getenv("DATAOPS_DATABASE","[unknown]") }}
 - **Schema**: {{ getenv("EVENT_SCHEMA","[unknown]") }}
 
-!!! warning "This lab environment will disappear!"
 
-    This event is due to end at {{ getenv("EVENT_END_DATETIME","[unknown time]") }}, at which point access will be restricted, and accounts will be removed.
 
 ## Structure of the session
 
@@ -26,21 +24,25 @@ Please note that the Analyst reports for this lab are completely fictious and fi
 
 ### Getting started
 
-1 [Logging in and ready to build](step1.md)
+-   1 [Logging in and ready to build](step1.md)
 
-2 [Get Data from the Market place](step2.md)
+-   2 [Get Data from the Market place](step2.md)
 
-3 [Analyse your data with Cortex Analyst](step3.md)
+-   3 [Analyse your data with Cortex Analyst](step3.md)
 
-4 [Build and Run two Document AI models](step4.md)
+-   4 [Build and Run two Document AI models](step4.md)
 
-5 [Analyse Sound Transcripts](step5.md)
+-   5 [Analyse Sound Transcripts](step5.md)
 
-5 [Create a Search Service](step6.md)
+-   6 [Create a Search Service](step6.md)
 
-6 [Create a Cortex Agent to Gain insights from all of your data](step7.md)
+-   7 [Create a Cortex Agent to Gain insights from all of your data](step7.md)
 
 
+
+!!! warning "This lab environment will disappear!"
+
+    This event is due to end at {{ getenv("EVENT_END_DATETIME","[unknown time]") }}, at which point access will be restricted, and accounts will be removed.
 
 ### Freebie
 
