@@ -32,11 +32,13 @@ Please note that the Analyst reports for this lab are completely fictious and fi
 
 3 [Analyse your data with Cortex Analyst](step3.md)
 
-4 [Build a Document AI model](step4.md)
+4 [Build and Run two Document AI models](step4.md)
 
-5 [Build everything together and create a search service](step5.md)
+5 [Analyse Sound Transcripts](step5.md)
 
-6 [Create a Cortex Agent to Gain insights from all of your data data](step6.md)
+5 [Create a Search Service](step6.md)
+
+6 [Create a Cortex Agent to Gain insights from all of your data](step7.md)
 
 
 

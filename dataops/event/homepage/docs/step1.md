@@ -1,4 +1,4 @@
-# 1 - Logging in and ready to start
+# 1 - Logging in and ready to build
 
 Within the previous screen, you should have logged into snowflake which would have opened up in a new tab and should look like this:
 
