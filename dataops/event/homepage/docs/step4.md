@@ -153,8 +153,16 @@ You should finish with answers similar to this.  Remember to correct answers whi
 
 You will now have a second model which will allow you to extract the infographic information into a structured table.
 
-Let's now go back to the **notebook**
+You have now created 2 models to process documents.  Let's now process some documents.
 
-### Calling the new model as a function
+### Process Documents at Scale
 
-The notebook has the SQL pre defined, so you can now call the model you have just created to extract the structured information out of new unstructured documents which are currently residing in a stage.
+- Go back to the home page and click on **Projects > Notebooks**
+- Click on the **Document AI Analyst Reports** notebook
+
+- Run through the notebook to process the **Analyst Reports**.
+
+- Go back to the Notebooks and open the **INFOGRAPHICS** notebook
+
+- Run through the notebook to process the **Infographics**
+
