@@ -4,7 +4,7 @@ We have now generated more Structured Data from the infographics.  You will now 
 
 - Within the **Snowflake AI and ML Studio**, click on **Cortex Analyst**
 - Choose **DATAOPS_EVENT_PROD.CORTEX_ANALYST** for the Database and Schema
-- Choos **Cortex Analyst** for the STAGE.
+- Choose **Cortex Analyst** for the STAGE.
 - Select the previously built yaml file.
 
 - Press **Open**
@@ -35,3 +35,16 @@ Cortex will Present you with an answer as well as a sample query.  If you think 
 ![create build](assets/analyst/C006.png)
 
 When you have finished editing the **Semantic Model** press **Save** which is at the top right hand corner of the screen.
+
+- Add another **Logical Table** the same way as before.  This time, within **DATAOPS_EVENT_PROD.DOCUMENT_AI**, select **REPORTS_STRUCTURED**.
+
+- Choose All columns and then click **Done**
+
+- What analyst gave a rating of **Buy**?
+- Who gave a rating of **Sell**?
+
+    ![create build](assets/analyst/C007.png)
+
+- When you have finished refining the **Semantic Model** press **Save** which is on the top right hand corner of the screen.
+
+    ![create build](assets/analyst/C008.png)

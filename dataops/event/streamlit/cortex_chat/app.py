@@ -186,7 +186,7 @@ def main():
                 st.code(sql, language="sql")
                 sales_results = run_snowflake_query(sql)
                 if sales_results:
-                    st.write("### Stock Report")
+                    st.write("### Financial Report")
                     st.dataframe(sales_results)
 
 if __name__ == "__main__":
