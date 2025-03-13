@@ -133,7 +133,7 @@ Upload the previously downloaded **Infographic** files using the Upload document
 | PROD_REVENUE | What is the product revenue (choose Q if it specifies)  |
 | NET_REVENUE_RETENTION | What is the net revenue retention rate     |
 | TOTAL_CUSTOMERS    | TOTAL CUSTOMERS    |
-| 1M_CUSTOMERS   | Number of $1 + Customers    |
+| TOTAL_M_CUSTOMERS   | Number of $1 + Customers    |
 | GLOBAL_2000_CUSTOMERS   | How many forbes global 2000 customers are there?    |
 | MARKETPLACE_LISTINGS  | how many marketplace listings are there?    |
 | DATE_OF_REPORT   | What is the date of the report    |
@@ -147,20 +147,38 @@ You should finish with answers similar to this.  Remember to correct answers whi
 
 ![create build](assets/docai/D010.png)
 
+
+
 - Press **Publish Version** to publish a new version.  Do not press train as this may take too much time for the lab.  The accuracy score is also very high as the model has given the correct answers without training.
 
 You will now have a second model which will allow you to extract the infographic information into a structured table.
 
-You have now created 2 models to process documents.  Let's now process some documents.  We have more documents both for Analyst Reports and infographics in a stage.  We can use our new models to extract structured information out of them.  In addition, we will extract all the text out of the Analyst reports for search purposes.
+You have now created two models to process documents.  
 
 ### Process Documents at Scale
 
+Let's now process some documents.  We have more documents both for Analyst Reports and infographics in a stage.  We can use our new models to extract structured information out of them.  In addition, we will extract all the text out of the Analyst reports for search purposes.
+
+For the next Document AI steps, you will use **Snowflake Notebooks** to process the documents as well as **visualise** the outputs.
+
+#### Model 1 - ANALYST_REPORTS
 - Go back to the home page and click on **Projects > Notebooks**
 - Click on the **Document AI Analyst Reports** notebook
 
 - Run through the notebook to process the **Analyst Reports**.
 
-- Go back to the Notebooks and open the **INFOGRAPHICS** notebook
+This notebook will perform the following:
 
-- Run through the notebook to process the **Infographics**
+-   Extract the values defined in the **ANALYST_REPORTS** model you have created from a directory of files residing in a **Snowflake Stage**
+
+-   Create a structured table of information
+
+-   Extract all remaining text using **Cortex Parse Document**
+
+#### Model 2 - INFOGRAPHICS
+
+You will run a second notebook which will also extract the structured text out of the **Infographic** image files stored in a **Snowflake Stage**.
+
+- Go back to the Notebooks and open the **INFOGRAPHICS** notebook
+- Run through the notebook to process the **Infographics** which will extract all values and store the results in a new structured table.
 
