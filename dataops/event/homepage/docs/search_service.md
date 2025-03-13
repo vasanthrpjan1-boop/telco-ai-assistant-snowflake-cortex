@@ -1,4 +1,4 @@
-# 6 - Create a search service
+# Create a search service
 
 We now have quite a bit of unstructured data from the analyst reports and the earnings calls  - now how do we find it all? 
 

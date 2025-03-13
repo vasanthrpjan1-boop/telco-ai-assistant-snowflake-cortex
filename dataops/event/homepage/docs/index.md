@@ -1,8 +1,10 @@
 # {{ getenv("EVENT_NAME","[unknown event]") }} - Snowflake Accelerating with AI Hands on Lab
 
+![alt text](image.png)
+
 ## Why are we here?
 
-To learn about you can leverage the latest AI technologies right within the Snowflake platform.  When AI is deeply embedded in your trusted data platform, the possibilities are endless.
+To learn about you can leverage the latest AI technologies right within the Snowflake platform.  When AI is deeply embedded in your trusted data platform, the possibilities are endless. We will be exploring the processing of both **Unstructured** and **Structured** data which will then allow the application of a **Cortex Agent** to help descover insights by leveraging **All Data.**
 
 ## The lab environment
 
@@ -22,23 +24,18 @@ You will be taken through the AI capabilities of Snowflake with Financial Report
 
 Please note that the Analyst reports for this lab are completely fictious and financial decisions can not be made based on any of the outcomes of this lab.
 
-### Getting started
+### Order of the Lab
 
--    [Logging in and ready to build](step1.md)
+-    Unstructured Data Processing
 
--    [Get Data from the Market place](step2.md)
+-    Structured Data Processing
 
--    [Analyse your data with Cortex Analyst](step3.md)
+-    Cortex Agent - an application to query both Unstructured and Structured Data
 
--    [Build and Run two Document AI models](step4.md)
+-    Navigate through the lab via the side-bar menu
 
--    [Add Doc AI Data to the Semantic Model](step4a.md)
+**Have Fun**
 
--    [Analyse Sound Transcripts](step5.md)
-
--    [Create a Search Service](step6.md)
-
--    [Create a Cortex Agent to Gain insights from all of your data](step7.md)
 
 
 
@@ -46,7 +43,5 @@ Please note that the Analyst reports for this lab are completely fictious and fi
 
     This event is due to end at {{ getenv("EVENT_END_DATETIME","[unknown time]") }}, at which point access will be restricted, and accounts will be removed.
 
-### Freebie
 
-[Claim your free access to the DataOps.live platform](cta.md)
 
