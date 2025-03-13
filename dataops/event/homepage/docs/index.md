@@ -8,7 +8,7 @@ To learn about you can leverage the latest AI technologies right within the Snow
 
 A complete lab environment has been built for you automatically. This includes:
 
-- **Snowflake Account**: {{ getenv("DATAOPS_SNOWFLAKE_ACCOUNT","[unknown]") }}.snowflakecomputing.com
+- **Snowflake Account**: [{{ getenv("DATAOPS_SNOWFLAKE_ACCOUNT","[unknown]") }}](https://{{ getenv("DATAOPS_SNOWFLAKE_ACCOUNT","[unknown]") }}.snowflakecomputing.com)
 - **User**: {{ getenv("EVENT_USER_NAME","[unknown]") }}
 - **Snowflake Virtual Warehouse**: {{ getenv("EVENT_WAREHOUSE","[unknown]") }}
 - **Snowflake Database**: {{ getenv("DATAOPS_DATABASE","[unknown]") }}
