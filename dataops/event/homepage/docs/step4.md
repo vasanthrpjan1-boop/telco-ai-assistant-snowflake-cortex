@@ -66,10 +66,10 @@ Document AI will search through the multi page document and then will give you a
 
 | Field    | Question |
 | -------- | -------  |
-| NAME_OF_REPORT_PROVIDER | name of the report provider   |
+| NAME_OF_REPORT_PROVIDER | name of the report provider - not snowflake   |
 | RATING | What is the rating? is it BUY, SELL OR HOLD?     |
 | MARKET_PRICE    | Close Price Value    |
-| GROWTH   | What is the revenue Growth    |
+| GROWTH   | What is the revenue Growth - YoY    |
 
 If the answer is wrong, overtype the answer with the correct answer.  This will automatically mark it as correct with the new answer.
 
@@ -98,7 +98,7 @@ All 4 documents should now be marked as **Accepted**.
 
 You will see that there is a model accuracy.  This accuracy figure will be due to how many answers document ai initially predicted correctly or not.  If the accuracy score is low, you may wish to **Train model** this will train the model with the **corrected answers**.
 
-- Press Train Model then **start training**.  This can take some time - especially if you are training large documents of multiple pages.  If you do not wish to train the model, then you can simply press **publish version** this will then use the default answers without any tuning of the model.
+- Press **Publish Version**  which will publish your first version of the model.  Today, we will not **train model** as this can take some time - especially if you are training large documents of multiple pages.  In addition, the model is calculating a high model accuracy score of 0.97.  Being concise with your questions can help the accuracy with little need for training.
 
 Once complete, you will see a model version number and example queries on how to utilise the model in **SQL**
 
@@ -129,17 +129,14 @@ Upload the previously downloaded **Infographic** files using the Upload document
 
 | Field    | Question |
 | -------- | -------  |
-| PROD_REVENUE | What is the product revenue  |
+| PROD_REVENUE | What is the product revenue (choose Q if it specifies)  |
 | NET_REVENUE_RETENTION | What is the net revenue retention rate     |
 | TOTAL_CUSTOMERS    | TOTAL CUSTOMERS    |
 | 1M_CUSTOMERS   | Number of $1 + Customers    |
 | GLOBAL_2000_CUSTOMERS   | How many forbes global 2000 customers are there?    |
-| marketplace_listings   | how many marketplace listings are there?    |
-| dresner_customer_satisfaction   | What is the dresner customer satisfaction score    |
-| NET_PROMOTOR   | What is the Net promotor score    |
-| date_of_report   | What is the date of the report    |
-| quarter   | what is the quarter of the report    |
-| year   | what is the FINANCIAL year of the report    |
+| MARKETPLACE_LISTINGS  | how many marketplace listings are there?    |
+| DATE_OF_REPORT   | What is the date of the report    |
+| QUARTER   | what is the quarter of the report    |
 
 - Add all the fields the same way as previously
 - Remember to evaluate each field by pressing the tick when correct, or correcting manually if incorrect
@@ -149,11 +146,11 @@ You should finish with answers similar to this.  Remember to correct answers whi
 
 ![create build](assets/docai/D010.png)
 
-- Press **Train Model** to train te model
+- Press **Publish Version** to publish a new version.  Do not press train as this may take too much time for the lab.  The accuracy score is also very high as the model has given the correct answers without training.
 
 You will now have a second model which will allow you to extract the infographic information into a structured table.
 
-You have now created 2 models to process documents.  Let's now process some documents.
+You have now created 2 models to process documents.  Let's now process some documents.  We have more documents both for Analyst Reports and infographics in a stage.  We can use our new models to extract structured information out of them.  In addition, we will extract all the text out of the Analyst reports for search purposes.
 
 ### Process Documents at Scale
 

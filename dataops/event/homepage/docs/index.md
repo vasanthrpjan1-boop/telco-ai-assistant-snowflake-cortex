@@ -24,19 +24,21 @@ Please note that the Analyst reports for this lab are completely fictious and fi
 
 ### Getting started
 
--   1 [Logging in and ready to build](step1.md)
+-    [Logging in and ready to build](step1.md)
 
--   2 [Get Data from the Market place](step2.md)
+-    [Get Data from the Market place](step2.md)
 
--   3 [Analyse your data with Cortex Analyst](step3.md)
+-    [Analyse your data with Cortex Analyst](step3.md)
 
--   4 [Build and Run two Document AI models](step4.md)
+-    [Build and Run two Document AI models](step4.md)
 
--   5 [Analyse Sound Transcripts](step5.md)
+-    [Add Doc AI Data to the Semantic Model](step4a.md)
 
--   6 [Create a Search Service](step6.md)
+-    [Analyse Sound Transcripts](step5.md)
 
--   7 [Create a Cortex Agent to Gain insights from all of your data](step7.md)
+-    [Create a Search Service](step6.md)
+
+-    [Create a Cortex Agent to Gain insights from all of your data](step7.md)
 
 
 
