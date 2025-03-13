@@ -1,7 +1,7 @@
 # Document AI
 ## Build and Run Two Document AI models
 
-In this section you will learn how to build and train a Document AI which will enable you to extract important structured content out of unstructured documents.
+In this section you will learn how to build and train a Document AI Model which will enable you to extract important structured content out of unstructured documents.
 
 - Within the AI & ML area, click on Document AI:
 
