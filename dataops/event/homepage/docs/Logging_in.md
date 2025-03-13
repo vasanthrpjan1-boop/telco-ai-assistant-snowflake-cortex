@@ -53,6 +53,6 @@ The answer to the question is making some suggestions of the things I might want
 
 ### Document AI
 
-Although Document AI is not an option within the studio page, you will see a link to it within the AI & ML category in the navigation bar.   This is where you will extract features from a variety of unstructured documents and will be the next section of the lab.  Please Proceed to **Document AI**.
+Although Document AI is not an option within the studio page, you will see a link to it within the AI & ML category in the navigation bar.   This is where you will extract features from a variety of unstructured documents and will be the next section of the lab.  Please Proceed to **Unstructured Data Processing** from the navigation bar.
 
 
