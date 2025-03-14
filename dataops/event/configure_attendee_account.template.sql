@@ -39,21 +39,21 @@ $$
 
 -- Create the Attendee role if it does not exist
 use role SECURITYADMIN;
-create role if not exists {{ env.EVENT_ATTENDEE_ROLE }};
+--create role if not exists {{ env.EVENT_ATTENDEE_ROLE }};
 
 -- Ensure account admin can see what {{ env.EVENT_ATTENDEE_ROLE }} can see
-grant role {{ env.EVENT_ATTENDEE_ROLE }} to role ACCOUNTADMIN;
+--grant role {{ env.EVENT_ATTENDEE_ROLE }} to role ACCOUNTADMIN;
 
 -- Grant the necessary priviliges to that role.
-use role ACCOUNTADMIN;
-grant CREATE DATABASE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
-grant CREATE ROLE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
-grant CREATE WAREHOUSE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
-grant MANAGE GRANTS on account to role {{ env.EVENT_ATTENDEE_ROLE }};
-grant CREATE INTEGRATION on account to role {{ env.EVENT_ATTENDEE_ROLE }};
-grant CREATE APPLICATION PACKAGE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
-grant CREATE APPLICATION on account to role {{ env.EVENT_ATTENDEE_ROLE }};
-grant IMPORT SHARE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
+--use role ACCOUNTADMIN;
+--grant CREATE DATABASE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
+--grant CREATE ROLE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
+--grant CREATE WAREHOUSE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
+--grant MANAGE GRANTS on account to role {{ env.EVENT_ATTENDEE_ROLE }};
+--grant CREATE INTEGRATION on account to role {{ env.EVENT_ATTENDEE_ROLE }};
+--grant CREATE APPLICATION PACKAGE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
+--grant CREATE APPLICATION on account to role {{ env.EVENT_ATTENDEE_ROLE }};
+--grant IMPORT SHARE on account to role {{ env.EVENT_ATTENDEE_ROLE }};
 
 -- Create the users
 use role USERADMIN;
@@ -74,8 +74,8 @@ create user IF NOT EXISTS {{ env.EVENT_ADMIN_NAME }}
 
 -- Ensure the user can use the role and warehouse
 use role SECURITYADMIN;
-grant role {{ env.EVENT_ATTENDEE_ROLE }} to user {{ env.EVENT_USER_NAME }};
-grant USAGE on warehouse {{ env.EVENT_WAREHOUSE }} to role {{ env.EVENT_ATTENDEE_ROLE }};
+grant role ACCOUNTADMIN to user {{ env.EVENT_USER_NAME }};
+grant USAGE on warehouse {{ env.EVENT_WAREHOUSE }} to role ACCOUNTADMIN;
 
 -- Ensure ADMIN can use ACCOUNTADMIN role
 grant role ACCOUNTADMIN to user {{ env.EVENT_ADMIN_NAME }};
@@ -84,14 +84,14 @@ grant role ACCOUNTADMIN to user {{env.EVENT_USER_NAME }};
 -- Alter the users to set default role and warehouse
 use role USERADMIN;
 alter user {{ env.EVENT_USER_NAME }} set
-    DEFAULT_ROLE = {{ env.EVENT_ATTENDEE_ROLE }}
+    DEFAULT_ROLE = ACCOUNTADMIN
     DEFAULT_WAREHOUSE = {{ env.EVENT_WAREHOUSE }};
 alter user {{ env.EVENT_ADMIN_NAME }} set
     DEFAULT_ROLE = ACCOUNTADMIN
     DEFAULT_WAREHOUSE = {{ env.EVENT_WAREHOUSE }};
 
 -- Create the database and schemas using {{ env.EVENT_ATTENDEE_ROLE }}
-use role {{ env.EVENT_ATTENDEE_ROLE }};
+use role ACCOUNTADMIN;
 
 create database IF NOT EXISTS {{ env.DATAOPS_DATABASE }};
 create schema IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }};
