@@ -65,6 +65,7 @@ You will have remembered that we also produced structured data from sound files.
 - Save any changes to the model.  The more descriptive your model, the better the results.  
 
 
+
 So now we have a way to find out information about **Structured Data**, and we created a search service for **Unstructured Data**.
 
 Let's create an **Application** to combine the two types of searches together.  
