@@ -50,7 +50,7 @@ When you have finished editing the **Semantic Model** press **Save** which is at
     ![create build](assets/analyst/C008.png)
 
 
-- **OPTIONAL EXERCISE**
+### OPTIONAL EXERCISE
 
 You will have remembered that we also produced structured data from sound files.  Wouldn't it be good if you could also ask **Cortex Analyst** when part's of the call are negative or positive??
 
