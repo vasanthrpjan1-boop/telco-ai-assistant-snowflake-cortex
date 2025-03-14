@@ -50,9 +50,9 @@ When you have finished editing the **Semantic Model** press **Save** which is at
     ![create build](assets/analyst/C008.png)
 
 
-### OPTIONAL EXERCISE
+### Optional Excercise
 
-You will have remembered that we also produced structured data from sound files.  Wouldn't it be good if you could also ask **Cortex Analyst** when part's of the call are negative or positive??
+You will have remembered that we also produced structured data from sound files.  Wouldn't it be good if you could also ask **Cortex Analyst** when sections of the call are negative or positive??
 
 -   Add an additional **LOGICAL TABLE** to the existing semantic model 
 
@@ -61,6 +61,8 @@ You will have remembered that we also produced structured data from sound files.
 - Take a look at the facts, Dimensions, synonyms etc of each field - to help Cortex understand the context
 
 - Try out cortex analyst with the prompt.  See if you can get a good answer for *"what transcript is the most negative?"*
+
+- Explore other questions users might ask, and refine the model accordingly.
 
 - Save any changes to the model.  The more descriptive your model, the better the results.  
 
