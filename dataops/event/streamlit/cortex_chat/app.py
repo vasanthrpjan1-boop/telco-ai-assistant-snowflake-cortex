@@ -5,6 +5,53 @@ from snowflake.snowpark.context import get_active_session
 
 session = get_active_session()
 
+st.markdown(
+    """
+    <style>
+    .heading{
+        background-color: rgb(41, 181, 232);  /* light blue background */
+        color: white;  /* white text */
+        padding: 30px;  /* add padding around the content */
+    }
+    .tabheading{
+        background-color: rgb(41, 181, 232);  /* light blue background */
+        color: white;  /* white text */
+        padding: 10px;  /* add padding around the content */
+    }
+    .veh1 {
+        color: rgb(125, 68, 207);  /* purple */
+    }
+    .veh2 {
+        color: rgb(212, 91, 144);  /* pink */
+    }
+    .veh3 {
+        color: rgb(255, 159, 54);  /* orange */
+    }
+    .veh4 {
+        padding: 10px;  /* add padding around the content */
+        color: rgb(0,53,69);  /* midnight */
+    }
+    .veh5 {
+        padding: 10px;  /* add padding around the content */
+        color: rgb(138,153,158);  /* windy city */
+        font-size: 14px
+    }
+    
+    body {
+        color: rgb(0,53,69);
+    }
+    
+    div[role="tablist"] > div[aria-selected="true"] {
+        background-color: rgb(41, 181, 232);
+        color: rgb(0,53,69);  /* Change the text color if needed */
+    }
+
+    
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 API_ENDPOINT = "/api/v2/cortex/agent:run"
 API_TIMEOUT = 50000  # in milliseconds
 
@@ -129,7 +176,7 @@ def process_sse_response(response):
     return text, sql, citations
 
 def main():
-    st.title("Snowflake Stock Analysis")
+    st.markdown('<h1 class="heading">SNOWFLAKE STOCK ANALYSIS</h2><BR>', unsafe_allow_html=True)
 
     # Sidebar for new chat
     with st.sidebar:
@@ -186,7 +233,7 @@ def main():
                 st.code(sql, language="sql")
                 sales_results = run_snowflake_query(sql)
                 if sales_results:
-                    st.write("### Financial Report")
+                    st.markdown('<h1 class="tabheading">FINANCIAL_REPORTS</h2><BR>', unsafe_allow_html=True)
                     st.dataframe(sales_results)
 
 if __name__ == "__main__":
