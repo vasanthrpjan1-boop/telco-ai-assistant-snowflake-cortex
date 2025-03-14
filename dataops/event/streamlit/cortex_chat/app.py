@@ -180,7 +180,8 @@ def main():
 
     # Sidebar for new chat
     with st.sidebar:
-        if st.button("New Conversation", key="new_chat"):
+        st.markdown('<h1 class="tabheading">OPTIONS</h2><BR>', unsafe_allow_html=True)
+        if st.button("CLEAR CHAT HISTORY", key="new_chat"):
             st.session_state.messages = []
             st.rerun()
 
@@ -229,11 +230,11 @@ def main():
 
             # Display SQL if present
             if sql:
-                st.markdown("### Generated SQL")
+                st.markdown('<h1 class="tabheading">GENERATED SQL</h2><BR>', unsafe_allow_html=True)
                 st.code(sql, language="sql")
                 sales_results = run_snowflake_query(sql)
                 if sales_results:
-                    st.markdown('<h1 class="tabheading">FINANCIAL_REPORTS</h2><BR>', unsafe_allow_html=True)
+                    st.markdown('<h1 class="tabheading">RETRIEVED DATA TABLE</h2><BR>', unsafe_allow_html=True)
                     st.dataframe(sales_results)
 
 if __name__ == "__main__":
