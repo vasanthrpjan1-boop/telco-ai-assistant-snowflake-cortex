@@ -48,3 +48,17 @@ When you have finished editing the **Semantic Model** press **Save** which is at
 - When you have finished refining the **Semantic Model** press **Save** which is on the top right hand corner of the screen.
 
     ![create build](assets/analyst/C008.png)
+
+
+- **OPTIONAL EXERCISE**
+
+You will have remembered that we also produced structured data from sound files.  Wouldn't it be good if you could also ask **Cortex Analyst** when part's of the call are negative or positive??
+
+-   Add an additional **LOGICAL TABLE** to the existing semantic model 
+
+- Use the **SUMMARY_TEXT** table which is inside the **DEFAULT_SCHEMA**
+
+- Take a look at the facts, Dimensions, synonyms etc of each field - to help Cortex understand the context
+
+- Try out cortex analyst with the prompt.  See if you can get a good answer for *"what transcript is the most negative?"*
+
