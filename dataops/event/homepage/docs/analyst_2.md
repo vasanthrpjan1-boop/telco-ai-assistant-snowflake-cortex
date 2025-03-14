@@ -64,6 +64,8 @@ You will have remembered that we also produced structured data from sound files.
 
 - Explore other questions users might ask, and refine the model accordingly.
 
+- Work out how to join the Logical table to the search service - This is handy for when we look at **Cortex Agents**.
+
 - Save any changes to the model.  The more descriptive your model, the better the results.  
 
 

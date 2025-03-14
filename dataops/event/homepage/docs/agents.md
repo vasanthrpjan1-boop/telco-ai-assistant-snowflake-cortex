@@ -34,7 +34,19 @@ shall i buy snowflake shares?
 
 ```
 
+If you completed the optional excercise in cortex analyst, this is the response you will get if you ask what transcript had the lowest sentiment:
 
+![alt text](assets/analyst/C010.png)
+
+
+If you joined the logical table to cortex search, this is what you might bet if you later ask the question
+
+*can you give me more information about that particular earnings call*
+
+![alt text](assets/analyst/C011.png)
+
+
+So you should see how convenient it is to bring in both the processing of structured datasets and structured datasets to get one holistic view of the data subject (in this case the analysis of snowflake) in question.
 
 
 
