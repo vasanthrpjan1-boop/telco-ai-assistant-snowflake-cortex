@@ -28,13 +28,6 @@ PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/notebooks/infographics/DOCUME
 PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/notebooks/infographics/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK3 auto_compress = false overwrite = true;
 
 --create notebooks
-CREATE OR REPLACE NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.BUY_OR_SELL
-FROM '@{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK1'
-MAIN_FILE = 'buy_or_sell.ipynb'
-QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}';
-
-ALTER NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.BUY_OR_SELL ADD LIVE VERSION FROM LAST;
-
 CREATE OR REPLACE NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.CORTEX_ANALYST
 FROM '@{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK4'
 MAIN_FILE = 'cortex_analyst.ipynb'
