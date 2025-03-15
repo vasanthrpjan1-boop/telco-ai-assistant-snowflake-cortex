@@ -137,7 +137,7 @@ Upload the previously downloaded **Infographic** files using the Upload document
 | GLOBAL_2000_CUSTOMERS   | How many forbes global 2000 customers are there?    |
 | MARKETPLACE_LISTINGS  | how many marketplace listings are there?    |
 | DATE_OF_REPORT   | What is the date of the report    |
-| QUARTER   | what is the quarter of the report    |
+| QUARTER   | What is the quarter of the report Q1, Q2, Q3 or Q4    |
 
 - Add all the fields the same way as previously
 - Remember to evaluate each field by pressing the tick when correct, or correcting manually if incorrect
