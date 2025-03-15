@@ -1,4 +1,4 @@
-# Document AI
+# <span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">DOCUMENT AI</span>
 ## Build and Run Two Document AI models
 
 In this section you will learn how to build and train a Document AI Model which will enable you to extract important structured content out of unstructured documents.

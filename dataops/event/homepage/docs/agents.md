@@ -1,4 +1,5 @@
-# Create a Cortex Agent to Gain Insights from your data
+# <span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">CREATE A CORTEX AGENT</span>
+
 
 We now have datasets in both structured and unstructured format.  Lets see how a **Cortex Agent** will allow users to ask questions about their data all in one place.  
 

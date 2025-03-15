@@ -1,6 +1,6 @@
-# Cortex Analyst - Add Additional Structured Datasets
+# <span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">CORTEX ANALYST - ADD MORE DATASETS</span>
 
-We have now created a semantec Model for the structured dataset found on the market place.  If you remember, we parsed two additional datasets from document ai and created 2 additional structured tables.  We will add these additional tables into the semantic model.
+We have now created a **Semantec Model** for the structured dataset found on the market place.  If you remember, we parsed two additional datasets from document ai and created 2 additional structured tables.  We will add these additional tables into the semantic model.
 
 - Within the **Snowflake AI and ML Studio**, click on **Cortex Analyst**
 - Choose **DATAOPS_EVENT_PROD.CORTEX_ANALYST** for the Database and Schema
