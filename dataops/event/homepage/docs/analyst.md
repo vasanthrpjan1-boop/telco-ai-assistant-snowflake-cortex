@@ -38,7 +38,9 @@ Choose **DATAOPS_EVENT_PROD.CORTEX_ANALYST** as the schema and **CORTEX_ANALYST*
 
 <hr>
 
-- Press **Create New** to create a new Semantic model about the previously loaded dataset
+- Press **Create New** to create a new Semantic model about the previously loaded dataset.
+
+- Call the model **stock_price_info**.
 
 Below you will see the **Semantic Model** wizard.  This will create a YAML file which makes sense of the data ane provides a link between the sorts of questions that might be asked and the dataset itself.  
 
