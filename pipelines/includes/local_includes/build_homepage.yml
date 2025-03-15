@@ -6,7 +6,7 @@ Build Homepage:
   stage: "Pipeline Initialisation"
   needs: ["Initialise Pipeline"]
   variables:
-    PORTAL_LOGO_PATH: assets/dataops-icon.png
+    PORTAL_LOGO_PATH: assets/snowflake-bug-reverse-rgb.png
     PORTAL_LOGO_ALT: Event homepage for $EVENT_NAME
     PORTAL_NAME: $EVENT_NAME Event
   script:
