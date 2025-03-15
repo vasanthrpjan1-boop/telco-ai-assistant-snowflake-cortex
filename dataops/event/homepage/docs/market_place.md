@@ -16,6 +16,6 @@ This dataset is structured in nature - but updates on a daily basis.
 
 We now have some structured data available to use for Analysis
 
-- Navigate to Step 3 -  **Cortex Analyst**
+- Navigate to **Analyse your Data with Cortex Analyst**
 
 
