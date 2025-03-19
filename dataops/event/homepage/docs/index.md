@@ -1,11 +1,4 @@
-
-<head>
-  <link rel="stylesheet" type="text/css" href="stylesheets/extra.css">
-</head>
-
-
-
-# <h0black>ACTIVATING AI </h0black><h0blue>HANDS ON LAB</h0blue>
+# <h0black>Activating AI </h0black><h0blue>Hands On Lab</h0blue>
 
 
 

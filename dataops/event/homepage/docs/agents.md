@@ -1,8 +1,3 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="stylesheets/extra.css">
-</head>
-
-
 # <h1black>CREATE A </h1black><h1blue>CORTEX AGENT</h1blue>
 
 

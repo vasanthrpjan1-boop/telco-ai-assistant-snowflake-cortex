@@ -1,8 +1,3 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="stylesheets/extra.css">
-</head>
-
-
 # <h1black>CORTEX ANALYST -</h1black><h1blue> ADD MORE DATASETS<h1blue>
 
 We have now created a **Semantec Model** for the structured dataset found on the market place.  If you remember, we parsed two additional datasets from document ai and created 2 additional structured tables.  We will add these additional tables into the semantic model.

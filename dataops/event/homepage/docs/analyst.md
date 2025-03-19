@@ -1,9 +1,3 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="stylesheets/extra.css">
-</head>
-
-
-
 # <h1black>Analyse your data with</h1black> <h1blue>Cortex Analyst<h1blue>
 
 In this section you will learn how to build a dynamic data explorer using Cortex Analyst.  Traditionally, users would digest structured information through reports.  Overtime, reports turned into dashboards and self service capabilities became more and more in demand.  However, in order to self serve, users would normally require extensive report buiding and data engineering expertise. 

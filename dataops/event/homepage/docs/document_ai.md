@@ -1,9 +1,3 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="stylesheets/extra.css">
-</head>
-
-
-
 # <h1black>Document </h1black><h1blue>AI</h1blue>
 ## <h1grey>Build and Run Two Document AI models</h1grey>
 
