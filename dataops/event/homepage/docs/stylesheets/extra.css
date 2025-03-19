@@ -94,3 +94,21 @@ div[data-testid="stTextInput"] > div > input {
     border-radius: 8px !important;
     padding: 8px;
 }
+
+
+
+button[kind="primary"] {
+  background-color: rgb(255, 159, 54);
+  font-size: 24px !important;
+  font-family:Lato;
+  font-weight:700;
+  color: white;
+}
+
+button[kind="seondary"] {
+    background-color: rgb(41, 181, 232);
+    font-size: 24px !important;
+    font-family:Lato;
+    font-weight:700;
+    color: white;
+}
