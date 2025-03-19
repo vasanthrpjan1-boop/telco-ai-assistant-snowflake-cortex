@@ -127,3 +127,21 @@ button[kind="secondary"]:hover {
   background-color: #11567F; /* New color on hover */
   color: white;
 }
+
+button[kind="secondary"]:active {
+  background-color: #11567F; /* New color on hover */
+  color: white;
+}
+
+button[kind="secondary"]:focus {
+  background-color: #11567F; /* New color on hover */
+  color: white;
+}
+
+.css-1d391kg {
+  background-image: url('snowflake-dots.png');
+  background-repeat: repeat;  /* Make the image repeat */
+  background-position: top left;  /* Position it at the top-left */
+  background-size: auto;  /* Optional: adjust size of the background image */
+  background-color: #ffffff;
+}
