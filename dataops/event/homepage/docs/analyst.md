@@ -26,7 +26,7 @@ Once you have completed the notebook, return here
 
 <hr>
 
-### <h1>Use Cortex Analyst to Explore the data</h1>
+### <h1sub>Use Cortex Analyst to Explore the data</h1sub>
 It is easy to create an app in order to gain insights from structured data.  **Cortex Analyst** allows the user to ask questions in natural language and will return the result in an appropiate format.  Let's Begin:
 
 - From the navigation bar on the right, hover over the **AI & ML** icon and click on **Studio**

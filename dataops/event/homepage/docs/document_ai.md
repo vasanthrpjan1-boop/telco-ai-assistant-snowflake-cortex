@@ -4,8 +4,8 @@
 
 
 
-# <h1>Document AI</h1>
-## <h1grey>Build and Run Two Document AI models<h1grey>
+# <h1black>Document </h1black><h1blue>AI</h1blue>
+## <h1grey>Build and Run Two Document AI models</h1grey>
 
 In this section you will learn how to build and train a Document AI Model which will enable you to extract important structured content out of unstructured documents.
 
@@ -25,7 +25,7 @@ In this section you will learn how to build and train a Document AI Model which 
 
 Press **Create**
 
-### <h1>Downloading Documents</h1>
+### <h1sub>Downloading Documents</h1sub>
 
 We now need upload some documents into Document AI in order to build a train model.  The first Model we will build are analyst reports.  The reports we we will be using are completely fictional.
 
@@ -51,7 +51,7 @@ Press **Upload**
 
 You will see that 4 documents are now uploaded but need attention.  To use the model, you will first need to decide which fields you would like to extract.  A warning will also let you know that for better accuracy you should really train the model with more documents.  For this excercise we will just use 4 but in reality you will need to train the model with at least 10 documents for good accuracy.
 
-### <h1>Review Documents and Extract Fields</h1>
+### <h1sub>Review Documents and Extract Fields</h1sub>
 
 - With in the Documents in Dataset section, press **See all documents**
 
@@ -167,7 +167,7 @@ Let's now process some documents.  We have more documents both for Analyst Repor
 
 For the next Document AI steps, you will use **Snowflake Notebooks** to process the documents as well as **visualise** the outputs.
 
-#### <h1>Model 1 - ANALYST_REPORTS</h1>
+#### <h1sub>Model 1 - Analyst Reports</h1sub>
 - Go back to the home page and click on **Projects > Notebooks**
 - Click on the **Document AI Analyst Reports** notebook
 
@@ -181,7 +181,7 @@ This notebook will perform the following:
 
 -   Extract all remaining text using **Cortex Parse Document**
 
-#### <h1>Model 2 - INFOGRAPHICS</h1>
+#### <h1sub>Model 2 - Infographics</h1sub>
 
 You will run a second notebook which will also extract the structured text out of the **Infographic** image files stored in a **Snowflake Stage**.
 

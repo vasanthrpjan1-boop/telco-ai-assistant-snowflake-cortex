@@ -17,7 +17,7 @@ Ask questions about the data that might appear in the earnings calls or analyst 
 As questions about the data that might appear in the stock data or the latest infographics.
 
 
-#### <h1> Sample Questions</h1>
+#### <h1h1sub> Sample Questions</h1h1sub>
 
 These questions should give answers from both **unstructured** and **structured** examples using all the datasets we covered in this lab.
 

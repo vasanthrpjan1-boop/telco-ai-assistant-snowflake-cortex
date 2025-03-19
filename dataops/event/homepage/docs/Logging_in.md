@@ -16,7 +16,7 @@ Upon logging in, you may be prompted to add your email address.  It is important
 
 Once you have logged in, populated your email address and closed down any welcome messages, navigate to the **AI & ML** section of the navigation bar.
 
-### <h1>Snowflake **AI and ML** studio</h1>
+### <h1sub>Snowflake **AI and ML** studio</h1sub>
 
 Snowflake AI and ML studio is a one stop shop  to try out a number of AI functions using a user friendly UI.
 
@@ -42,7 +42,7 @@ For today's lab, you will be exploring the AI features within Snowflake.  The fo
     Cortex Analyst is a fully-managed, LLM-powered Snowflake Cortex feature that helps you create applications capable of reliably answering business questions based on your structured data in Snowflake.
 
 
-### <h1>Cortex Playground</h1>
+### <h1sub>Cortex Playground</h1sub>
 
 Today, we will be covering **Cortex Complete** using prompt engineering.  This will be covered in various notebooks as part of data processing.  
 
@@ -56,7 +56,7 @@ Take a look at the following example:
 
 The answer to the question is making some suggestions of the things I might want to look at before I make this sort of financial decision.  All this information is available in various datasets.
 
-### <h1>Document AI</h1>
+### <h1sub>Document AI</h1sub>
 
 Although Document AI is not an option within the studio page, you will see a link to it within the AI & ML category in the navigation bar.   This is where you will extract features from a variety of unstructured documents and will be the next section of the lab.  Please Proceed to **Unstructured Data Processing** from the navigation bar.
 
