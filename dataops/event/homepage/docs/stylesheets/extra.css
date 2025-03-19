@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
 
 h1sub {
   text-transform: uppercase;
@@ -99,16 +99,25 @@ div[data-testid="stTextInput"] > div > input {
 
 button[kind="primary"] {
   background-color: rgb(255, 159, 54);
-  font-size: 24px !important;
   font-family:Lato;
-  font-weight:700;
+  font-weight:900;
   color: white;
+  border: none;
+  height: 34;
+  max-width: 195px;
+  border-radius: 80px;
+  padding: 12px 27px;
 }
 
-button[kind="seondary"] {
+button[kind="secondary"] {
     background-color: rgb(41, 181, 232);
-    font-size: 24px !important;
     font-family:Lato;
-    font-weight:700;
+    font-weight:900;
+    font-style: ;
     color: white;
+    border: none;
+    height: 34;
+    max-width: 195px;
+    border-radius: 80px;
+    padding: 12px 27px;
 }
