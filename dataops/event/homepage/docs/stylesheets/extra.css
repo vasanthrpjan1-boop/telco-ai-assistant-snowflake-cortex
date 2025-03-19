@@ -57,7 +57,8 @@ heading {
       padding: 30px; } /* add padding around the content */
 
 tabheading{
-    font-size:40px; 
+    width:100%;
+    font-size:1.5em; 
     font-family:Lato;
     font-weight:700;
     background-color: rgb(41, 181, 232);  /* light blue background */
@@ -82,3 +83,14 @@ veh5 {
       color: rgb(138,153,158);  /* windy city */
       font-size: 14px
   }
+
+
+
+div[data-testid="stTextInput"] > div > input {
+    background-color: #F4F6FA !important;  /* Light Snowflake Blue-Grey */
+    color: #1D2F6F !important;  /* Dark Blue Text */
+    font-size: 16px !important;
+    border: 2px solid #29B5E8 !important;  /* Snowflake Blue Border */
+    border-radius: 8px !important;
+    padding: 8px;
+}
