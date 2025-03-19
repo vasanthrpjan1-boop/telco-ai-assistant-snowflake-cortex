@@ -1,8 +1,3 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="stylesheets/extra.css">
-</head>
-
-
 # <h1black>Logging in and </h1black><h1blue>Cortex Playground</h1blue>
 
 Within the previous screen, you should have logged into snowflake which would have opened up in a new tab and should look like this:
