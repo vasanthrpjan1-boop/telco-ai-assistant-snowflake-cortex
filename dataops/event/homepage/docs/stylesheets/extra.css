@@ -4,26 +4,47 @@ h1 {
   text-transform: uppercase;
   color:#29B5E8; text-transform: uppercase; 
   font-size:20px; 
-  font-family:Arial;
+  font-family:Lato;
   font-weight:regular
 }
 
 h0black {font-size:40px; 
-  font-family:Arial;
+  font-family:Lato;
   font-weight:bold;
   color:#000000;
   text-transform: uppercase}
 
 
 h0blue {font-size:40px; 
-    font-family:Arial;
+    font-family:Lato;
     font-weight:bold;
     color:#29B5E8;
     text-transform: uppercase}
 
 
 h1grey {font-size:20px; 
-      font-family:Arial;
+      font-family:Lato;
       font-weight:bold;
       color:#24323D;
       text-transform: uppercase}
+
+
+body {font-size:16px; 
+        font-family:Lato;
+        font-weight:regular;
+        color:#24323D}
+
+a:link {
+          color: #29B5E8; /* Unvisited link color */
+          text-decoration: none; /* Remove underline */
+      }
+
+a:visited {
+        color: #11567F; /* Unvisited link color */
+        text-decoration: none; /* Remove underline */
+    }
+
+a:hover {
+      color: #7D44CF; /* Unvisited link color */
+      text-decoration: none; /* Remove underline */
+  }
