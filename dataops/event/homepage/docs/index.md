@@ -3,7 +3,7 @@
 
 
 
-<span style="color:#29B5E8; font-size:20px; font-family:Arial;;font-weight:regular">USING AI TO PROCESS AND GAIN INSIGHTS FROM ALL DATA</span>
+<h1 style="color:#29B5E8; text-transform: uppercase; font-size:20px; font-family:Arial;;font-weight:regular">Using AI to Process and Gain Insights from All Data</h1>
 
 ![alt text](image-1.png)
 
