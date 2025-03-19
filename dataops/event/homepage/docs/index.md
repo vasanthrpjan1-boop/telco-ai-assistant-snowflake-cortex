@@ -1,17 +1,23 @@
 
-# <span style="color:#000000; font-size:40px; font-family:Arial;;font-weight:bold">ACTIVATING AI <span style="color:#29B5E8; font-size:40px; font-family:Arial;;font-weight:bold">HANDS ON LAB</span>
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheets/extra.css">
+</head>
 
 
 
-<h1 style="color:#29B5E8; text-transform: uppercase; font-size:20px; font-family:Arial;;font-weight:regular">Using AI to Process and Gain Insights from All Data</h1>
+# <h0black>ACTIVATING AI </h0black><h0blue>HANDS ON LAB</h0blue>
+
+
+
+<h1>Using AI to Process and Gain Insights from All Data</h1>
 
 ![alt text](image-1.png)
 
-<span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">WHY ARE WE HERE?</span>
+<h1>Why are we here?</h1>
 
 To learn about you can leverage the latest AI technologies right within the Snowflake platform.  When AI is deeply embedded in your trusted data platform, the possibilities are endless. We will be exploring the processing of both **Unstructured** and **Structured** data which will then allow the application of a **Cortex Agent** to help descover insights by leveraging **All Data.**
 
-<span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">THE LAB ENVIRONMENT</span>
+<h1> The lab environment</h1>
 
 A complete lab environment has been built for you automatically. This includes:
 
@@ -23,13 +29,13 @@ A complete lab environment has been built for you automatically. This includes:
 
 
 
-<span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">STRUCTURE OF THE SESSION</span>
+<h1>Structure of the Session</h1>
 
 You will be taken through the AI capabilities of Snowflake with Financial Reporting data.  We will be focusing on the Snowflake Share price - and will investigating whether we should **BUY**, **SELL** or **HOLD**
 
 Please note that the Analyst reports for this lab are completely fictious and financial decisions can not be made based on any of the outcomes of this lab.
 
-<span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">ORDER OF THE LAB</span>
+<h1>Order of the Lab</h1>
 
 -    Unstructured Data Processing
 
@@ -39,7 +45,7 @@ Please note that the Analyst reports for this lab are completely fictious and fi
 
 -    Navigate through the lab via the side-bar menu
 
-<span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">HAVE FUN</span>
+<h1>HAVE FUN</h1>
 
 
 

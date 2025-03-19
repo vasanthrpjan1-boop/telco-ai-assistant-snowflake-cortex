@@ -1,4 +1,9 @@
-# <span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">LOGGING IN AND CORTEX PLAYGROUND</span>
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheets/extra.css">
+</head>
+
+
+# <h1>LOGGING IN AND CORTEX PLAYGROUND</h1>
 
 Within the previous screen, you should have logged into snowflake which would have opened up in a new tab and should look like this:
 

@@ -5,3 +5,23 @@ h1 {
   font-family:Arial;
   font-weight:regular
 }
+
+h0black {font-size:40px; 
+  font-family:Arial;
+  font-weight:bold;
+  color:#000000;
+  text-transform: uppercase}
+
+
+h0blue {font-size:40px; 
+    font-family:Arial;
+    font-weight:bold;
+    color:#29B5E8;
+    text-transform: uppercase}
+
+
+h1grey {font-size:20px; 
+      font-family:Arial;
+      font-weight:bold;
+      color:#29B5E8;
+      text-transform: uppercase}
