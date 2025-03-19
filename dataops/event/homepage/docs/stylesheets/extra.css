@@ -46,18 +46,3 @@ body {font-size:16px;
         font-family:Lato;
         font-weight:regular;
         color:#24323D}
-
-a:link {
-          color: #29B5E8; /* Unvisited link color */
-          text-decoration: none; /* Remove underline */
-      }
-
-a:visited {
-        color: #11567F; /* Unvisited link color */
-        text-decoration: none; /* Remove underline */
-    }
-
-a:hover {
-      color: #7D44CF; /* Unvisited link color */
-      text-decoration: none; /* Remove underline */
-  }
