@@ -6,7 +6,7 @@
 
 ![alt text](image-1.png)
 
-<h1>Why are we here?</h1>
+<h1sub>Why are we here?</h1sub>
 
 To learn about you can leverage the latest AI technologies right within the Snowflake platform.  When AI is deeply embedded in your trusted data platform, the possibilities are endless. We will be exploring the processing of both **Unstructured** and **Structured** data which will then allow the application of a **Cortex Agent** to help descover insights by leveraging **All Data.**
 
