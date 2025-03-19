@@ -1,4 +1,9 @@
-# <span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">CREATE A CORTEX AGENT</span>
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheets/extra.css">
+</head>
+
+
+# <h1black>CREATE A </h1black><h1blue>CORTEX AGENT</h1blue>
 
 
 We now have datasets in both structured and unstructured format.  Lets see how a **Cortex Agent** will allow users to ask questions about their data all in one place.  
@@ -12,7 +17,7 @@ Ask questions about the data that might appear in the earnings calls or analyst 
 As questions about the data that might appear in the stock data or the latest infographics.
 
 
-#### Sample Questions ####
+#### <h1> Sample Questions</h1>
 
 These questions should give answers from both **unstructured** and **structured** examples using all the datasets we covered in this lab.
 

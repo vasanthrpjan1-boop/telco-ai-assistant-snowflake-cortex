@@ -1,5 +1,11 @@
-# <span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">DOCUMENT AI</span>
-## Build and Run Two Document AI models
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheets/extra.css">
+</head>
+
+
+
+# <h1>Document AI</h1>
+## <h1grey>Build and Run Two Document AI models<h1grey>
 
 In this section you will learn how to build and train a Document AI Model which will enable you to extract important structured content out of unstructured documents.
 
@@ -19,7 +25,7 @@ In this section you will learn how to build and train a Document AI Model which 
 
 Press **Create**
 
-### Downloading Documents
+### <h1>Downloading Documents</h1>
 
 We now need upload some documents into Document AI in order to build a train model.  The first Model we will build are analyst reports.  The reports we we will be using are completely fictional.
 
@@ -30,7 +36,7 @@ The Second model we will build are consistant infographic style reports.  These 
 - **Download** the Infographics **<a href="downloads/infographics.zip" download> here</a>**
 
 
-### Uploading the Documents to the model
+### <h1>Uploading the Documents to the model</h1>
 - Unzip the Analyst reports to a file location which you can access
 - Open the model which you have just created and press upload documents
 
@@ -45,7 +51,7 @@ Press **Upload**
 
 You will see that 4 documents are now uploaded but need attention.  To use the model, you will first need to decide which fields you would like to extract.  A warning will also let you know that for better accuracy you should really train the model with more documents.  For this excercise we will just use 4 but in reality you will need to train the model with at least 10 documents for good accuracy.
 
-### Review Documents and Extract Fields
+### <h1>Review Documents and Extract Fields</h1>
 
 - With in the Documents in Dataset section, press **See all documents**
 
@@ -110,7 +116,7 @@ You will have examples of these queries preloaded into a notebook. This model is
 - Press the **back button** to return to the Document AI home screen.
 
 
-### Create a second model
+### <h1>Create a second model</h1>
 
 You will now create a new model - this time, we will call it **INFOGRAPHICS**
 
@@ -155,13 +161,13 @@ You will now have a second model which will allow you to extract the infographic
 
 You have now created two models to process documents.  
 
-### Process Documents at Scale
+### <h1>Process Documents at Scale</h1>
 
 Let's now process some documents.  We have more documents both for Analyst Reports and infographics in a stage.  We can use our new models to extract structured information out of them.  In addition, we will extract all the text out of the Analyst reports for search purposes.
 
 For the next Document AI steps, you will use **Snowflake Notebooks** to process the documents as well as **visualise** the outputs.
 
-#### Model 1 - ANALYST_REPORTS
+#### <h1>Model 1 - ANALYST_REPORTS</h1>
 - Go back to the home page and click on **Projects > Notebooks**
 - Click on the **Document AI Analyst Reports** notebook
 
@@ -175,7 +181,7 @@ This notebook will perform the following:
 
 -   Extract all remaining text using **Cortex Parse Document**
 
-#### Model 2 - INFOGRAPHICS
+#### <h1>Model 2 - INFOGRAPHICS</h1>
 
 You will run a second notebook which will also extract the structured text out of the **Infographic** image files stored in a **Snowflake Stage**.
 

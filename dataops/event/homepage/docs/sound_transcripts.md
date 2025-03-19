@@ -1,4 +1,10 @@
-# <span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">ANALYSE SOUND TRANSCRIPTS</span>
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheets/extra.css">
+</head>
+
+
+
+# <h1black>Analyse </h1black><h1blue>Sound Transcripts</h1blue>
 
 So far, you have learnt about processing unstructured text data using **Document AI** and Cortex Parse document.  But what happens if the data comes from sound files?
 

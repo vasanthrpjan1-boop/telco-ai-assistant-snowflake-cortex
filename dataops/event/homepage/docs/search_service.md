@@ -1,4 +1,11 @@
-# <span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">CREATE A SEARCH SERVICE</span>
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheets/extra.css">
+</head>
+
+
+
+
+# <h1black>Create a </h1black><h1blue>Search Service</h1blue>
 
 We now have quite a bit of unstructured data from the analyst reports and the earnings calls  - now how do we find it all? 
 

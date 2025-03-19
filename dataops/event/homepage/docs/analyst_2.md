@@ -1,4 +1,9 @@
-# <span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">CORTEX ANALYST - ADD MORE DATASETS</span>
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheets/extra.css">
+</head>
+
+
+# <h1black>CORTEX ANALYST -</h1black><h1blue> ADD MORE DATASETS<h1blue>
 
 We have now created a **Semantec Model** for the structured dataset found on the market place.  If you remember, we parsed two additional datasets from document ai and created 2 additional structured tables.  We will add these additional tables into the semantic model.
 
@@ -50,7 +55,7 @@ When you have finished editing the **Semantic Model** press **Save** which is at
     ![create build](assets/analyst/C008.png)
 
 
-### Optional Excercise
+### <h1>Optional Excercise</h1>
 
 You will have remembered that we also produced structured data from sound files.  Wouldn't it be good if you could also ask **Cortex Analyst** when sections of the call are negative or positive??
 

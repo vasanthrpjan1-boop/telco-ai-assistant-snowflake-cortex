@@ -1,4 +1,9 @@
-# <span style="color:#29B5E8; font-size:24px; font-family:Arial;;font-weight:bold">GET DATA FROM THE MARKETPLACE</span>
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheets/extra.css">
+</head>
+
+
+# <h1black>Get Data from the </h1black><h1blue>MarketPlace</h1blue>
 
 Firstly, it would be good to get some data from the marketplace to understand the latest stock prices of **Snowflake Shares**.
 
