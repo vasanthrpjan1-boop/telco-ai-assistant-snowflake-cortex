@@ -46,3 +46,33 @@ body {font-size:16px;
         font-family:Lato;
         font-weight:400;
         color:#24323D}
+
+
+heading {
+      background-color: rgb(41, 181, 232);  /* light blue background */
+      color: white;  /* white text */
+      padding: 30px; } /* add padding around the content */
+
+tabheading{
+    background-color: rgb(41, 181, 232);  /* light blue background */
+    color: white;  /* white text */
+    padding: 10px; } /* add padding around the content */
+
+veh1 {
+      color: rgb(125, 68, 207);  /* purple */
+  }
+veh2 {
+      color: rgb(212, 91, 144);  /* pink */
+  }
+  .veh3 {
+      color: rgb(255, 159, 54);  /* orange */
+  }
+veh4 {
+      padding: 10px;  /* add padding around the content */
+      color: rgb(0,53,69);  /* midnight */
+  }
+veh5 {
+      padding: 10px;  /* add padding around the content */
+      color: rgb(138,153,158);  /* windy city */
+      font-size: 14px
+  }

@@ -1,308 +1,341 @@
-"""
-Cortex Analyst App
-====================
-This app allows users to interact with their data using natural language.
-"""
+import streamlit as st
+import json
+import _snowflake
+import re
+from snowflake.snowpark.context import get_active_session
+logo = 'snowflake-logo-color-rgb.svg'
+session = get_active_session()
+model = 'llama3.3-70b'
+st.markdown(
+    """
+    <style>
+    .heading{
+        background-color: rgb(41, 181, 232);  /* light blue background */
+        color: white;  /* white text */
+        padding: 30px;  /* add padding around the content */
+    }
+    .tabheading{
+        background-color: rgb(41, 181, 232);  /* light blue background */
+        color: white;  /* white text */
+        padding: 10px;  /* add padding around the content */
+    }
+    .veh1 {
+        color: rgb(125, 68, 207);  /* purple */
+    }
+    .veh2 {
+        color: rgb(212, 91, 144);  /* pink */
+    }
+    .veh3 {
+        color: rgb(255, 159, 54);  /* orange */
+    }
+    .veh4 {
+        padding: 10px;  /* add padding around the content */
+        color: rgb(0,53,69);  /* midnight */
+    }
+    .veh5 {
+        padding: 10px;  /* add padding around the content */
+        color: rgb(138,153,158);  /* windy city */
+        font-size: 14px
+    }
+    
+    body {
+        color: rgb(0,53,69);
+    }
+    
+    div[role="tablist"] > div[aria-selected="true"] {
+        background-color: rgb(41, 181, 232);
+        color: rgb(0,53,69);  /* Change the text color if needed */
+    }
 
-import json  # To handle JSON data
-import time
-from typing import Dict, List, Optional, Tuple
+    
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-import _snowflake  # For interacting with Snowflake-specific APIs
-import pandas as pd
-import streamlit as st  # Streamlit library for building the web app
-from snowflake.snowpark.context import (
-    get_active_session,
-)  # To interact with Snowflake sessions
-from snowflake.snowpark.exceptions import SnowparkSQLException
+st.logo(logo)
+session = get_active_session()
+#st.write(session)
 
-# List of available semantic model paths in the format: <DATABASE>.<SCHEMA>.<STAGE>/<FILE-NAME>
-# Each path points to a YAML file defining a semantic model
-AVAILABLE_SEMANTIC_MODELS_PATHS = [
-    "DATAOPS_EVENT_PROD.CORTEX_ANALYST.CORTEX_ANALYST/stock_price_info.yaml"
-]
-API_ENDPOINT = "/api/v2/cortex/analyst/message"
+API_ENDPOINT = "/api/v2/cortex/agent:run"
 API_TIMEOUT = 50000  # in milliseconds
 
-# Initialize a Snowpark session for executing queries
-session = get_active_session()
+CORTEX_SEARCH_SERVICES = "DEFAULT_SCHEMA.CHUNKED_REPORTS"
+SEMANTIC_MODELS = "@CORTEX_ANALYST.CORTEX_ANALYST/stock_price_info.yaml"
+
+def run_snowflake_query(query):
+    """Run Snowflake SQL Query"""
+    try:
+        df = session.sql(query.replace(';',''))
+        return df
+
+    except Exception as e:
+        st.error(f"Error executing SQL: {str(e)}")
+        return None, None
+
+def snowflake_api_call(query: str, limit: int = 10):
+    """Make an Agent API Call"""
+    payload = {
+        "model": f"{model}",
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": query
+                    }
+                ]
+            }
+        ],
+        "tools": [
+            {
+                "tool_spec": {
+                    "type": "cortex_analyst_text_to_sql",
+                    "name": "analyst1"
+                }
+            },
+            {
+                "tool_spec": {
+                    "type": "cortex_search",
+                    "name": "search1"
+                }
+            }
+        ],
+        "tool_resources": {
+            "analyst1": {"semantic_model_file": SEMANTIC_MODELS},
+            "search1": {
+                "name": CORTEX_SEARCH_SERVICES,
+                "max_results": 10,
+                "id_column": "RELATIVE_PATH"
+            }
+        }
+    }
+    
+    try:
+        resp = _snowflake.send_snow_api_request(
+            "POST",  # method
+            API_ENDPOINT,  # path
+            {},  # headers
+            {},  # params
+            payload,  # body
+            None,  # request_guid
+            API_TIMEOUT,  # timeout in milliseconds,
+        )
+        
+        if resp["status"] != 200:
+            st.error(f"❌ HTTP Error: {resp['status']} - {resp.get('reason', 'Unknown reason')}")
+            st.error(f"Response details: {resp}")
+            return None
+        
+        try:
+            response_content = json.loads(resp["content"])
+        except json.JSONDecodeError:
+            st.error("❌ Failed to parse API response. The server may have returned an invalid JSON format.")
+            st.error(f"Raw response: {resp['content'][:200]}...")
+            return None
+            
+        return response_content
+            
+    except Exception as e:
+        st.error(f"Error making request: {str(e)}")
+        return None
+
+def process_sse_response(response):
+    """Process SSE response"""
+    text = ""
+    sql = ""
+    citations = []
+    
+    if not response:
+        return text, sql, citations
+    if isinstance(response, str):
+        return text, sql, citations
+    try:
+        for event in response:
+            if event.get('event') == "message.delta":
+                data = event.get('data', {})
+                delta = data.get('delta', {})
+                
+                for content_item in delta.get('content', []):
+                    content_type = content_item.get('type')
+                    if content_type == "tool_results":
+                        tool_results = content_item.get('tool_results', {})
+                        if 'content' in tool_results:
+                            for result in tool_results['content']:
+                                if result.get('type') == 'json':
+                                    text += result.get('json', {}).get('text', '')
+                                    search_results = result.get('json', {}).get('searchResults', [])
+                                    for search_result in search_results:
+                                        citations.append({'source_id':search_result.get('source_id',''), 'doc_id':search_result.get('doc_id', '')})
+                                    sql = result.get('json', {}).get('sql', '')
+                    if content_type == 'text':
+                        text += content_item.get('text', '')
+                            
+    except json.JSONDecodeError as e:
+        st.error(f"Error processing events: {str(e)}")
+                
+    except Exception as e:
+        st.error(f"Error processing events: {str(e)}")
+        
+    return text, sql, citations
+
+@st.cache_data
+def execute_cortex_complete_sql(prompt):
+    """
+    Execute Cortex Complete using the SQL API
+    """
+    cmd = "SELECT snowflake.cortex.complete(?, ?) AS response"
+    df_response = session.sql(cmd, params=[f"{model}", prompt]).collect()
+    response_txt = df_response[0].RESPONSE
+    return response_txt
+
+@st.cache_data
+def extract_python_code(text):
+    """
+    Extract only the Streamlit chart execution code from LLM output, including all arguments.
+    """
+    pattern = r"st\.(line_chart|bar_chart|scatter_chart)\((.*)\)"
+    match = re.search(pattern, text, re.DOTALL)
+    
+    if match:
+        code = f"st.{match.group(1)}({match.group(2)})"
+        return code.strip()  # Ensure clean extraction
+    return None  # Return None if no chart code is found
+
+
+def replace_chart_function(chart_string, new_chart_type):
+    return re.sub(r"st\.(\w+_chart)", f"st.{new_chart_type}", chart_string)
+
+
 
 
 def main():
-    # Initialize session state
-    if "messages" not in st.session_state:
-        reset_session_state()
-    show_header_and_sidebar()
-    if len(st.session_state.messages) == 0:
-        process_user_input("What questions can I ask?")
-    display_conversation()
-    handle_user_inputs()
-    handle_error_notifications()
+    st.markdown('<h1 class="heading">SNOWFLAKE STOCK ANALYSIS</h2><BR>', unsafe_allow_html=True)
 
-
-def reset_session_state():
-    """Reset important session state elements."""
-    st.session_state.messages = []  # List to store conversation messages
-    st.session_state.active_suggestion = None  # Currently selected suggestion
-
-
-def show_header_and_sidebar():
-    """Display the header and sidebar of the app."""
-    # Set the title and introductory text of the app
-    st.title("Cortex Analyst")
-    st.markdown(
-        "Welcome to Cortex Analyst! Type your questions below to interact with your data. "
-    )
-
-    # Sidebar with a reset button
+    # Sidebar for new chat
     with st.sidebar:
-        st.selectbox(
-            "Selected semantic model:",
-            AVAILABLE_SEMANTIC_MODELS_PATHS,
-            format_func=lambda s: s.split("/")[-1],
-            key="selected_semantic_model_path",
-            on_change=reset_session_state,
-        )
-        st.divider()
-        # Center this button
-        _, btn_container, _ = st.columns([2, 6, 2])
-        if btn_container.button("Clear Chat History", use_container_width=True):
-            reset_session_state()
-
-
-def handle_user_inputs():
-    """Handle user inputs from the chat interface."""
-    # Handle chat input
-    user_input = st.chat_input("What is your question?")
-    if user_input:
-        process_user_input(user_input)
-    # Handle suggested question click
-    elif st.session_state.active_suggestion is not None:
-        suggestion = st.session_state.active_suggestion
-        st.session_state.active_suggestion = None
-        process_user_input(suggestion)
-
-
-def handle_error_notifications():
-    if st.session_state.get("fire_API_error_notify"):
-        st.toast("An API error has occured!", icon="🚨")
-        st.session_state["fire_API_error_notify"] = False
-
-
-def process_user_input(prompt: str):
-    """
-    Process user input and update the conversation history.
-
-    Args:
-        prompt (str): The user's input.
-    """
-
-    # Create a new message, append to history and display imidiately
-    new_user_message = {
-        "role": "user",
-        "content": [{"type": "text", "text": prompt}],
-    }
-    st.session_state.messages.append(new_user_message)
-    with st.chat_message("user"):
-        user_msg_index = len(st.session_state.messages) - 1
-        display_message(new_user_message["content"], user_msg_index)
-
-    # Show progress indicator inside analyst chat message while waiting for response
-    with st.chat_message("analyst"):
-        with st.spinner("Waiting for Analyst's response..."):
-            time.sleep(1)
-            response, error_msg = get_analyst_response(st.session_state.messages)
-            if error_msg is None:
-                analyst_message = {
-                    "role": "analyst",
-                    "content": response["message"]["content"],
-                    "request_id": response["request_id"],
-                }
-            else:
-                analyst_message = {
-                    "role": "analyst",
-                    "content": [{"type": "text", "text": error_msg}],
-                    "request_id": response["request_id"],
-                }
-                st.session_state["fire_API_error_notify"] = True
-            st.session_state.messages.append(analyst_message)
+        if st.button("New Conversation", key="new_chat"):
+            st.session_state.messages = []
             st.rerun()
 
+    # Initialize session state
+    if 'messages' not in st.session_state:
+        st.session_state.messages = []
 
-def get_analyst_response(messages: List[Dict]) -> Tuple[Dict, Optional[str]]:
-    """
-    Send chat history to the Cortex Analyst API and return the response.
+    for message in st.session_state.messages:
+        with st.chat_message(message['role']):
+            st.markdown(message['content'].replace("•", "\n\n"))
 
-    Args:
-        messages (List[Dict]): The conversation history.
+    if query := st.chat_input("Ask me any question about snowflake?"):
+        # Add user message to chat
+        with st.chat_message("user"):
+            st.markdown(query)
+        st.session_state.messages.append({"role": "user", "content": query})
+        
+        # Get response from API
+        with st.spinner("Processing your request..."):
+            response = snowflake_api_call(query, 1)
+            text, sql, citations = process_sse_response(response)
+            
+            # Add assistant response to chat
+            if text:
+                text = text.replace("【†", "[")
+                text = text.replace("†】", "]")
+                st.session_state.messages.append({"role": "assistant", "content": text})
+                
+                with st.chat_message("assistant"):
+                    st.markdown(text.replace("•", "\n\n"))
+                    
+                    # Display citations if present
+                    if citations:
+                        st.markdown('<h1 class="tabheading">CITATIONS</h2><BR>', unsafe_allow_html=True)
+                        for citation in citations:
+                            doc_id = citation.get("doc_id", "")
+                            if doc_id:
+                                query = f"SELECT TEXT FROM DEFAULT_SCHEMA.TEXT_AND_SOUND WHERE RELATIVE_PATH = '{doc_id}'"
+                                result = run_snowflake_query(query)
+                                result_df = result.to_pandas()
+                                if not result_df.empty:
+                                    transcript_text = result_df.iloc[0, 0]
+                                else:
+                                    transcript_text = "No transcript available"
+                    
+                                with st.expander(f"[{citation.get('source_id', '')}]"):
+                                    st.write(transcript_text)
+        
+            # Display SQL if present
+            if sql:
+                with st.expander("SQL", expanded=True):
+                    st.code(sql, language="sql")
 
-    Returns:
-        Optional[Dict]: The response from the Cortex Analyst API.
-    """
-    # Prepare the request body with the user's prompt
-    request_body = {
-        "messages": messages,
-        "semantic_model_file": f"@{st.session_state.selected_semantic_model_path}",
-    }
+                with st.expander("Data Analysis", expanded=True):
+                    analysis_results = run_snowflake_query(sql).to_pandas()
 
-    # Send a POST request to the Cortex Analyst API endpoint
-    # Adjusted to use positional arguments as per the API's requirement
-    resp = _snowflake.send_snow_api_request(
-        "POST",  # method
-        API_ENDPOINT,  # path
-        {},  # headers
-        {},  # params
-        request_body,  # body
-        None,  # request_guid
-        API_TIMEOUT,  # timeout in milliseconds
-    )
+                    if len(analysis_results.index) > 1:
+                        data_tab, suggested_plot, line_tab, bar_tab, scatter_tab = st.tabs(
+                         ["Data", "Suggested Plot", "Line Chart", "Bar Chart","Scatter Chart"]
+                     )
+                        data_tab.dataframe(analysis_results)
+                        
+                        if len(analysis_results.columns) > 1:
+                            analysis_results = analysis_results.set_index(analysis_results.columns[0])
+                        
+                        with suggested_plot:
+                            try:
+                                prompt = f'''
+                                            Create a streamlit plot using st.line_chart OR st.bar_chart OR st.scatter_chart 
+                                            based on the dataframe is called "analysis_results" with given columns: {analysis_results.columns}.
+                                            Give me ONLY the code itself based on the columns. 
+                                            select only columns relevant to the query - {query}.
+                                            Do not create fake data.
+                                            Do not include imports.
+                                            Do not include any columns that are not provided.
+                                            only return the best chart for the data
+                                            Choose the right column for X and the right column for Y. for each chart, add color='#29B5E8'
+                                            
+                                            '''
+                                code = execute_cortex_complete_sql(prompt)
+                                #st.write(code)
+                                execution_code = extract_python_code(code)
+                                
+                                st.code(execution_code, language="python", line_numbers=False)
+                                exec(execution_code)
+                            except:
+                                pass
+                        
+                        with line_tab:
 
-    # Content is a string with serialized JSON object
-    parsed_content = json.loads(resp["content"])
-
-    # Check if the response is successful
-    if resp["status"] < 400:
-        # Return the content of the response as a JSON object
-        return parsed_content, None
-    else:
-        # Craft readable error message
-        error_msg = f"""
-🚨 An Analyst API error has occurred 🚨
-
-* response code: `{resp['status']}`
-* request-id: `{parsed_content['request_id']}`
-* error code: `{parsed_content['error_code']}`
-
-Message:
-```
-{parsed_content['message']}
-```
-        """
-        return parsed_content, error_msg
-
-
-def display_conversation():
-    """
-    Display the conversation history between the user and the assistant.
-    """
-    for idx, message in enumerate(st.session_state.messages):
-        role = message["role"]
-        content = message["content"]
-        with st.chat_message(role):
-            display_message(content, idx)
-
-
-def display_message(content: List[Dict[str, str]], message_index: int):
-    """
-    Display a single message content.
-
-    Args:
-        content (List[Dict[str, str]]): The message content.
-        message_index (int): The index of the message.
-    """
-    for item in content:
-        if item["type"] == "text":
-            st.markdown(item["text"])
-        elif item["type"] == "suggestions":
-            # Display suggestions as buttons
-            for suggestion_index, suggestion in enumerate(item["suggestions"]):
-                if st.button(
-                    suggestion, key=f"suggestion_{message_index}_{suggestion_index}"
-                ):
-                    st.session_state.active_suggestion = suggestion
-        elif item["type"] == "sql":
-            # Display the SQL query and results
-            display_sql_query(item["statement"], message_index)
-        else:
-            # Handle other content types if necessary
-            pass
-
-
-@st.cache_data(show_spinner=False)
-def get_query_exec_result(query: str) -> Tuple[Optional[pd.DataFrame], Optional[str]]:
-    """
-    Execute the SQL query and convert the results to a pandas DataFrame.
-
-    Args:
-        query (str): The SQL query.
-
-    Returns:
-        Tuple[Optional[pd.DataFrame], Optional[str]]: The query results and the error message.
-    """
-    global session
-    try:
-        df = session.sql(query).to_pandas()
-        return df, None
-    except SnowparkSQLException as e:
-        return None, str(e)
-
-
-def display_sql_query(sql: str, message_index: int):
-    """
-    Executes the SQL query and displays the results in form of data frame and charts.
-
-    Args:
-        sql (str): The SQL query.
-        message_index (int): The index of the message.
-    """
-
-    # Display the SQL query
-    with st.expander("SQL Query", expanded=False):
-        st.code(sql, language="sql")
-
-    # Display the results of the SQL query
-    with st.expander("Results", expanded=True):
-        with st.spinner("Running SQL..."):
-            df, err_msg = get_query_exec_result(sql)
-            if df is None:
-                st.error(f"Could not execute generated SQL query. Error: {err_msg}")
-                return
-
-            if df.empty:
-                st.write("Query returned no data")
-                return
-
-            # Show query results in two tabs
-            data_tab, chart_tab = st.tabs(["Data 📄", "Chart 📈 "])
-            with data_tab:
-                st.dataframe(df, use_container_width=True)
-
-            with chart_tab:
-                display_charts_tab(df, message_index)
-
-
-def display_charts_tab(df: pd.DataFrame, message_index: int) -> None:
-    """
-    Display the charts tab.
-
-    Args:
-        df (pd.DataFrame): The query results.
-        message_index (int): The index of the message.
-    """
-    # There should be at least 2 columns to draw charts
-    if len(df.columns) >= 2:
-        all_cols_set = set(df.columns)
-        col1, col2 = st.columns(2)
-        x_col = col1.selectbox(
-            "X axis", all_cols_set, key=f"x_col_select_{message_index}"
-        )
-        y_col = col2.selectbox(
-            "Y axis",
-            all_cols_set.difference({x_col}),
-            key=f"y_col_select_{message_index}",
-        )
-        chart_type = st.selectbox(
-            "Select chart type",
-            options=["Line Chart 📈", "Bar Chart 📊"],
-            key=f"chart_type_{message_index}",
-        )
-        if chart_type == "Line Chart 📈":
-            st.line_chart(df.set_index(x_col)[y_col])
-        elif chart_type == "Bar Chart 📊":
-            st.bar_chart(df.set_index(x_col)[y_col])
-    else:
-        st.write("At least 2 columns are required")
-
+                            
+                            
+                            try:
+                                exec(replace_chart_function(execution_code, 'line_chart'))
+                                #st.line_chart(analysis_results,color='#29B5E8')
+                            except:
+                                pass
+                        
+                        with bar_tab:
+                            try: 
+                                exec(replace_chart_function(execution_code, 'bar_chart'))
+                                #st.bar_chart(analysis_results,color='#29B5E8')
+                            except:
+                                pass
+                                
+                        with scatter_tab:
+                            try: 
+                                exec(replace_chart_function(execution_code, 'scatter_chart'))
+                                #st.bar_chart(analysis_results,color='#29B5E8')
+                            except:
+                                pass
+                    else:
+                        st.dataframe(analysis_results)
 
 if __name__ == "__main__":
     main()
+
+# Questions to try:
+    
+# - i would like to see the sentiment score for each minute and also what has been said in the last earnings call
+# - What analyst gave a rating of sell?
+# - what is the SNOW stock price by year?
+# - what is the SNOW stock price by month during 2023
