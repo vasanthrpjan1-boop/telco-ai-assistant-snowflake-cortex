@@ -49,11 +49,17 @@ body {font-size:16px;
 
 
 heading {
+      font-size:40px; 
+      font-family:Lato;
+      font-weight:700;
       background-color: rgb(41, 181, 232);  /* light blue background */
       color: white;  /* white text */
       padding: 30px; } /* add padding around the content */
 
 tabheading{
+    font-size:40px; 
+    font-family:Lato;
+    font-weight:700;
     background-color: rgb(41, 181, 232);  /* light blue background */
     color: white;  /* white text */
     padding: 10px; } /* add padding around the content */
