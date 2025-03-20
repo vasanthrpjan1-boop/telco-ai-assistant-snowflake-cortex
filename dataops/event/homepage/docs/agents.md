@@ -93,6 +93,11 @@ If you would like to make any changes to this application, you will need to **du
 If you duplicate the application using the duplicate button, all files associated to the application will be copied with it.
 
 
+### <h0blue> Alternative Agent </h0blue>
+
+Take a look at the configurable alterative agent app - **CORTEX_AGENT_ALTERNATIVE**.  This app has an alternative approach for styling.  It leverages **streamlit extras** which has packaged in styles to customise your app.  It also allows you to choose the search service and analyst semantic model during the app configuration.
+
+
 ### <h0blue> Conclusion </h0blue>
 
 The Cortex Agent provides a unified way to query both structured and unstructured datasets, enabling users to gain insights from diverse data sources within a single application. By leveraging Streamlit’s customization capabilities and integrating Snowflake’s semantic model and search service, users can seamlessly retrieve information from earnings calls, analyst reports, stock data, and more. The built-in functions ensure efficient querying, data parsing, and visualization, making it easier to analyze financial and market trends.

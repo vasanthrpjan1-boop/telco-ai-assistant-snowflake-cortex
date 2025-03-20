@@ -1,0 +1,10 @@
+name: app_environment
+channels:
+  - snowflake
+dependencies:
+  - python=3.8.*
+  - snowflake-snowpark-python=
+  - snowflake.core=1.0.0
+  - streamlit=
+  - plotly=5.24.1
+  - streamlit-extras=0.4.0
