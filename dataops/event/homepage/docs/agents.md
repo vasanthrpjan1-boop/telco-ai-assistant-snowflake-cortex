@@ -1,11 +1,11 @@
 # <h1black>Create a </h1black><h1blue>Cortex Agent</h1blue>
 
 ![alt text](assets/agent/ag01.png)
-We now have datasets in both structured and unstructured format.  Lets see how a **Cortex Agent** will allow users to ask questions about their data all in one place.  
+You now have datasets in both structured and unstructured format.  Lets see how a **Cortex Agent** will allow users to ask questions about their data all in one place.  
 
 If you have completed all the previous steps then this step should **just work**.
 
-This streamlit app had been heavily styled.  Streamlit supports stylesheets allowing you to create a highly formatted application as you see fit.
+This Streamlit app had been heavily styled.  Streamlit supports stylesheets allowing you to create a highly formatted application as you see fit.  If you would like to view the style sheet as well as all other supporting files, you can by going to 
 
 - Within **Projects>Streamlits** click on the notebook **CORTEX_AGENT**
 

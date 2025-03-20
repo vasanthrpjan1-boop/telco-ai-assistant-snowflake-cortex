@@ -1,6 +1,6 @@
 # <h1black>Cortex Analyst -</h1black><h1blue> Add More Datasets<h1blue>
 
-We have now created a **Semantec Model** for the structured dataset found on the market place.  If you remember, we parsed two additional datasets from document ai and created 2 additional structured tables.  We will add these additional tables into the semantic model.
+We have now created a **Semantec Model** for the structured dataset found on the market place.  If you remember, we parsed two additional datasets from Document AI and created two additional structured tables.  We will add these additional tables into the semantic model.
 
 - Within the **Snowflake AI and ML Studio**, click on **Cortex Analyst**
 - Choose **DATAOPS_EVENT_PROD.CORTEX_ANALYST** for the Database and Schema
@@ -12,7 +12,7 @@ We have now created a **Semantec Model** for the structured dataset found on the
 
 Now we are in the edit screen.  You will see the existing setup - but now, we will add an additional table.
 
-- Click on the **+** nedt to **Logical tables**.
+- Click on the **+** next to **Logical tables**.
 
 - Under DATAOPS_EVENT_PROD.DOCUMENT_AI, select **EARNINGS_INFOGRAPHIC_PARSED**.
 
@@ -24,15 +24,15 @@ Now we are in the edit screen.  You will see the existing setup - but now, we wi
 
 - Press **Done**
 
-You can now browse through the Dimensions, Time dimensions and Facts to see if everything is as expected.  You have the opportunity to make amendmendmend and add **Synonyms** to each field
+You can now browse through the **Dimensions**, **Time Dimensions** and **Facts** to see if everything is as expected.  You have the opportunity to make amendments and add **Synonyms** to each field
 
-You can now test cortex analyst out from here.  For instance,
+You can now test **Cortex Analyst out from here**.  For instance:
 
 - In the prompt ask **What is the product Revenue in 2023**
 
-Cortex will Present you with an answer as well as a sample query.  If you think this is correct, you can add it as a **Verified Query**.
+    Cortex will Present you with an answer as well as a sample query.  If you think this is correct, you can add it as a **verified Query**.
 
-![create build](assets/analyst/C006.png)
+    ![create build](assets/analyst/C006.png)
 
 When you have finished editing the **Semantic Model** press **Save** which is at the top right hand corner of the screen.
 
@@ -50,7 +50,7 @@ When you have finished editing the **Semantic Model** press **Save** which is at
     ![create build](assets/analyst/C008.png)
 
 
-### <h1sub>Optional Excercise</h1sub>
+### <h1sub>Optional Exercise</h1sub>
 
 You will have remembered that we also produced structured data from sound files.  Wouldn't it be good if you could also ask **Cortex Analyst** when sections of the call are negative or positive??
 
@@ -64,7 +64,7 @@ You will have remembered that we also produced structured data from sound files.
 
 - Explore other questions users might ask, and refine the model accordingly.
 
-- Work out how to join the Logical table to the search service - This is handy for when we look at **Cortex Agents**.
+- Work out how to join the logical table to the search service - This is handy for when we look at **Cortex Agents**.
 
 - Save any changes to the model.  The more descriptive your model, the better the results.  
 
@@ -74,5 +74,5 @@ So now we have a way to find out information about **Structured Data**, and we c
 
 Let's create an **Application** to combine the two types of searches together.  
 
--   Please proceed to the **Application** section.
+-   Please proceed to the **Application** section where you will learn about **Cortex Agents**
 
