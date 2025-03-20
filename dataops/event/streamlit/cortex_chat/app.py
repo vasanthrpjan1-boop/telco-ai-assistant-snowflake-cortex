@@ -3,7 +3,7 @@ import json
 import _snowflake
 import re
 from snowflake.snowpark.context import get_active_session
-logo = 'snowflake-logo-color-rgb.svg'
+logo = 'snowflake_logo_color_rgb.svg'
 session = get_active_session()
 model = 'llama3.3-70b'
 st.set_page_config(layout="wide")
