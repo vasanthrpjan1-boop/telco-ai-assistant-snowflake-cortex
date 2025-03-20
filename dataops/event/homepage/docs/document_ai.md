@@ -3,7 +3,7 @@
 
 In this section you will learn how to build and train a Document AI Model which will enable you to extract important structured content out of unstructured documents.
 
-- Within the AI & ML area, click on Document AI:
+- Within the AI & ML area, click on **Document AI**:
 
     ![alt text](assets/docai/D001.png)
 
