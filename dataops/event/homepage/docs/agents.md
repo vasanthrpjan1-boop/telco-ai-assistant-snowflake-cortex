@@ -7,14 +7,14 @@ If you have completed all the previous steps then this step should **just work**
 
 This streamlit app had been heavily styled.  Streamlit supports stylesheets allowing you to create a highly formatted application as you see fit.
 
-Within **Projects>Streamlits** click on the notebook **CORTEX_AGENT**
+- Within **Projects>Streamlits** click on the notebook **CORTEX_AGENT**
 
 Ask questions about the data that might appear in the earnings calls or analyst reports.
 
 As questions about the data that might appear in the stock data or the latest infographics.
 
 
-#### <h1h1sub> Sample Questions</h1h1sub>
+#### <h1sub> Sample Questions</h1sub>
 
 These questions should give answers from both **unstructured** and **structured** examples using all the datasets we covered in this lab.
 

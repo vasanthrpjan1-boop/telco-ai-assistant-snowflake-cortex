@@ -28,7 +28,7 @@ You can now browse through the Dimensions, Time dimensions and Facts to see if e
 
 You can now test cortex analyst out from here.  For instance,
 
-- In the prompt ask ** What is the product Revenue in 2023**
+- In the prompt ask **What is the product Revenue in 2023**
 
 Cortex will Present you with an answer as well as a sample query.  If you think this is correct, you can add it as a **Verified Query**.
 

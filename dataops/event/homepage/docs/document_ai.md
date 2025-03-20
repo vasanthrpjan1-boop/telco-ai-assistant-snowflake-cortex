@@ -110,7 +110,7 @@ You will have examples of these queries preloaded into a notebook. This model is
 - Press the **back button** to return to the Document AI home screen.
 
 
-### <h1>Create a second model</h1>
+### <h1sub>Create a second model</h1sub>
 
 You will now create a new model - this time, we will call it **INFOGRAPHICS**
 
@@ -155,7 +155,7 @@ You will now have a second model which will allow you to extract the infographic
 
 You have now created two models to process documents.  
 
-### <h1>Process Documents at Scale</h1>
+### <h1sub>Process Documents at Scale</h1sub>
 
 Let's now process some documents.  We have more documents both for Analyst Reports and infographics in a stage.  We can use our new models to extract structured information out of them.  In addition, we will extract all the text out of the Analyst reports for search purposes.
 
