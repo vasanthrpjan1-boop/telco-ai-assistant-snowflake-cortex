@@ -1,9 +1,11 @@
 # <h1black>Create a </h1black><h1blue>Cortex Agent</h1blue>
 
-
+![alt text](assets/agent/ag01.png)
 We now have datasets in both structured and unstructured format.  Lets see how a **Cortex Agent** will allow users to ask questions about their data all in one place.  
 
 If you have completed all the previous steps then this step should **just work**.
+
+This streamlit app had been heavily styled.  Streamlit supports stylesheets allowing you to create a highly formatted application as you see fit.
 
 Within **Projects>Streamlits** click on the notebook **CORTEX_AGENT**
 
@@ -37,14 +39,11 @@ shall i buy snowflake shares?
 
 If you completed the optional excercise in cortex analyst, this is the response you will get if you ask what transcript had the lowest sentiment:
 
-![alt text](assets/analyst/C010.png)
-
 
 If you joined the logical table to cortex search, this is what you might bet if you later ask the question
 
-*can you give me more information about that particular earnings call*
+**can you give me more information about that particular earnings call**
 
-![alt text](assets/analyst/C011.png)
 
 
 So you should see how convenient it is to bring in both the processing of structured datasets and structured datasets to get one holistic view of the data subject (in this case the analysis of snowflake) in question.
