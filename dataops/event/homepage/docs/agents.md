@@ -95,8 +95,9 @@ If you duplicate the application using the duplicate button, all files associate
 
 ### <h1sub> Alternative Agent </h1sub>
 
-Take a look at the configurable alterative agent app - **CORTEX_AGENT_ALTERNATIVE**.  This app has an alternative approach for styling.  It leverages **streamlit extras** which has packaged in styles to customise your app.  It also allows you to choose the search service and analyst semantic model during the app configuration.
+Take a look at the configurable alterative agent app - **CORTEX_AGENT_ALTERNATIVE**.  This app has an alternative approach for styling.  It leverages **streamlit extras** which has packaged in styles to customise your app.  It also allows you to choose the search service and analyst semantic model during the app configuration.  It also has a lot more configurable options for the user such as multiple chart types using **Plotly**
 
+![alt text](assets/agent/ag03.png)
 
 ### <h1sub> Conclusion </h1sub>
 
