@@ -7,7 +7,7 @@ logo = 'snowflake-logo-color-rgb.svg'
 session = get_active_session()
 model = 'llama3.3-70b'
 st.set_page_config(layout="wide")
-with open('extra_6.css') as ab:
+with open('extra.css') as ab:
     st.markdown(f"<style>{ab.read()}</style>", unsafe_allow_html=True)
 
 st.logo(logo)
