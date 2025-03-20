@@ -43,13 +43,63 @@ shall i buy snowflake shares?
 If you completed the optional exercise in cortex analyst, this is the response you will get if you ask what transcript had the lowest sentiment:
 
 
-If you joined the logical table to cortex search, this is what you might bet if you later ask the question
+If you joined the logical table to cortex search, this is what you might get if you later ask the question:
 
 **Can you give me more information about that particular earnings call**
 
 
 
-So you should see how convenient it is to bring in both the processing of unstructured datasets and structured datasets to get one holistic view of the data subject (in this case the analysis of snowflake) in question.
+So you should see how convenient it is to bring in both the processing of unstructured datasets and structured datasets to get one holistic view of the data subject (in this case the analysis of Snowflake) in question.
+
+
+#### <h1sub> Editing the Application</h1sub>
+
+Your role in this setup allows you to edit the application.  
+
+- Press **Edit** to go into edit mode.
+
+
+
+You will notice that the sementic model has been specified as well as the search service - which is what you created earlier.
+
+You will notice a series of functions such as:
+
+- **run_snowflake_query**
+
+    This calls the built in agent api - and will treat the question differently depending on the context.  For instance, if the answer relates to structured data, it will use the tool spec **analyst1** which will attempt to turn the question into a sql query and will use the yaml file which you created in **Cortex Analyst**.  If however, the answer can only be found from unstructured data, it will use the tools spec **cortex_search** which will then use the search service to retrieve the information.  It will also retrieve up to 10 citations - these will be the chunked text which were extracted earlier on in the lab.
+
+- **process_sse_response**
+
+    This is about parsing the results in something readable as the original response will be a json payload
+
+- **execute_cortex_complete_sql**
+
+    This uses the LLM to attempt to create a chart based on what is in the dataset.  The type of LLM is defined using the **model** variable.
+
+- **extract_python_code**
+
+    This is used to return the python result (which will be a streamlit chart) into executable code.
+
+- **replace_chart_function**
+
+    This uses the same variables created for the suggested chart but allows for alternative streamlit charts.
+
+- **def main**
+
+    This is the initial (parent) function which is executed first and calls the other functions when appropiate. 
+
+If you would like to make any changes to this application, you will need to **duplicate it**.  This is because the streamlit app is managed by an external application.
+
+If you duplicate the application using the duplicate button, all files associated to the application will be copied with it.
+
+
+### <h0blue> Conclusion </h0blue>
+
+The Cortex Agent provides a unified way to query both structured and unstructured datasets, enabling users to gain insights from diverse data sources within a single application. By leveraging Streamlit’s customization capabilities and integrating Snowflake’s semantic model and search service, users can seamlessly retrieve information from earnings calls, analyst reports, stock data, and more. The built-in functions ensure efficient querying, data parsing, and visualization, making it easier to analyze financial and market trends.
+
+
+
+
 
 
 
