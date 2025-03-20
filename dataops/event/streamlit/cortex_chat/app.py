@@ -1,56 +1,21 @@
 import streamlit as st
 import json
 import _snowflake
+import re
 from snowflake.snowpark.context import get_active_session
-
+logo = 'snowflake-logo-color-rgb.svg'
 session = get_active_session()
+model = 'llama3.3-70b'
+st.set_page_config(layout="wide")
+with open('extra_6.css') as ab:
+    st.markdown(f"<style>{ab.read()}</style>", unsafe_allow_html=True)
 
-st.markdown(
-    """
-    <style>
-    .heading{
-        background-color: rgb(41, 181, 232);  /* light blue background */
-        color: white;  /* white text */
-        padding: 30px;  /* add padding around the content */
-    }
-    .tabheading{
-        background-color: rgb(41, 181, 232);  /* light blue background */
-        color: white;  /* white text */
-        padding: 10px;  /* add padding around the content */
-    }
-    .veh1 {
-        color: rgb(125, 68, 207);  /* purple */
-    }
-    .veh2 {
-        color: rgb(212, 91, 144);  /* pink */
-    }
-    .veh3 {
-        color: rgb(255, 159, 54);  /* orange */
-    }
-    .veh4 {
-        padding: 10px;  /* add padding around the content */
-        color: rgb(0,53,69);  /* midnight */
-    }
-    .veh5 {
-        padding: 10px;  /* add padding around the content */
-        color: rgb(138,153,158);  /* windy city */
-        font-size: 14px
-    }
-    
-    body {
-        color: rgb(0,53,69);
-    }
-    
-    div[role="tablist"] > div[aria-selected="true"] {
-        background-color: rgb(41, 181, 232);
-        color: rgb(0,53,69);  /* Change the text color if needed */
-    }
+st.logo(logo)
+session = get_active_session()
+#st.write(session)
 
-    
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+
+
 
 API_ENDPOINT = "/api/v2/cortex/agent:run"
 API_TIMEOUT = 50000  # in milliseconds
@@ -59,9 +24,9 @@ CORTEX_SEARCH_SERVICES = "DEFAULT_SCHEMA.CHUNKED_REPORTS"
 SEMANTIC_MODELS = "@CORTEX_ANALYST.CORTEX_ANALYST/stock_price_info.yaml"
 
 def run_snowflake_query(query):
+    """Run Snowflake SQL Query"""
     try:
         df = session.sql(query.replace(';',''))
-        
         return df
 
     except Exception as e:
@@ -69,9 +34,9 @@ def run_snowflake_query(query):
         return None, None
 
 def snowflake_api_call(query: str, limit: int = 10):
-    
+    """Make an Agent API Call"""
     payload = {
-        "model": "llama3.1-70b",
+        "model": f"{model}",
         "messages": [
             {
                 "role": "user",
@@ -175,13 +140,42 @@ def process_sse_response(response):
         
     return text, sql, citations
 
+@st.cache_data
+def execute_cortex_complete_sql(prompt):
+    """
+    Execute Cortex Complete using the SQL API
+    """
+    cmd = "SELECT snowflake.cortex.complete(?, ?) AS response"
+    df_response = session.sql(cmd, params=[f"{model}", prompt]).collect()
+    response_txt = df_response[0].RESPONSE
+    return response_txt
+
+@st.cache_data
+def extract_python_code(text):
+    """
+    Extract only the Streamlit chart execution code from LLM output, including all arguments.
+    """
+    pattern = r"st\.(line_chart|bar_chart|scatter_chart)\((.*)\)"
+    match = re.search(pattern, text, re.DOTALL)
+    
+    if match:
+        code = f"st.{match.group(1)}({match.group(2)})"
+        return code.strip()  # Ensure clean extraction
+    return None  # Return None if no chart code is found
+
+
+def replace_chart_function(chart_string, new_chart_type):
+    return re.sub(r"st\.(\w+_chart)", f"st.{new_chart_type}", chart_string)
+
+
+
+
 def main():
-    st.markdown('<h1 class="heading">SNOWFLAKE STOCK ANALYSIS</h2><BR>', unsafe_allow_html=True)
+    st.markdown('<h0black>SNOWFLAKE | </h0black><h0blue>STOCK ANALYSIS</h0blue><BR>', unsafe_allow_html=True)
 
     # Sidebar for new chat
     with st.sidebar:
-        st.markdown('<h1 class="tabheading">OPTIONS</h2><BR>', unsafe_allow_html=True)
-        if st.button("CLEAR CHAT HISTORY", key="new_chat"):
+        if st.button("NEW CONVERSATION", key="new_chat", type="secondary"):
             st.session_state.messages = []
             st.rerun()
 
@@ -190,12 +184,12 @@ def main():
         st.session_state.messages = []
 
     for message in st.session_state.messages:
-        with st.chat_message(message['role']):
+        with st.chat_message(message['role'],avatar='🦋'):
             st.markdown(message['content'].replace("•", "\n\n"))
 
-    if query := st.chat_input("Ask me any question about snowlake?"):
+    if query := st.chat_input("Ask me any question about snowflake?"):
         # Add user message to chat
-        with st.chat_message("user"):
+        with st.chat_message("user",avatar="🐟"):
             st.markdown(query)
         st.session_state.messages.append({"role": "user", "content": query})
         
@@ -210,10 +204,12 @@ def main():
                 text = text.replace("†】", "]")
                 st.session_state.messages.append({"role": "assistant", "content": text})
                 
-                with st.chat_message("assistant"):
+                with st.chat_message("assistant", avatar="🐬"):
                     st.markdown(text.replace("•", "\n\n"))
+                    
+                    # Display citations if present
                     if citations:
-                        st.write("Citations:")
+                        st.markdown('<h0blue>CITATIONS</h0blue><BR>', unsafe_allow_html=True)
                         for citation in citations:
                             doc_id = citation.get("doc_id", "")
                             if doc_id:
@@ -227,15 +223,80 @@ def main():
                     
                                 with st.expander(f"[{citation.get('source_id', '')}]"):
                                     st.write(transcript_text)
-
+        
             # Display SQL if present
             if sql:
-                st.markdown('<h1 class="tabheading">GENERATED SQL</h2><BR>', unsafe_allow_html=True)
-                st.code(sql, language="sql")
-                sales_results = run_snowflake_query(sql)
-                if sales_results:
-                    st.markdown('<h1 class="tabheading">RETRIEVED DATA TABLE</h2><BR>', unsafe_allow_html=True)
-                    st.dataframe(sales_results)
+                st.markdown('<h0blue>STRUCTURED DATA</h0blue><BR>', unsafe_allow_html=True)
+                with st.expander("SQL", expanded=True):
+                    st.code(sql, language="sql")
+
+                with st.expander("Data Analysis", expanded=True):
+                    analysis_results = run_snowflake_query(sql).to_pandas()
+
+                    if len(analysis_results.index) > 1:
+                        data_tab, suggested_plot, line_tab, bar_tab, scatter_tab = st.tabs(
+                         ["Data", "Suggested Plot", "Line Chart", "Bar Chart","Scatter Chart"]
+                     )
+                        data_tab.dataframe(analysis_results)
+                        
+                        if len(analysis_results.columns) > 1:
+                            analysis_results = analysis_results.set_index(analysis_results.columns[0])
+                        
+                        with suggested_plot:
+                            try:
+                                prompt = f'''
+                                            Create a streamlit plot using st.line_chart OR st.bar_chart OR st.scatter_chart 
+                                            based on the dataframe is called "analysis_results" with given columns: {analysis_results.columns}.
+                                            Give me ONLY the code itself based on the columns. 
+                                            select only columns relevant to the query - {query}.
+                                            Do not create fake data.
+                                            Do not include imports.
+                                            Do not include any columns that are not provided.
+                                            only return the best chart for the data
+                                            Choose only 1 value for X and 1 value for Y. for each chart, add color='#29B5E8'
+                                            
+                                            '''
+                                code = execute_cortex_complete_sql(prompt)
+                                #st.write(code)
+                                execution_code = extract_python_code(code)
+                                
+                                st.code(execution_code, language="python", line_numbers=False)
+                                exec(execution_code)
+                            except:
+                                pass
+                        
+                        with line_tab:
+
+                            
+                            
+                            try:
+                                exec(replace_chart_function(execution_code, 'line_chart'))
+                                #st.line_chart(analysis_results,color='#29B5E8')
+                            except:
+                                pass
+                        
+                        with bar_tab:
+                            try: 
+                                exec(replace_chart_function(execution_code, 'bar_chart'))
+                                #st.bar_chart(analysis_results,color='#29B5E8')
+                            except:
+                                pass
+                                
+                        with scatter_tab:
+                            try: 
+                                exec(replace_chart_function(execution_code, 'scatter_chart'))
+                                #st.bar_chart(analysis_results,color='#29B5E8')
+                            except:
+                                pass
+                    else:
+                        st.dataframe(analysis_results)
 
 if __name__ == "__main__":
     main()
+
+# Questions to try:
+    
+# - i would like to see the sentiment score for each minute and also what has been said in the last earnings call
+# - What analyst gave a rating of sell?
+# - what is the SNOW stock price by year?
+# - what is the SNOW stock price by month during 2023
