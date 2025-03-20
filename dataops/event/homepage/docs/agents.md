@@ -1,4 +1,4 @@
-# <h1black>CREATE A </h1black><h1blue>CORTEX AGENT</h1blue>
+# <h1black>Create a </h1black><h1blue>Cortex Agent</h1blue>
 
 
 We now have datasets in both structured and unstructured format.  Lets see how a **Cortex Agent** will allow users to ask questions about their data all in one place.  
