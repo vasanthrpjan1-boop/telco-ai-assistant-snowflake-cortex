@@ -5,7 +5,10 @@ You now have datasets in both structured and unstructured format.  Lets see how 
 
 If you have completed all the previous steps then this step should **just work**.
 
-This Streamlit app had been heavily styled.  Streamlit supports stylesheets allowing you to create a highly formatted application as you see fit.  If you would like to view the style sheet as well as all other supporting files, you can by going to 
+This Streamlit app had been heavily styled.  Streamlit supports stylesheets allowing you to create a highly formatted application as you see fit.  If you would like to view the style sheet as well as all other supporting files, you can by going to the dataops_event_prod database then downloading the files from **STREAMLIT > STREAMLIT3**
+
+![alt text](assets/agent/ag02.png)
+
 
 - Within **Projects>Streamlits** click on the notebook **CORTEX_AGENT**
 
@@ -37,16 +40,16 @@ shall i buy snowflake shares?
 
 ```
 
-If you completed the optional excercise in cortex analyst, this is the response you will get if you ask what transcript had the lowest sentiment:
+If you completed the optional exercise in cortex analyst, this is the response you will get if you ask what transcript had the lowest sentiment:
 
 
 If you joined the logical table to cortex search, this is what you might bet if you later ask the question
 
-**can you give me more information about that particular earnings call**
+**Can you give me more information about that particular earnings call**
 
 
 
-So you should see how convenient it is to bring in both the processing of structured datasets and structured datasets to get one holistic view of the data subject (in this case the analysis of snowflake) in question.
+So you should see how convenient it is to bring in both the processing of unstructured datasets and structured datasets to get one holistic view of the data subject (in this case the analysis of snowflake) in question.
 
 
 
