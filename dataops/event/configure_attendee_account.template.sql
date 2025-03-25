@@ -67,8 +67,8 @@ create user IF NOT EXISTS {{ env.EVENT_USER_NAME }}
 create user IF NOT EXISTS {{ env.EVENT_ADMIN_NAME }}
     PASSWORD = '{{ env.EVENT_ADMIN_PASSWORD }}'
     LOGIN_NAME = {{ env.EVENT_ADMIN_NAME }}
-    FIRST_NAME = '{{ env.EVENT_ADMIN_FIRST_NAME }}'
-    LAST_NAME = '{{ env.EVENT_ADMIN_LAST_NAME }}'
+    FIRST_NAME = 'EVENT'
+    LAST_NAME = 'ADMIN'
     MUST_CHANGE_PASSWORD = false
     TYPE = PERSON;
 
