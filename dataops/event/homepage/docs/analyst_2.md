@@ -64,11 +64,9 @@ You will have remembered that we also produced structured data from sound files.
 
 - Explore other questions users might ask, and refine the model accordingly.
 
-- Work out how to join the logical table to the search service - This is handy for when we look at **Cortex Agents**.
-
 - Save any changes to the model.  The more descriptive your model, the better the results.  
 
-
+Remember to **Save** your work as we will be using this semantic model in the next step.
 
 So now we have a way to find out information about **Structured Data**, and we created a search service for **Unstructured Data**.
 

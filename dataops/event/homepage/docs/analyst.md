@@ -51,6 +51,25 @@ Below you will see the **Semantic Model** wizard.  This will create a YAML file 
 - Press **Next**
 
 
+
+
+Press **Next**
+
+- Under the **DATAOPS_EVENT_PROD.DEFAULT_SCHEMA** view, select the **STOCK_PRICES** table.
+- Press **Next**
+- Select all fields
+- Press **Done**
+
+Next, you will need to specify what fields are Dimensions, Time Dimensions, Facts, Named Fields or Metrics.  Cortex suggests where they should be placed - at this point, you have the ability to override where needed.
+
+Under Named filters you can educate **Cortex** Analyst valid examples of how the data is filtered which improves the accuracy of the answers.  We will add one now
+
+- Under **Named Filters** click on the +
+- Under Expression, type in ** TICKER = 'SNOW'
+- Under Filter name call the filter SNOW.
+- Press **Generate Fields** to allow AI to ender a field description with synonyms.  You will see that Cortex assumes we are talking about 'Actual Snow' as apposed to a Data and AI platform. 
+-   Modify the Synonyms to more relevant ones.  When finished, press **Save**
+
 The next step you will need to provide sample questions of what might be asked about the dataset.  Tryout the following:
 
 ```text
@@ -61,15 +80,6 @@ Tell me the stock prices for SNOW Shares last week by day of the week?
 What is the stock prices for SNOW shares by month?
 
 ```
-
-Press **Next**
-
-- Under the **DATAOPS_EVENT_PROD.DEFAULT_SCHEMA** view, select the **STOCK_PRICES** table.
-- Press **Next**
-- Select all fields
-- Press **Done**
-
-Next, you will need to specify what fields are Dimensions, Time Dimensions, Facts, Named Fields or Metrics.  Cortex suggests where they should be placed - at this point, you have the ability to override where needed.
 
 As you try this out, you will see example outputs
 

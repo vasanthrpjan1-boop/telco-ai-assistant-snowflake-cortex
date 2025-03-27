@@ -42,8 +42,9 @@ shall i buy snowflake shares?
 
 If you completed the optional exercise in cortex analyst, this is the response you will get if you ask what transcript had the lowest sentiment:
 
+![alt text](assets/agent/ag04.png)
 
-If you joined the logical table to cortex search, this is what you might get if you later ask the question:
+Try asking the following question to get mor information
 
 **Can you give me more information about that particular earnings call**
 
