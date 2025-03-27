@@ -25,9 +25,6 @@ We now need upload some documents into Document AI in order to build a train mod
 
 - **Download** The Analyst Reports **<a href="downloads/fake_docs.zip" download>here</a>**
 
-The Second model we will build are consistant infographic style reports.  These are quartely publically available snowflake reports.
-
-- **Download** the Infographics **<a href="downloads/infographics.zip" download> here</a>**
 
 
 ### <h1>Uploading the Documents to the model</h1>
@@ -112,9 +109,14 @@ You will have examples of these queries preloaded into a notebook. This model is
 
 ### <h1sub>Create a second model</h1sub>
 
+
+The Second model we will build are consistant infographic style reports.  These are quartely publically available snowflake reports.
+
+- **Download** the Infographics **<a href="downloads/infographics.zip" download> here</a>**
+
 You will now create a new model - this time, we will call it **INFOGRAPHICS**
 
-- click on the **+ build** to build a new model and populate the fields with the following:
+- Go back to the document AI home page and click on the **+ build** button to build a new model and populate the fields with the following:
 
 Build name: **INFOGRAPHICS**
 Location: 
