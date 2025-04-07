@@ -1,4 +1,4 @@
-# <h0black>Activating AI </h0black><h0blue>Hands On Lab</h0blue>
+# <h0black>Build an AI Assistant for FSI using </h0black><h0blue>Cortex and Document AI</h0blue>
 
 
 
@@ -8,7 +8,7 @@
 
 <h1sub>Why are we here?</h1sub>
 
-To learn about you can leverage the latest AI technologies right within the Snowflake platform.  When AI is deeply embedded in your trusted data platform, the possibilities are endless. We will be exploring the processing of both **Unstructured** and **Structured** data which will then allow the application of a **Cortex Agent** to help descover insights by leveraging **All Data.**
+To learn about you can leverage the latest AI technologies right within the Snowflake platform.  When AI is deeply embedded in your trusted data platform, the possibilities are endless. We will be exploring the processing of both **Unstructured** and **Structured** data which will then allow the application of a **Cortex Agent** to help discover insights by leveraging **All Data.**
 
 <h1sub> The lab environment</h1sub>
 
@@ -24,7 +24,9 @@ A complete lab environment has been built for you automatically. This includes:
 
 <h1sub>Structure of the Session</h1sub>
 
-You will be taken through the AI capabilities of Snowflake with Financial Reporting data.  We will be focusing on the Snowflake Share price - and will investigating whether we should **BUY**, **SELL** or **HOLD**
+![alt text](assets/architecture.png)
+
+You will be taken through the AI capabilities of Snowflake with Financial Reporting data.  You will be focusing on the Snowflake Share price - and will investigating whether you should **BUY**, **SELL** or **HOLD**
 
 Please note that the Analyst reports for this lab are completely fictious and financial decisions can not be made based on any of the outcomes of this lab.
 
@@ -39,6 +41,8 @@ Please note that the Analyst reports for this lab are completely fictious and fi
 -    Navigate through the lab via the side-bar menu
 
 <h1sub>HAVE FUN</h1sub>
+
+- Navigate to [the lab steps](Logging_in.md) to begin the lab.
 
 
 
