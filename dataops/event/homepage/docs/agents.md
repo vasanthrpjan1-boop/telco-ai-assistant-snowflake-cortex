@@ -1,16 +1,22 @@
 # <h1black>Create a </h1black><h1blue>Cortex Agent</h1blue>
 
-![alt text](assets/agent/ag01.png)
+![alt text](assets/agent/ag03.png)
 You now have datasets in both structured and unstructured format.  Lets see how a **Cortex Agent** will allow users to ask questions about their data all in one place.  
 
 If you have completed all the previous steps then this step should **just work**.
 
-This Streamlit app had been heavily styled.  Streamlit supports stylesheets allowing you to create a highly formatted application as you see fit.  If you would like to view the style sheet as well as all other supporting files, you can by going to the dataops_event_prod database then downloading the files from **STREAMLIT > STREAMLIT3**
-
-![alt text](assets/agent/ag02.png)
 
 
-- Within **Projects>Streamlits** click on the notebook **CORTEX_AGENT**
+
+
+- Within **Projects>Streamlits** click on the streamlit **CORTEX_AGENT**
+
+It leverages **streamlit extras** which has packaged in styles to customise your app.  It also allows you to choose the search service and analyst semantic model during the app configuration.  The agent has configurable options for the user such as multiple chart types using **Plotly**
+
+- configure the search service to the one you have previously created earlier on in the lab
+
+- Configure Cortex analyst to point to the **stock_price_info** semantic model.
+
 
 Ask questions about the data that might appear in the earnings calls or analyst reports.
 
@@ -42,7 +48,7 @@ shall i buy snowflake shares?
 
 If you completed the optional exercise in cortex analyst, this is the response you will get if you ask what transcript had the lowest sentiment:
 
-![alt text](assets/agent/ag04.png)
+![alt text](assets/agent/ag05.png)
 
 Try asking the following question to get mor information
 
@@ -55,7 +61,9 @@ So you should see how convenient it is to bring in both the processing of unstru
 
 #### <h1sub> Editing the Application</h1sub>
 
-Your role in this setup allows you to edit the application.  
+Your role in this setup allows you to edit the application.  This particular agent is quite sophisticated in terms of functionality.  So you can understand the key principles of how the agent works, let's switch over to a simpler agent.
+
+Within **Projects > Streamlit** navigate to **CORTEX_AGENT_SIMPLE**
 
 - Press **Edit** to go into edit mode.
 
@@ -93,12 +101,6 @@ If you would like to make any changes to this application, you will need to **du
 
 If you duplicate the application using the duplicate button, all files associated to the application will be copied with it.
 
-
-### <h1sub> Alternative Agent </h1sub>
-
-Take a look at the configurable alterative agent app - **CORTEX_AGENT_ALTERNATIVE**.  This app has an alternative approach for styling.  It leverages **streamlit extras** which has packaged in styles to customise your app.  It also allows you to choose the search service and analyst semantic model during the app configuration.  It also has a lot more configurable options for the user such as multiple chart types using **Plotly**
-
-![alt text](assets/agent/ag03.png)
 
 ### <h1sub> Conclusion </h1sub>
 

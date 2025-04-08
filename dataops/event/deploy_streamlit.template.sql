@@ -43,7 +43,7 @@ MAIN_FILE = 'app.py'
 QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}'
 COMMENT = '{"origin":"sf_sit", "name":"cortex_analyst", "version":{"major":1, "minor":0}, "attributes":{"is_quickstart":0, "source":"streamlit"}}';
 
-CREATE OR REPLACE STREAMLIT {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.CORTEX_AGENT
+CREATE OR REPLACE STREAMLIT {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.CORTEX_AGENT_SIMPLE
 ROOT_LOCATION = '@{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT2'
 MAIN_FILE = 'app.py'
 QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}'
@@ -55,7 +55,7 @@ COMMENT = '{"origin":"sf_sit", "name":"CORTEX_CHAT", "version":{"major":1, "mino
 --QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}'
 --COMMENT = '{"origin":"sf_sit", "name":"CORTEX_SEARCH", "version":{"major":1, "minor":0}, "attributes":{"is_quickstart":0, "source":"streamlit"}}';
 
-CREATE OR REPLACE STREAMLIT {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.CORTEX_AGENT_ALTERNATIVE
+CREATE OR REPLACE STREAMLIT {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.CORTEX_AGENT
 ROOT_LOCATION = '@{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT4'
 MAIN_FILE = 'app.py'
 QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}'

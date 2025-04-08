@@ -38,9 +38,11 @@ Choose **DATAOPS_EVENT_PROD.CORTEX_ANALYST** as the schema and **CORTEX_ANALYST*
 
 <hr>
 
+- you will see a model called **stock_price_info**  has already been created.  Here you can open the model to view how it's constructed.  This model will be used for the agent later on.  But for now, you can get a feel for how you can create a semenatic model yourself.
+
 - Press **Create New** to create a new Semantic model about the previously loaded dataset.
 
-- Call the model **stock_price_info**.
+- Call the model **stock_data**.
 
 Below you will see the **Semantic Model** wizard.  This will create a YAML file which makes sense of the data ane provides a link between the sorts of questions that might be asked and the dataset itself.  
 
@@ -52,7 +54,7 @@ Below you will see the **Semantic Model** wizard.  This will create a YAML file 
 
 
 - Under the **DATAOPS_EVENT_PROD.DEFAULT_SCHEMA** view, select the **STOCK_PRICES** table.
-- Press **Next**
+- Press **Next: Select tables**
 - Select all fields
 - Press **Done**
 
@@ -86,8 +88,9 @@ As you try this out, you will see example outputs
 ![alt text](assets/analyst/C003.png)
 
 
-
 - Press **Save** to save the YAML file which will be used in Streamlit
 
+The next step re-opens the model so you can add existing tables to it.  You can try out this step to add tables, and experiment with the logical tables etc.  
 
-Continue to the next Cortex Analyst step.  We will refine the model to include an additional 2 tables...
+Alternatively, view the existing semantic model **stock_price_info** which is a model containing three tables.  Again this is the model which we will use for the **Cortex Agents** section
+
