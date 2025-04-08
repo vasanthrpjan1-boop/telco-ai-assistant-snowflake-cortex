@@ -1,8 +1,8 @@
-use role {{ env.EVENT_ATTENDEE_ROLE }};
+use role ACCOUNTADMIN;
 GRANT DATABASE ROLE SNOWFLAKE.DOCUMENT_INTELLIGENCE_CREATOR TO ROLE {{ env.EVENT_ATTENDEE_ROLE }};
 
 
---use role {{ env.EVENT_ATTENDEE_ROLE }};
+use role {{ env.EVENT_ATTENDEE_ROLE }};
 
 
 GRANT CREATE snowflake.ml.document_intelligence on schema {{ env.DATAOPS_DATABASE }}.{{ env.DOCUMENT_AI_SCHEMA }} to role {{ env.EVENT_ATTENDEE_ROLE }};
