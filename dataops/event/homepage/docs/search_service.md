@@ -8,9 +8,6 @@ this is where you will build a search service.
 
 - Open the **CREATE_SEARCH_SERVICE** notebook
 
-- Once you have completed the search service notebook, go to **Projects > Streamlits** and open the CORTEX_SEARCH app.
-
-- Try searching for answers using your new **Search engine** powered by **Cortex Search**
 
 So we used Cortex Search to find things out about anything unstructured.  However, there will also be many datasets which we might want to include in our analysis which are infact Structured.  Some structured tables we have already processed using Document AI, but there will be other structured datasets. 
 

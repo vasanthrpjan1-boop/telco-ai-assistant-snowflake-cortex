@@ -4,7 +4,7 @@ create schema if not exists {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }
 -----create notebook and streamlit stages
 CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT1 DIRECTORY = (ENABLE = TRUE) ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
 CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT2 DIRECTORY = (ENABLE = TRUE) ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
-CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3 DIRECTORY = (ENABLE = TRUE) ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
+--CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3 DIRECTORY = (ENABLE = TRUE) ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
 CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT4 DIRECTORY = (ENABLE = TRUE) ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
 
 
@@ -23,12 +23,12 @@ PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/logos/snowflake_logo_color_rg
 PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/homepage/docs/stylesheets/extra.css @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT2/ auto_compress = false overwrite = true;
 PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_chat/Snowflake_dots.png @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT2/ auto_compress = false overwrite = true;
 -------put streamlit 3 in stage
-PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_search/app.py @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3 auto_compress = false overwrite = true;
-PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_search/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3 auto_compress = false overwrite = true;
-PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_search/config.toml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3/.streamlit auto_compress = false overwrite = true;
-PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/logos/snowflake_logo_color_rgb.svg @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3/ auto_compress = false overwrite = true;
-PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/homepage/docs/stylesheets/extra.css @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3/ auto_compress = false overwrite = true;
-PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_chat/Snowflake_dots.png @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3/ auto_compress = false overwrite = true;
+--PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_search/app.py @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3 auto_compress = false overwrite = true;
+--PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_search/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3 auto_compress = false overwrite = true;
+--PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_search/config.toml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3/.streamlit auto_compress = false overwrite = true;
+--PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/logos/snowflake_logo_color_rgb.svg @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3/ auto_compress = false overwrite = true;
+--PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/homepage/docs/stylesheets/extra.css @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3/ auto_compress = false overwrite = true;
+--PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_chat/Snowflake_dots.png @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT3/ auto_compress = false overwrite = true;
 
 PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_chat_2/app.py @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT4 auto_compress = false overwrite = true;
 PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/streamlit/cortex_chat_2/environment.yml @{{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }}.STREAMLIT4 auto_compress = false overwrite = true;
