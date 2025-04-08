@@ -1,4 +1,4 @@
-use role ACCOUNTADMIN;
+use role {{ env.EVENT_ATTENDEE_ROLE }};
 
 create schema if not exists {{ env.DATAOPS_DATABASE }}.{{ env.STREAMLIT_SCHEMA }};
 -----create notebook and streamlit stages

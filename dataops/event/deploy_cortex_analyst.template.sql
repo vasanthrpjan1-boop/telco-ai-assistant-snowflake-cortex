@@ -1,5 +1,5 @@
 
-use role ACCOUNTADMIN;
+use role {{ env.EVENT_ATTENDEE_ROLE }};
 
 
 CREATE STAGE IF NOT EXISTS {{ env.DATAOPS_DATABASE }}.{{ env.CORTEX_ANALYST_SCHEMA }}.cortex_analyst
