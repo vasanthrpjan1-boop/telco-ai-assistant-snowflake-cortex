@@ -82,6 +82,7 @@ create user IF NOT EXISTS {{ env.EVENT_ADMIN_NAME }}
 -- Ensure the user can use the role and warehouse
 use role SECURITYADMIN;
 grant role {{ env.EVENT_ATTENDEE_ROLE }} to user {{ env.EVENT_USER_NAME }};
+grant role ACCOUNTADMIN to user {{ env.EVENT_USER_NAME }};
 grant USAGE on warehouse {{ env.EVENT_WAREHOUSE }} to role {{ env.EVENT_ATTENDEE_ROLE }};
 
 -- Ensure ADMIN can use ACCOUNTADMIN role
