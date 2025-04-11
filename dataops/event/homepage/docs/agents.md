@@ -15,7 +15,7 @@ It leverages **streamlit extras** which has packaged in styles to customise your
 
 - configure the search service to the one you have previously created earlier on in the lab
 
-- Configure Cortex analyst to point to the **stock_price_info** semantic model.
+- Configure Cortex analyst to point to the **semantic_model** semantic model.
 
 
 Ask questions about the data that might appear in the earnings calls or analyst reports.
