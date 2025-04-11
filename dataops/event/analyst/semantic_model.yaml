@@ -31,6 +31,21 @@ tables:
       - name: TEXT
         expr: TEXT
         data_type: VARCHAR(16777216)
+      - expr: RELATIVE_PATH
+        name: RELATIVE_PATH
+        data_type: VARCHAR(16777216)
+        description: The name of the document being summarized.
+        synonyms:
+          - file_name
+          - document_title
+          - title
+          - doc_name
+          - file_title
+          - record_name
+        cortex_search_service:
+          database: DATAOPS_EVENT_PROD
+          schema: DEFAULT_SCHEMA
+          service: CHUNKED_REPORTS
     facts:
       - name: MINUTES
         expr: MINUTES
