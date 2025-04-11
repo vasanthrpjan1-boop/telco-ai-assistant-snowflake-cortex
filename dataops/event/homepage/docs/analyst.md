@@ -38,7 +38,7 @@ Choose **DATAOPS_EVENT_PROD.CORTEX_ANALYST** as the schema and **CORTEX_ANALYST*
 
 <hr>
 
-- you will see a model called **stock_price_info**  has already been created.  Here you can open the model to view how it's constructed.  This model will be used for the agent later on.  But for now, you can get a feel for how you can create a semenatic model yourself.
+- you will see a model called **semantic_model**  has already been created.  Here you can open the model to view how it's constructed.  This model will be used for the agent later on.  But for now, you can get a feel for how you can create a semenatic model yourself.
 
 - Press **Create New** to create a new Semantic model about the previously loaded dataset.
 
@@ -92,5 +92,6 @@ As you try this out, you will see example outputs
 
 The next step re-opens the model so you can add existing tables to it.  You can try out this step to add tables, and experiment with the logical tables etc.  
 
-Alternatively, view the existing semantic model **stock_price_info** which is a model containing three tables.  Again this is the model which we will use for the **Cortex Agents** section
+Alternatively, view the existing semantic model **semantic_model** which is a model containing three tables.  Again this is the model which we will use for the **Cortex Agents** section.
+
 

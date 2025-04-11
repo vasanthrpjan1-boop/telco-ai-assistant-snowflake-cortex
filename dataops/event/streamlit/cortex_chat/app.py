@@ -21,7 +21,7 @@ API_ENDPOINT = "/api/v2/cortex/agent:run"
 API_TIMEOUT = 50000  # in milliseconds
 
 CORTEX_SEARCH_SERVICES = "DEFAULT_SCHEMA.CHUNKED_REPORTS"
-SEMANTIC_MODELS = "@CORTEX_ANALYST.CORTEX_ANALYST/stock_price_info.yaml"
+SEMANTIC_MODELS = "@CORTEX_ANALYST.CORTEX_ANALYST/semantic_model.yaml"
 
 def run_snowflake_query(query):
     """Run Snowflake SQL Query"""
