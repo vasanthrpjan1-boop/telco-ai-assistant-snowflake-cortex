@@ -5,9 +5,7 @@ USE ROLE ACCOUNTADMIN;
 
 ALTER ACCOUNT SET CORTEX_ENABLED_CROSS_REGION = 'AWS_US';
 
------make listings available in chosen region -----
 
-CALL SYSTEM$REQUEST_LISTING_AND_WAIT('GZTYZ1US93D', 60);
 
 CREATE OR REPLACE WAREHOUSE {{ env.EVENT_WAREHOUSE }}
 WITH
@@ -18,6 +16,10 @@ WITH
 
 
 use warehouse {{ env.EVENT_WAREHOUSE }};
+
+-----make listings available in chosen region -----
+
+CALL SYSTEM$REQUEST_LISTING_AND_WAIT('GZTYZ1US93D', 60);
 
 ----- Disable mandatory MFA -----
 USE ROLE ACCOUNTADMIN;
