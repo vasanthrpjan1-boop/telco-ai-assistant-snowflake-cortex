@@ -1,0 +1,12 @@
+listing_kind: event_solution
+name: "Build an AI Assistant for FSI using Cortex and Document AI"
+version: "v1"
+tier: 2
+description: "https://docs.google.com/presentation/d/1EbyMqd8c104xx2iG_EFJkBPGOBHRoIeDswTXAuw1MWE/edit?usp=sharing"
+creator: "Innovation Showcase Team"
+use_case:
+  - "Snowflake"
+vertical_applicability:
+  - "Product Demos"
+snowflake_feature:
+  - "Snowsight"
