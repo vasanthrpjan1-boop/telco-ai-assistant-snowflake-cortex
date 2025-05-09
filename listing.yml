@@ -15,4 +15,5 @@ snowflake_feature:
   - "Cortex Analyst"
   - "Cortex LLM Functions"
   - "Cortex Agents"
+  - "Document AI"
   - "Snowpark"
