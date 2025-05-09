@@ -24,7 +24,7 @@ A complete lab environment has been built for you automatically. This includes:
 
 <h1sub>Structure of the Session</h1sub>
 
-![alt text](assets/architecture.png)
+![alt text](assets/fsi_ai_architecture_diagram.png)
 
 You will be taken through the AI capabilities of Snowflake with Financial Reporting data.  You will be focusing on the Snowflake Share price - and will investigating whether you should **BUY**, **SELL** or **HOLD**
 
