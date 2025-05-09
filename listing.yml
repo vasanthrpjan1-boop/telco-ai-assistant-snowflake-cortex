@@ -5,8 +5,14 @@ tier: 2
 description: "https://docs.google.com/presentation/d/1EbyMqd8c104xx2iG_EFJkBPGOBHRoIeDswTXAuw1MWE/edit?usp=sharing"
 creator: "Innovation Showcase Team"
 use_case:
-  - "Snowflake"
+  - "Financial Services - Quantitative Research & Investment Analytics"
 vertical_applicability:
-  - "Product Demos"
+  - "Financial Services"
+  - "Product Hands on Labs"
 snowflake_feature:
-  - "Snowsight"
+  - "Cortex"
+  - "Cortex Search"
+  - "Cortex Analyst"
+  - "Cortex LLM Functions"
+  - "Cortex Agents"
+  - "Snowpark"
