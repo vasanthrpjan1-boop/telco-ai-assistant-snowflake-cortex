@@ -2,7 +2,7 @@ listing_kind: event_solution
 name: "Build an AI Assistant for FSI using Cortex and Document AI"
 version: "v1"
 tier: 1
-description: "This lab will guide customers through the process of preparing data (structured and unstructured) for a Data Agent, ultimately leading to powerful insights from all Enterprise data. Access the associated slide deck here: https://docs.google.com/presentation/d/1EbyMqd8c104xx2iG_EFJkBPGOBHRoIeDswTXAuw1MWE/edit?usp=sharing"
+description: "This lab will guide customers through the process of preparing data (structured and unstructured) for a Data Agent, ultimately leading to powerful insights from all Enterprise data. Access the associated slide deck here: https://docs.google.com/presentation/d/1EbyMqd8c104xx2iG_EFJkBPGOBHRoIeDswTXAuw1MWE/edit?usp=sharing ; Interested in trying out the content? Claim an account using the link. It includes setup instructions as well: https://go.dataops.live/dry-run-for-ai-for-fsi"
 creator: "Innovation Showcase Team"
 use_case:
   - "Financial Services - Quantitative Research & Investment Analytics"
