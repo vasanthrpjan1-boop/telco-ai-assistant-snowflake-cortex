@@ -49,7 +49,7 @@ Please note that the Analyst reports for this lab are completely fictious and fi
 
 !!! warning "This lab environment will disappear!"
 
-    This event is due to end at {{ getenv("EVENT_END_DATETIME","[unknown time]") }}, at which point access will be restricted, and accounts will be removed.
+    This event is due to end at {{ getenv("EVENT_DECOMMISSION_DATETIME","[unknown time]") }}, at which point access will be restricted, and accounts will be removed.
 
 
 
