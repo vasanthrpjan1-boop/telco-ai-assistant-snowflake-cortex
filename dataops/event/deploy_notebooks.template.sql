@@ -1,4 +1,4 @@
-ALTER SESSION SET QUERY_TAG = '{"origin":"sf_sit-is", "name":"Build an AI Assistant for FSI using Cortex and Document AI", "version":{"major":1, "minor":0},"attributes":{"is_quickstart":0, "source":"sql"}}';
+ALTER SESSION SET QUERY_TAG = '''{"origin":"sf_sit-is", "name":"Build an AI Assistant for FSI using Cortex and Document AI", "version":{"major":1, "minor":0},"attributes":{"is_quickstart":0, "source":"sql"}}''';
 use role {{ env.EVENT_ATTENDEE_ROLE }};
 
 create or replace schema {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }};
@@ -32,7 +32,7 @@ PUT file:///{{ env.CI_PROJECT_DIR }}/dataops/event/notebooks/infographics/enviro
 CREATE OR REPLACE NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.CORTEX_ANALYST
 FROM '@{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK4'
 MAIN_FILE = 'cortex_analyst.ipynb'
-QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}';
+QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}'
 COMMENT = '''{"origin":"sf_sit-is", "name":"Build an AI Assistant for FSI using Cortex and Document AI", "version":{"major":1, "minor":0},"attributes":{"is_quickstart":0, "source":"notebook"}}''';
 ALTER NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.CORTEX_ANALYST ADD LIVE VERSION FROM LAST;
 
@@ -40,7 +40,7 @@ ALTER NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.CORTEX_ANAL
 CREATE OR REPLACE NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.ANALYSE_SOUND
 FROM '@{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK2'
 MAIN_FILE = 'sound_service_with_transcripts.ipynb'
-QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}';
+QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}'
 COMMENT = '''{"origin":"sf_sit-is", "name":"Build an AI Assistant for FSI using Cortex and Document AI", "version":{"major":1, "minor":0},"attributes":{"is_quickstart":0, "source":"notebook"}}''';
 ALTER NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.ANALYSE_SOUND ADD LIVE VERSION FROM LAST;
 
@@ -48,7 +48,7 @@ ALTER NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.ANALYSE_SOU
 CREATE OR REPLACE NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.DOCUMENT_AI_INFOGRAPHICS
 FROM '@{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK3'
 MAIN_FILE = 'DOCUMENT_AI_infographics.ipynb'
-QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}';
+QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}'
 COMMENT = '''{"origin":"sf_sit-is", "name":"Build an AI Assistant for FSI using Cortex and Document AI", "version":{"major":1, "minor":0},"attributes":{"is_quickstart":0, "source":"notebook"}}''';
 ALTER NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.DOCUMENT_AI_INFOGRAPHICS ADD LIVE VERSION FROM LAST;
 
@@ -63,6 +63,6 @@ ALTER NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.DOCUMENT_AI
 CREATE OR REPLACE NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.SEARCH_SERVICE
 FROM '@{{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.NOTEBOOK6'
 MAIN_FILE = 'SEARCH_SERVICE.ipynb'
-QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}';
+QUERY_WAREHOUSE = '{{ env.EVENT_WAREHOUSE }}'
 COMMENT = '''{"origin":"sf_sit-is", "name":"Build an AI Assistant for FSI using Cortex and Document AI", "version":{"major":1, "minor":0},"attributes":{"is_quickstart":0, "source":"notebook"}}''';
 ALTER NOTEBOOK {{ env.DATAOPS_DATABASE }}.{{ env.NOTEBOOKS_SCHEMA }}.SEARCH_SERVICE ADD LIVE VERSION FROM LAST;
