@@ -2,7 +2,7 @@ listing_kind: event_solution
 name: "Build an AI Assistant for FSI using Cortex and Document AI"
 version: "v1"
 tier: 1
-description: "This lab will guide customers through the process of preparing data (structured and unstructured) for a Data Agent, ultimately leading to powerful insights from all Enterprise data. Please visit Learn More section below for more details or if you want to try out the Hands on Lab."
+description: "This lab will guide customers through the process of preparing data (structured and unstructured) for a Data Agent, ultimately leading to powerful insights from all Enterprise data. Please visit Learn More section below for more details or if you want to try out the Hands on Lab.  https://docs.google.com/presentation/d/1qx0N57xKZDpWMXiBQppeNW7exD_jBmXDBQcq7dza5SQ/edit?usp=sharing"
 creator: "Innovation Showcase Team"
 use_case:
   - "Financial Services - Quantitative Research & Investment Analytics"
