@@ -131,29 +131,29 @@ CREATE OR REPLACE TABLE {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NETWOR
     UPTIME_PERCENT FLOAT
 );
 
--- Insert sample network performance data
+-- Insert sample network performance data (using recent timestamps)
 INSERT INTO {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NETWORK_PERFORMANCE VALUES
--- Northeast Region - 5G Towers
-('TOWER_NYC_001', '5G', 'Northeast', '2024-01-15 14:30:00', 8.5, 1200.5, 0.05, 99.95),
-('TOWER_NYC_001', '5G', 'Northeast', '2024-01-15 15:00:00', 9.2, 1180.3, 0.08, 99.92),
-('TOWER_NYC_001', '5G', 'Northeast', '2024-01-15 15:30:00', 7.8, 1250.1, 0.03, 99.98),
-('TOWER_BOS_015', '5G', 'Northeast', '2024-01-15 14:30:00', 12.1, 980.7, 0.12, 99.85),
-('TOWER_BOS_015', '5G', 'Northeast', '2024-01-15 15:00:00', 11.5, 1050.2, 0.09, 99.88),
+-- Northeast Region - 5G Towers (Recent data)
+('TOWER_NYC_001', '5G', 'Northeast', DATEADD(hour, -2, CURRENT_TIMESTAMP()), 8.5, 1200.5, 0.05, 99.95),
+('TOWER_NYC_001', '5G', 'Northeast', DATEADD(hour, -1, CURRENT_TIMESTAMP()), 9.2, 1180.3, 0.08, 99.92),
+('TOWER_NYC_001', '5G', 'Northeast', CURRENT_TIMESTAMP(), 7.8, 1250.1, 0.03, 99.98),
+('TOWER_BOS_015', '5G', 'Northeast', DATEADD(day, -1, CURRENT_TIMESTAMP()), 12.1, 980.7, 0.12, 99.85),
+('TOWER_BOS_015', '5G', 'Northeast', DATEADD(hour, -12, CURRENT_TIMESTAMP()), 11.5, 1050.2, 0.09, 99.88),
 -- West Coast Region - 5G Towers  
-('TOWER_LA_045', '5G', 'West_Coast', '2024-01-15 14:30:00', 10.2, 1100.8, 0.07, 99.90),
-('TOWER_LA_045', '5G', 'West_Coast', '2024-01-15 15:00:00', 9.8, 1145.6, 0.06, 99.93),
-('TOWER_SF_032', '5G', 'West_Coast', '2024-01-15 14:30:00', 13.5, 890.4, 0.15, 99.82),
-('TOWER_SF_032', '5G', 'West_Coast', '2024-01-15 15:00:00', 12.8, 920.1, 0.11, 99.86),
+('TOWER_LA_045', '5G', 'West_Coast', DATEADD(hour, -3, CURRENT_TIMESTAMP()), 10.2, 1100.8, 0.07, 99.90),
+('TOWER_LA_045', '5G', 'West_Coast', DATEADD(hour, -1, CURRENT_TIMESTAMP()), 9.8, 1145.6, 0.06, 99.93),
+('TOWER_SF_032', '5G', 'West_Coast', DATEADD(day, -2, CURRENT_TIMESTAMP()), 13.5, 890.4, 0.15, 99.82),
+('TOWER_SF_032', '5G', 'West_Coast', DATEADD(hour, -6, CURRENT_TIMESTAMP()), 12.8, 920.1, 0.11, 99.86),
 -- Midwest Region - 4G LTE Towers
-('TOWER_CHI_023', '4G_LTE', 'Midwest', '2024-01-15 14:30:00', 18.7, 450.3, 0.25, 99.70),
-('TOWER_CHI_023', '4G_LTE', 'Midwest', '2024-01-15 15:00:00', 17.9, 485.7, 0.22, 99.75),
-('TOWER_DET_041', '4G_LTE', 'Midwest', '2024-01-15 14:30:00', 22.1, 380.9, 0.30, 99.65),
-('TOWER_DET_041', '4G_LTE', 'Midwest', '2024-01-15 15:00:00', 20.5, 410.2, 0.28, 99.68),
+('TOWER_CHI_023', '4G_LTE', 'Midwest', DATEADD(hour, -4, CURRENT_TIMESTAMP()), 18.7, 450.3, 0.25, 99.70),
+('TOWER_CHI_023', '4G_LTE', 'Midwest', DATEADD(hour, -2, CURRENT_TIMESTAMP()), 17.9, 485.7, 0.22, 99.75),
+('TOWER_DET_041', '4G_LTE', 'Midwest', DATEADD(day, -1, CURRENT_TIMESTAMP()), 22.1, 380.9, 0.30, 99.65),
+('TOWER_DET_041', '4G_LTE', 'Midwest', DATEADD(hour, -8, CURRENT_TIMESTAMP()), 20.5, 410.2, 0.28, 99.68),
 -- Rural Areas - 3G Network
-('TOWER_RUR_101', '3G', 'Rural_South', '2024-01-15 14:30:00', 45.2, 85.3, 1.2, 98.90),
-('TOWER_RUR_101', '3G', 'Rural_South', '2024-01-15 15:00:00', 48.7, 78.9, 1.5, 98.85),
-('TOWER_RUR_205', '3G', 'Rural_West', '2024-01-15 14:30:00', 52.1, 72.1, 1.8, 98.75),
-('TOWER_RUR_205', '3G', 'Rural_West', '2024-01-15 15:00:00', 49.3, 81.4, 1.6, 98.80);
+('TOWER_RUR_101', '3G', 'Rural_South', DATEADD(day, -3, CURRENT_TIMESTAMP()), 45.2, 85.3, 1.2, 98.90),
+('TOWER_RUR_101', '3G', 'Rural_South', DATEADD(day, -2, CURRENT_TIMESTAMP()), 48.7, 78.9, 1.5, 98.85),
+('TOWER_RUR_205', '3G', 'Rural_West', DATEADD(day, -4, CURRENT_TIMESTAMP()), 52.1, 72.1, 1.8, 98.75),
+('TOWER_RUR_205', '3G', 'Rural_West', DATEADD(day, -3, CURRENT_TIMESTAMP()), 49.3, 81.4, 1.6, 98.80);
 
 -- 2. CUSTOMER USAGE TABLE
 CREATE OR REPLACE TABLE {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.CUSTOMER_USAGE (
@@ -167,27 +167,35 @@ CREATE OR REPLACE TABLE {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.CUSTOM
     MONTHLY_BILL_AMOUNT FLOAT
 );
 
--- Insert sample customer usage data
+-- Insert sample customer usage data (using recent dates for query compatibility)
 INSERT INTO {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.CUSTOMER_USAGE VALUES
--- Premium 5G Customers
-('CUST_1001234', 'UNLIMITED_5G', 'SMARTPHONE', '2024-01-15', 45.8, 680, 245, 120.75),
-('CUST_1001234', 'UNLIMITED_5G', 'SMARTPHONE', '2024-01-16', 52.3, 720, 198, 120.75),
-('CUST_1001234', 'UNLIMITED_5G', 'SMARTPHONE', '2024-01-17', 38.9, 590, 312, 120.75),
-('CUST_2005678', 'UNLIMITED_5G', 'SMARTPHONE', '2024-01-15', 62.1, 450, 156, 125.99),
-('CUST_2005678', 'UNLIMITED_5G', 'SMARTPHONE', '2024-01-16', 58.7, 520, 189, 125.99),
-('CUST_3009012', 'PREMIUM_DATA', 'TABLET', '2024-01-15', 28.4, 0, 0, 85.50),
-('CUST_3009012', 'PREMIUM_DATA', 'TABLET', '2024-01-16', 31.2, 0, 0, 85.50),
+-- Premium 5G Customers (Last 30 days)
+('CUST_1001234', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 5, 45.8, 680, 245, 120.75),
+('CUST_1001234', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 4, 52.3, 720, 198, 120.75),
+('CUST_1001234', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 3, 38.9, 590, 312, 120.75),
+('CUST_2005678', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 7, 62.1, 450, 156, 125.99),
+('CUST_2005678', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 6, 58.7, 520, 189, 125.99),
+('CUST_3009012', 'PREMIUM_DATA', 'TABLET', CURRENT_DATE() - 10, 28.4, 0, 0, 85.50),
+('CUST_3009012', 'PREMIUM_DATA', 'TABLET', CURRENT_DATE() - 9, 31.2, 0, 0, 85.50),
 -- Standard Plan Customers
-('CUST_4012345', 'PREMIUM_DATA', 'SMARTPHONE', '2024-01-15', 25.6, 320, 89, 65.50),
-('CUST_4012345', 'PREMIUM_DATA', 'SMARTPHONE', '2024-01-16', 22.8, 380, 112, 65.50),
-('CUST_5067890', 'BASIC_MOBILE', 'SMARTPHONE', '2024-01-15', 12.3, 450, 150, 45.99),
-('CUST_5067890', 'BASIC_MOBILE', 'SMARTPHONE', '2024-01-16', 15.7, 390, 134, 45.99),
+('CUST_4012345', 'PREMIUM_DATA', 'SMARTPHONE', CURRENT_DATE() - 12, 25.6, 320, 89, 65.50),
+('CUST_4012345', 'PREMIUM_DATA', 'SMARTPHONE', CURRENT_DATE() - 11, 22.8, 380, 112, 65.50),
+('CUST_5067890', 'BASIC_MOBILE', 'SMARTPHONE', CURRENT_DATE() - 15, 12.3, 450, 150, 45.99),
+('CUST_5067890', 'BASIC_MOBILE', 'SMARTPHONE', CURRENT_DATE() - 14, 15.7, 390, 134, 45.99),
 -- IoT Device Customers
-('CUST_6078901', 'IOT_CONNECT', 'IOT_DEVICE', '2024-01-15', 2.1, 0, 0, 15.99),
-('CUST_6078901', 'IOT_CONNECT', 'IOT_DEVICE', '2024-01-16', 1.8, 0, 0, 15.99),
-('CUST_7089012', 'IOT_CONNECT', 'IOT_DEVICE', '2024-01-15', 3.4, 0, 0, 15.99),
-('CUST_8090123', 'FAMILY_PLAN', 'SMARTPHONE', '2024-01-15', 35.2, 890, 267, 95.99),
-('CUST_9001234', 'STUDENT_PLAN', 'SMARTPHONE', '2024-01-15', 18.9, 245, 456, 35.99);
+('CUST_6078901', 'IOT_CONNECT', 'IOT_DEVICE', CURRENT_DATE() - 18, 2.1, 0, 0, 15.99),
+('CUST_6078901', 'IOT_CONNECT', 'IOT_DEVICE', CURRENT_DATE() - 17, 1.8, 0, 0, 15.99),
+('CUST_7089012', 'IOT_CONNECT', 'IOT_DEVICE', CURRENT_DATE() - 20, 3.4, 0, 0, 15.99),
+('CUST_8090123', 'FAMILY_PLAN', 'SMARTPHONE', CURRENT_DATE() - 8, 35.2, 890, 267, 95.99),
+('CUST_9001234', 'STUDENT_PLAN', 'SMARTPHONE', CURRENT_DATE() - 13, 18.9, 245, 456, 35.99),
+-- Additional recent data for better analytics
+('CUST_1001234', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 2, 47.2, 650, 220, 120.75),
+('CUST_1001234', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 1, 51.8, 705, 255, 120.75),
+('CUST_2005678', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 2, 59.4, 485, 175, 125.99),
+('CUST_2005678', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 1, 61.7, 510, 195, 125.99),
+('CUST_4012345', 'PREMIUM_DATA', 'SMARTPHONE', CURRENT_DATE() - 2, 24.1, 340, 95, 65.50),
+('CUST_5067890', 'BASIC_MOBILE', 'SMARTPHONE', CURRENT_DATE() - 2, 14.5, 420, 145, 45.99),
+('CUST_8090123', 'FAMILY_PLAN', 'SMARTPHONE', CURRENT_DATE() - 1, 38.7, 920, 285, 95.99);
 
 -- 3. SERVICE QUALITY METRICS TABLE
 CREATE OR REPLACE TABLE {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.SERVICE_QUALITY_METRICS (
@@ -200,18 +208,18 @@ CREATE OR REPLACE TABLE {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.SERVIC
 );
 
 INSERT INTO {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.SERVICE_QUALITY_METRICS VALUES
-('VOICE_CALL', 'URBAN', '2024-01-15 09:15:00', 0.5, 98.5, 4.2),
-('VOICE_CALL', 'URBAN', '2024-01-15 09:30:00', 0.8, 98.2, 4.1),
-('VOICE_CALL', 'URBAN', '2024-01-15 09:45:00', 0.3, 98.8, 4.4),
-('DATA_SESSION', 'SUBURBAN', '2024-01-15 09:15:00', 0.0, 97.8, 3.8),
-('DATA_SESSION', 'SUBURBAN', '2024-01-15 09:30:00', 0.0, 98.1, 3.9),
-('DATA_SESSION', 'SUBURBAN', '2024-01-15 09:45:00', 0.0, 97.5, 3.7),
-('VIDEO_STREAMING', 'RURAL', '2024-01-15 09:15:00', 0.0, 95.2, 3.2),
-('VIDEO_STREAMING', 'RURAL', '2024-01-15 09:30:00', 0.0, 94.8, 3.1),
-('VIDEO_STREAMING', 'RURAL', '2024-01-15 09:45:00', 0.0, 96.1, 3.4),
-('VIDEO_STREAMING', 'URBAN', '2024-01-15 09:15:00', 0.0, 99.1, 4.6),
-('VIDEO_STREAMING', 'URBAN', '2024-01-15 09:30:00', 0.0, 98.9, 4.5),
-('VIDEO_STREAMING', 'URBAN', '2024-01-15 09:45:00', 0.0, 99.3, 4.7);
+('VOICE_CALL', 'URBAN', DATEADD(hour, -6, CURRENT_TIMESTAMP()), 0.5, 98.5, 4.2),
+('VOICE_CALL', 'URBAN', DATEADD(hour, -5, CURRENT_TIMESTAMP()), 0.8, 98.2, 4.1),
+('VOICE_CALL', 'URBAN', DATEADD(hour, -4, CURRENT_TIMESTAMP()), 0.3, 98.8, 4.4),
+('DATA_SESSION', 'SUBURBAN', DATEADD(hour, -8, CURRENT_TIMESTAMP()), 0.0, 97.8, 3.8),
+('DATA_SESSION', 'SUBURBAN', DATEADD(hour, -7, CURRENT_TIMESTAMP()), 0.0, 98.1, 3.9),
+('DATA_SESSION', 'SUBURBAN', DATEADD(hour, -6, CURRENT_TIMESTAMP()), 0.0, 97.5, 3.7),
+('VIDEO_STREAMING', 'RURAL', DATEADD(day, -1, CURRENT_TIMESTAMP()), 0.0, 95.2, 3.2),
+('VIDEO_STREAMING', 'RURAL', DATEADD(hour, -20, CURRENT_TIMESTAMP()), 0.0, 94.8, 3.1),
+('VIDEO_STREAMING', 'RURAL', DATEADD(hour, -18, CURRENT_TIMESTAMP()), 0.0, 96.1, 3.4),
+('VIDEO_STREAMING', 'URBAN', DATEADD(hour, -3, CURRENT_TIMESTAMP()), 0.0, 99.1, 4.6),
+('VIDEO_STREAMING', 'URBAN', DATEADD(hour, -2, CURRENT_TIMESTAMP()), 0.0, 98.9, 4.5),
+('VIDEO_STREAMING', 'URBAN', DATEADD(hour, -1, CURRENT_TIMESTAMP()), 0.0, 99.3, 4.7);
 
 -- 4. NETWORK INCIDENTS TABLE
 CREATE OR REPLACE TABLE {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NETWORK_INCIDENTS (
@@ -227,13 +235,13 @@ CREATE OR REPLACE TABLE {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NETWOR
 );
 
 INSERT INTO {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NETWORK_INCIDENTS VALUES
-('INC_2024_001', 'HARDWARE_FAILURE', 'CRITICAL', 'Northeast', '2024-01-15 08:30:00', '2024-01-15 10:15:00', 15000, 105, 25000.50),
-('INC_2024_002', 'NETWORK_CONGESTION', 'HIGH', 'West_Coast', '2024-01-15 14:15:00', '2024-01-15 16:30:00', 8900, 135, 18500.25),
-('INC_2024_003', 'SOFTWARE_BUG', 'MEDIUM', 'Midwest', '2024-01-15 20:45:00', '2024-01-15 22:20:00', 5800, 95, 8900.75),
-('INC_2024_045', 'POWER_OUTAGE', 'CRITICAL', 'Texas', '2024-01-16 06:20:00', '2024-01-16 09:45:00', 32000, 205, 45000.75),
-('INC_2024_046', 'EQUIPMENT_MAINTENANCE', 'LOW', 'California', '2024-01-16 02:00:00', '2024-01-16 04:30:00', 1200, 150, 2500.00),
-('INC_2024_089', 'FIBER_CUT', 'HIGH', 'Florida', '2024-01-14 11:30:00', '2024-01-14 14:15:00', 12500, 165, 22000.30),
-('INC_2024_090', 'CONFIGURATION_ERROR', 'MEDIUM', 'Ohio', '2024-01-14 16:45:00', '2024-01-14 18:20:00', 3400, 95, 5800.15);
+('INC_2025_001', 'HARDWARE_FAILURE', 'CRITICAL', 'Northeast', DATEADD(day, -2, CURRENT_TIMESTAMP()), DATEADD(hour, -46, CURRENT_TIMESTAMP()), 15000, 105, 25000.50),
+('INC_2025_002', 'NETWORK_CONGESTION', 'HIGH', 'West_Coast', DATEADD(day, -1, CURRENT_TIMESTAMP()), DATEADD(hour, -22, CURRENT_TIMESTAMP()), 8900, 135, 18500.25),
+('INC_2025_003', 'SOFTWARE_BUG', 'MEDIUM', 'Midwest', DATEADD(hour, -12, CURRENT_TIMESTAMP()), DATEADD(hour, -10, CURRENT_TIMESTAMP()), 5800, 95, 8900.75),
+('INC_2025_045', 'POWER_OUTAGE', 'CRITICAL', 'Texas', DATEADD(day, -3, CURRENT_TIMESTAMP()), DATEADD(day, -2, CURRENT_TIMESTAMP()), 32000, 205, 45000.75),
+('INC_2025_046', 'EQUIPMENT_MAINTENANCE', 'LOW', 'California', DATEADD(hour, -48, CURRENT_TIMESTAMP()), DATEADD(hour, -46, CURRENT_TIMESTAMP()), 1200, 150, 2500.00),
+('INC_2025_089', 'FIBER_CUT', 'HIGH', 'Florida', DATEADD(day, -4, CURRENT_TIMESTAMP()), DATEADD(day, -3, CURRENT_TIMESTAMP()), 12500, 165, 22000.30),
+('INC_2025_090', 'CONFIGURATION_ERROR', 'MEDIUM', 'Ohio', DATEADD(day, -5, CURRENT_TIMESTAMP()), DATEADD(hour, -116, CURRENT_TIMESTAMP()), 3400, 95, 5800.15);
 
 -- 5. NETWORK REPORTS PARSED (Document AI Results)
 CREATE OR REPLACE TABLE {{env.DATAOPS_DATABASE }}.{{env.DOCUMENT_AI_SCHEMA}}.NETWORK_REPORTS_PARSED (
@@ -249,13 +257,13 @@ CREATE OR REPLACE TABLE {{env.DATAOPS_DATABASE }}.{{env.DOCUMENT_AI_SCHEMA}}.NET
 );
 
 INSERT INTO {{env.DATAOPS_DATABASE }}.{{env.DOCUMENT_AI_SCHEMA}}.NETWORK_REPORTS_PARSED VALUES
-('PERFORMANCE_DASHBOARD', 'NETWORK_MONITORING_SYSTEM', 'Q1', '2024-01-31', 99.95, 5250000, 850.25, 25, 2.5),
-('PERFORMANCE_DASHBOARD', 'NETWORK_MONITORING_SYSTEM', 'Q2', '2024-04-30', 99.87, 5875000, 920.75, 18, 1.8),
-('PERFORMANCE_DASHBOARD', 'NETWORK_MONITORING_SYSTEM', 'Q3', '2024-07-31', 99.92, 6100000, 1050.50, 32, 3.2),
-('INCIDENT_REPORT', 'INCIDENT_MANAGEMENT_TOOL', 'Q1', '2024-01-31', 99.85, 5250000, 800.00, 45, 3.1),
-('INCIDENT_REPORT', 'INCIDENT_MANAGEMENT_TOOL', 'Q2', '2024-04-30', 99.90, 5875000, 850.25, 38, 2.7),
-('MAINTENANCE_LOG', 'MAINTENANCE_TRACKER', 'Q1', '2024-01-31', 99.98, 5250000, 750.00, 12, 1.5),
-('MAINTENANCE_LOG', 'MAINTENANCE_TRACKER', 'Q2', '2024-04-30', 99.95, 5875000, 800.50, 15, 1.8);
+('PERFORMANCE_DASHBOARD', 'NETWORK_MONITORING_SYSTEM', 'Q2', CURRENT_DATE() - 31, 99.95, 5250000, 850.25, 25, 2.5),
+('PERFORMANCE_DASHBOARD', 'NETWORK_MONITORING_SYSTEM', 'Q2', CURRENT_DATE() - 15, 99.87, 5875000, 920.75, 18, 1.8),
+('PERFORMANCE_DASHBOARD', 'NETWORK_MONITORING_SYSTEM', 'Q3', CURRENT_DATE() - 7, 99.92, 6100000, 1050.50, 32, 3.2),
+('INCIDENT_REPORT', 'INCIDENT_MANAGEMENT_TOOL', 'Q2', CURRENT_DATE() - 28, 99.85, 5250000, 800.00, 45, 3.1),
+('INCIDENT_REPORT', 'INCIDENT_MANAGEMENT_TOOL', 'Q3', CURRENT_DATE() - 10, 99.90, 5875000, 850.25, 38, 2.7),
+('MAINTENANCE_LOG', 'MAINTENANCE_TRACKER', 'Q2', CURRENT_DATE() - 25, 99.98, 5250000, 750.00, 12, 1.5),
+('MAINTENANCE_LOG', 'MAINTENANCE_TRACKER', 'Q3', CURRENT_DATE() - 5, 99.95, 5875000, 800.50, 15, 1.8);
 
 -- 6. NETWORK DOCUMENTATION FOR CORTEX SEARCH
 CREATE OR REPLACE TABLE {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NETWORK_DOCUMENTATION (
@@ -270,19 +278,19 @@ CREATE OR REPLACE TABLE {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NETWOR
 INSERT INTO {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NETWORK_DOCUMENTATION VALUES
 ('DOC_001', 'TROUBLESHOOTING', '5G Network Latency Issues', 
 'When experiencing high latency on 5G networks, first check the signal strength and tower proximity. Common causes include network congestion during peak hours, interference from other electronic devices, and suboptimal tower configuration. Resolution steps: 1) Check tower load balancing, 2) Verify RF settings, 3) Monitor for interference sources, 4) Consider traffic shaping policies.', 
-'5G,latency,troubleshooting,network,performance', '2024-01-01'),
+'5G,latency,troubleshooting,network,performance', CURRENT_DATE() - 30),
 ('DOC_002', 'BEST_PRACTICES', 'Customer Data Usage Optimization',
 'Best practices for optimizing customer data usage include implementing traffic prioritization, enabling data compression, and providing usage alerts. Monitor customer usage patterns to identify potential service upgrades and implement fair usage policies to ensure network quality for all subscribers.',
-'customer,data,usage,optimization,traffic', '2024-01-02'),
+'customer,data,usage,optimization,traffic', CURRENT_DATE() - 25),
 ('DOC_003', 'INCIDENT_RESPONSE', 'Critical Incident Response Protocol',
 'For critical network incidents affecting more than 10,000 customers: 1) Immediate escalation to Network Operations Center, 2) Customer communication within 15 minutes, 3) Engage vendor support if hardware-related, 4) Implement emergency routing if available, 5) Post-incident analysis within 24 hours.',
-'incident,response,critical,protocol,customers', '2024-01-03'),
+'incident,response,critical,protocol,customers', CURRENT_DATE() - 20),
 ('DOC_004', 'MAINTENANCE', 'Planned Maintenance Windows',
 'Standard maintenance windows are scheduled during low-traffic periods (2 AM - 6 AM local time). All maintenance must be approved 48 hours in advance, with customer notifications sent 24 hours prior. Emergency maintenance procedures allow for immediate action when service availability is at risk.',
-'maintenance,windows,planning,notifications,emergency', '2024-01-04'),
+'maintenance,windows,planning,notifications,emergency', CURRENT_DATE() - 15),
 ('DOC_005', 'NETWORK_PLANNING', '5G Network Expansion Guidelines',
 '5G network expansion should prioritize high-density urban areas and business districts. Site selection criteria include population density, existing infrastructure, fiber backhaul availability, and regulatory compliance. Expected coverage radius for 5G sites is 1-3 km in urban areas, 5-10 km in suburban areas.',
-'5G,expansion,planning,coverage,infrastructure', '2024-01-05');
+'5G,expansion,planning,coverage,infrastructure', CURRENT_DATE() - 10);
 
 
 -- If data sharing enambled, create a database from the share
