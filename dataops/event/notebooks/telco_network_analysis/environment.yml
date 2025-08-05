@@ -1,0 +1,15 @@
+name: telco_network_analysis
+channels:
+  - snowflake
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.9
+  - snowflake-snowpark-python
+  - pandas
+  - numpy
+  - plotly
+  - matplotlib
+  - seaborn
+  - ipywidgets
+  - jupyter

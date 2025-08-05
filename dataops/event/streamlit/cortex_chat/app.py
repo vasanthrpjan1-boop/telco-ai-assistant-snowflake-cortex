@@ -20,8 +20,8 @@ session = get_active_session()
 API_ENDPOINT = "/api/v2/cortex/agent:run"
 API_TIMEOUT = 50000  # in milliseconds
 
-CORTEX_SEARCH_SERVICES = "DEFAULT_SCHEMA.CHUNKED_REPORTS"
-SEMANTIC_MODELS = "@CORTEX_ANALYST.CORTEX_ANALYST/semantic_model.yaml"
+CORTEX_SEARCH_SERVICES = "DEFAULT_SCHEMA.NETWORK_DOCUMENTATION"
+SEMANTIC_MODELS = "@CORTEX_ANALYST.CORTEX_ANALYST/telco_semantic_model.yaml"
 
 def run_snowflake_query(query):
     """Run Snowflake SQL Query"""
@@ -171,7 +171,7 @@ def replace_chart_function(chart_string, new_chart_type):
 
 
 def main():
-    st.markdown('<h0black>SNOWFLAKE | </h0black><h0blue>STOCK ANALYSIS</h0blue><BR>', unsafe_allow_html=True)
+    st.markdown('<h0black>SNOWFLAKE | </h0black><h0blue>TELCO OPERATIONS AI</h0blue><BR>', unsafe_allow_html=True)
 
     # Sidebar for new chat
     with st.sidebar:
@@ -187,7 +187,7 @@ def main():
         with st.chat_message(message['role'],avatar='🦋'):
             st.markdown(message['content'].replace("•", "\n\n"))
 
-    if query := st.chat_input("Ask me any question about snowflake?"):
+    if query := st.chat_input("Ask me about network performance, customer analytics, or incidents..."):
         # Add user message to chat
         with st.chat_message("user",avatar="🐟"):
             st.markdown(query)
@@ -213,13 +213,16 @@ def main():
                         for citation in citations:
                             doc_id = citation.get("doc_id", "")
                             if doc_id:
-                                query = f"SELECT TEXT FROM DEFAULT_SCHEMA.TEXT_AND_SOUND WHERE RELATIVE_PATH = '{doc_id}'"
+                                query = f"SELECT CONTENT FROM DEFAULT_SCHEMA.NETWORK_DOCUMENTATION WHERE DOCUMENT_ID = '{doc_id}'"
                                 result = run_snowflake_query(query)
-                                result_df = result.to_pandas()
-                                if not result_df.empty:
-                                    transcript_text = result_df.iloc[0, 0]
+                                if result:
+                                    result_df = result.to_pandas()
+                                    if not result_df.empty:
+                                        transcript_text = result_df.iloc[0, 0]
+                                    else:
+                                        transcript_text = "No documentation content available"
                                 else:
-                                    transcript_text = "No transcript available"
+                                    transcript_text = "No documentation content available"
                     
                                 with st.expander(f"[{citation.get('source_id', '')}]"):
                                     st.write(transcript_text)
@@ -294,9 +297,12 @@ def main():
 if __name__ == "__main__":
     main()
 
-# Questions to try:
+# Sample Telco Questions to try:
     
-# - i would like to see the sentiment score for each minute and also what has been said in the last earnings call
-# - What analyst gave a rating of sell?
-# - what is the SNOW stock price by year?
-# - what is the SNOW stock price by month during 2023
+# - What is the average network latency by region in the last hour?
+# - Show me critical incidents from the past 24 hours
+# - Which customers are using the most data this month?
+# - What is the 5G network performance compared to 4G?
+# - How many network incidents occurred this week by type?
+# - Show network uptime trends for the Northeast region
+# - What is the average customer bill amount by service plan?

@@ -1,0 +1,16 @@
+name: telco_customer_insights
+channels:
+  - snowflake
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.9
+  - snowflake-snowpark-python
+  - pandas
+  - numpy
+  - plotly
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - ipywidgets
+  - jupyter

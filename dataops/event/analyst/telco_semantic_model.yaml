@@ -1,0 +1,513 @@
+name: telco_semantic_model
+description: Semantic Model for Telecommunications Industry Data Analysis and Operations
+tables:
+  - name: NETWORK_PERFORMANCE
+    base_table:
+      database: DATAOPS_EVENT_PROD
+      schema: DEFAULT_SCHEMA
+      table: NETWORK_PERFORMANCE
+    dimensions:
+      - name: CELL_TOWER_ID
+        expr: CELL_TOWER_ID
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - TOWER_NYC_001
+          - TOWER_LA_045
+          - TOWER_CHI_023
+        description: Unique identifier for each cell tower in the network infrastructure.
+        synonyms:
+          - tower_id
+          - base_station_id
+          - site_id
+          - cell_id
+          - tower_code
+          - station_identifier
+          - base_station
+          - cell_site
+      - name: NETWORK_TYPE
+        expr: NETWORK_TYPE
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - 5G
+          - 4G_LTE
+          - 3G
+        description: The type of network technology being used (5G, 4G LTE, 3G, etc.).
+        synonyms:
+          - technology_type
+          - network_technology
+          - cellular_technology
+          - radio_technology
+          - access_technology
+          - generation
+      - name: REGION
+        expr: REGION
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - Northeast
+          - West_Coast
+          - Midwest
+        description: Geographic region where the network infrastructure is located.
+        synonyms:
+          - geographic_region
+          - service_area
+          - coverage_area
+          - territory
+          - zone
+          - market_area
+    time_dimensions:
+      - name: MEASUREMENT_TIMESTAMP
+        expr: MEASUREMENT_TIMESTAMP
+        data_type: TIMESTAMP_NTZ
+        sample_values:
+          - '2024-01-15 14:30:00'
+          - '2024-01-15 15:00:00'
+          - '2024-01-15 15:30:00'
+        description: Timestamp when the network performance measurement was taken.
+        synonyms:
+          - measurement_time
+          - reading_time
+          - sample_time
+          - data_timestamp
+          - collection_time
+    facts:
+      - name: LATENCY_MS
+        expr: LATENCY_MS
+        data_type: FLOAT
+        sample_values:
+          - '12.5'
+          - '8.3'
+          - '15.7'
+        description: Network latency measured in milliseconds, indicating response time.
+        synonyms:
+          - response_time
+          - delay
+          - ping_time
+          - round_trip_time
+          - lag
+          - network_delay
+      - name: THROUGHPUT_MBPS
+        expr: THROUGHPUT_MBPS
+        data_type: FLOAT
+        sample_values:
+          - '850.2'
+          - '1200.5'
+          - '650.8'
+        description: Network throughput measured in megabits per second.
+        synonyms:
+          - bandwidth
+          - data_rate
+          - transfer_rate
+          - speed
+          - capacity
+          - data_throughput
+      - name: PACKET_LOSS_PERCENT
+        expr: PACKET_LOSS_PERCENT
+        data_type: FLOAT
+        sample_values:
+          - '0.1'
+          - '0.3'
+          - '0.05'
+        description: Percentage of network packets that are lost during transmission.
+        synonyms:
+          - packet_drop_rate
+          - loss_rate
+          - drop_percentage
+          - packet_drops
+          - transmission_loss
+      - name: UPTIME_PERCENT
+        expr: UPTIME_PERCENT
+        data_type: FLOAT
+        sample_values:
+          - '99.9'
+          - '99.5'
+          - '99.8'
+        description: Percentage of time the network infrastructure is operational and available.
+        synonyms:
+          - availability
+          - operational_time
+          - service_availability
+          - network_uptime
+          - system_availability
+  
+  - name: CUSTOMER_USAGE
+    base_table:
+      database: DATAOPS_EVENT_PROD
+      schema: DEFAULT_SCHEMA
+      table: CUSTOMER_USAGE
+    dimensions:
+      - name: CUSTOMER_ID
+        expr: CUSTOMER_ID
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - CUST_1001234
+          - CUST_2005678
+          - CUST_3009012
+        description: Unique identifier for each customer account.
+        synonyms:
+          - account_id
+          - subscriber_id
+          - user_id
+          - account_number
+          - customer_number
+      - name: SERVICE_PLAN
+        expr: SERVICE_PLAN
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - UNLIMITED_5G
+          - PREMIUM_DATA
+          - BASIC_MOBILE
+        description: The service plan or package subscribed by the customer.
+        synonyms:
+          - plan_type
+          - subscription_plan
+          - service_package
+          - rate_plan
+          - pricing_plan
+          - tariff_plan
+      - name: DEVICE_TYPE
+        expr: DEVICE_TYPE
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - SMARTPHONE
+          - TABLET
+          - IOT_DEVICE
+        description: Type of device used by the customer to access network services.
+        synonyms:
+          - device_category
+          - equipment_type
+          - terminal_type
+          - handset_type
+          - device_model
+    time_dimensions:
+      - name: USAGE_DATE
+        expr: USAGE_DATE
+        data_type: DATE
+        sample_values:
+          - '2024-01-15'
+          - '2024-01-16'
+          - '2024-01-17'
+        description: Date when the usage data was recorded.
+        synonyms:
+          - billing_date
+          - service_date
+          - consumption_date
+          - activity_date
+    facts:
+      - name: DATA_USAGE_GB
+        expr: DATA_USAGE_GB
+        data_type: FLOAT
+        sample_values:
+          - '25.6'
+          - '12.3'
+          - '45.8'
+        description: Amount of data consumed by the customer measured in gigabytes.
+        synonyms:
+          - data_consumption
+          - data_transfer
+          - bandwidth_usage
+          - traffic_volume
+          - data_volume
+      - name: VOICE_MINUTES
+        expr: VOICE_MINUTES
+        data_type: INTEGER
+        sample_values:
+          - '450'
+          - '320'
+          - '680'
+        description: Number of voice call minutes used by the customer.
+        synonyms:
+          - call_minutes
+          - talk_time
+          - voice_usage
+          - calling_minutes
+          - phone_minutes
+      - name: SMS_COUNT
+        expr: SMS_COUNT
+        data_type: INTEGER
+        sample_values:
+          - '150'
+          - '89'
+          - '245'
+        description: Number of SMS text messages sent by the customer.
+        synonyms:
+          - text_messages
+          - sms_usage
+          - message_count
+          - texts_sent
+          - messaging_usage
+      - name: MONTHLY_BILL_AMOUNT
+        expr: MONTHLY_BILL_AMOUNT
+        data_type: FLOAT
+        sample_values:
+          - '85.99'
+          - '65.50'
+          - '120.75'
+        description: Monthly billing amount charged to the customer.
+        synonyms:
+          - bill_amount
+          - invoice_amount
+          - monthly_charge
+          - billing_cost
+          - service_cost
+          - monthly_fee
+
+  - name: SERVICE_QUALITY_METRICS
+    base_table:
+      database: DATAOPS_EVENT_PROD
+      schema: DEFAULT_SCHEMA
+      table: SERVICE_QUALITY_METRICS
+    dimensions:
+      - name: SERVICE_TYPE
+        expr: SERVICE_TYPE
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - VOICE_CALL
+          - DATA_SESSION
+          - VIDEO_STREAMING
+        description: Type of service being measured for quality metrics.
+        synonyms:
+          - service_category
+          - application_type
+          - traffic_type
+          - service_class
+          - usage_type
+      - name: GEOGRAPHIC_AREA
+        expr: GEOGRAPHIC_AREA
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - URBAN
+          - SUBURBAN
+          - RURAL
+        description: Geographic classification of the area where service is provided.
+        synonyms:
+          - area_type
+          - coverage_type
+          - location_type
+          - terrain_type
+          - population_density
+    time_dimensions:
+      - name: QUALITY_MEASUREMENT_TIME
+        expr: QUALITY_MEASUREMENT_TIME
+        data_type: TIMESTAMP_NTZ
+        sample_values:
+          - '2024-01-15 09:15:00'
+          - '2024-01-15 09:30:00'
+          - '2024-01-15 09:45:00'
+        description: Timestamp when the service quality measurement was recorded.
+        synonyms:
+          - measurement_timestamp
+          - quality_time
+          - assessment_time
+          - evaluation_time
+    facts:
+      - name: CALL_DROP_RATE
+        expr: CALL_DROP_RATE
+        data_type: FLOAT
+        sample_values:
+          - '0.5'
+          - '1.2'
+          - '0.8'
+        description: Percentage of voice calls that are dropped or disconnected unexpectedly.
+        synonyms:
+          - drop_rate
+          - call_failure_rate
+          - disconnection_rate
+          - call_loss_rate
+          - voice_quality_failure
+      - name: DATA_SUCCESS_RATE
+        expr: DATA_SUCCESS_RATE
+        data_type: FLOAT
+        sample_values:
+          - '98.5'
+          - '97.8'
+          - '99.1'
+        description: Percentage of successful data sessions and connections.
+        synonyms:
+          - connection_success
+          - data_completion_rate
+          - session_success
+          - connectivity_rate
+          - data_reliability
+      - name: CUSTOMER_SATISFACTION_SCORE
+        expr: CUSTOMER_SATISFACTION_SCORE
+        data_type: FLOAT
+        sample_values:
+          - '4.2'
+          - '3.8'
+          - '4.6'
+        description: Customer satisfaction rating on a scale of 1-5 based on service quality.
+        synonyms:
+          - satisfaction_rating
+          - customer_rating
+          - service_rating
+          - quality_score
+          - user_satisfaction
+          - customer_experience_score
+
+  - name: NETWORK_INCIDENTS
+    base_table:
+      database: DATAOPS_EVENT_PROD
+      schema: DEFAULT_SCHEMA
+      table: NETWORK_INCIDENTS
+    dimensions:
+      - name: INCIDENT_ID
+        expr: INCIDENT_ID
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - INC_2024_001
+          - INC_2024_045
+          - INC_2024_089
+        description: Unique identifier for each network incident or outage.
+        synonyms:
+          - ticket_id
+          - case_id
+          - issue_id
+          - problem_id
+          - fault_id
+      - name: INCIDENT_TYPE
+        expr: INCIDENT_TYPE
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - HARDWARE_FAILURE
+          - SOFTWARE_BUG
+          - NETWORK_CONGESTION
+        description: Category or type of network incident that occurred.
+        synonyms:
+          - issue_type
+          - problem_category
+          - fault_type
+          - failure_type
+          - incident_category
+      - name: SEVERITY_LEVEL
+        expr: SEVERITY_LEVEL
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - CRITICAL
+          - HIGH
+          - MEDIUM
+        description: Severity classification of the network incident.
+        synonyms:
+          - priority_level
+          - impact_level
+          - urgency_level
+          - criticality
+          - importance_level
+      - name: AFFECTED_REGION
+        expr: AFFECTED_REGION
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - Northeast
+          - California
+          - Texas
+        description: Geographic region affected by the network incident.
+        synonyms:
+          - impacted_area
+          - outage_region
+          - affected_area
+          - service_area_down
+          - impacted_region
+        cortex_search_service:
+          database: DATAOPS_EVENT_PROD
+          schema: DEFAULT_SCHEMA
+          service: INCIDENT_REPORTS
+    time_dimensions:
+      - name: INCIDENT_START_TIME
+        expr: INCIDENT_START_TIME
+        data_type: TIMESTAMP_NTZ
+        sample_values:
+          - '2024-01-15 08:30:00'
+          - '2024-01-15 14:15:00'
+          - '2024-01-15 20:45:00'
+        description: Timestamp when the network incident was first detected.
+        synonyms:
+          - start_timestamp
+          - detection_time
+          - occurrence_time
+          - begin_time
+          - failure_time
+      - name: INCIDENT_END_TIME
+        expr: INCIDENT_END_TIME
+        data_type: TIMESTAMP_NTZ
+        sample_values:
+          - '2024-01-15 10:15:00'
+          - '2024-01-15 16:30:00'
+          - '2024-01-15 22:20:00'
+        description: Timestamp when the network incident was fully resolved.
+        synonyms:
+          - resolution_time
+          - end_timestamp
+          - recovery_time
+          - completion_time
+          - fix_time
+    facts:
+      - name: CUSTOMERS_AFFECTED
+        expr: CUSTOMERS_AFFECTED
+        data_type: INTEGER
+        sample_values:
+          - '15000'
+          - '5800'
+          - '32000'
+        description: Number of customers impacted by the network incident.
+        synonyms:
+          - affected_users
+          - impacted_customers
+          - users_down
+          - subscriber_impact
+          - customer_count_affected
+      - name: DURATION_MINUTES
+        expr: DURATION_MINUTES
+        data_type: INTEGER
+        sample_values:
+          - '105'
+          - '135'
+          - '95'
+        description: Total duration of the incident in minutes from start to resolution.
+        synonyms:
+          - outage_duration
+          - downtime_minutes
+          - incident_length
+          - resolution_time_minutes
+          - service_interruption_duration
+      - name: REVENUE_IMPACT
+        expr: REVENUE_IMPACT
+        data_type: FLOAT
+        sample_values:
+          - '25000.50'
+          - '8900.25'
+          - '45000.75'
+        description: Estimated revenue impact due to the network incident.
+        synonyms:
+          - financial_impact
+          - lost_revenue
+          - business_impact
+          - cost_impact
+          - economic_loss
+
+verified_queries:
+  - name: network_latency_by_region
+    question: What is the average network latency by region?
+    use_as_onboarding_question: true
+    sql: SELECT region, AVG(latency_ms) as avg_latency FROM network_performance GROUP BY region ORDER BY avg_latency
+    verified_by: Network Operations Team
+    verified_at: 1744295485
+  
+  - name: top_data_users
+    question: Who are the top 10 customers by data usage this month?
+    use_as_onboarding_question: true
+    sql: SELECT customer_id, service_plan, SUM(data_usage_gb) as total_data_gb FROM customer_usage WHERE usage_date >= DATEADD(month, -1, CURRENT_DATE()) GROUP BY customer_id, service_plan ORDER BY total_data_gb DESC LIMIT 10
+    verified_by: Customer Analytics Team
+    verified_at: 1744295485
+
+  - name: recent_critical_incidents
+    question: What critical network incidents occurred in the last 7 days?
+    use_as_onboarding_question: true
+    sql: SELECT incident_id, incident_type, affected_region, customers_affected, duration_minutes FROM network_incidents WHERE severity_level = 'CRITICAL' AND incident_start_time >= DATEADD(day, -7, CURRENT_DATE()) ORDER BY incident_start_time DESC
+    verified_by: Incident Management Team
+    verified_at: 1744295485
+
+  - name: service_quality_trends
+    question: How has call drop rate changed over the past month?
+    use_as_onboarding_question: false
+    sql: SELECT DATE_TRUNC('day', quality_measurement_time) as measurement_date, AVG(call_drop_rate) as avg_call_drop_rate FROM service_quality_metrics WHERE service_type = 'VOICE_CALL' AND quality_measurement_time >= DATEADD(month, -1, CURRENT_DATE()) GROUP BY measurement_date ORDER BY measurement_date
+    verified_by: Quality Assurance Team
+    verified_at: 1744295485

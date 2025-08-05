@@ -1,0 +1,15 @@
+name: streamlit_telco_network_ops
+channels:
+  - snowflake
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.9
+  - snowflake-snowpark-python
+  - streamlit
+  - pandas
+  - numpy
+  - plotly
+  - altair
+  - requests
+  - pyarrow
