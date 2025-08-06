@@ -153,7 +153,88 @@ INSERT INTO {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NETWORK_PERFORMANC
 ('TOWER_RUR_101', '3G', 'Rural_South', DATEADD(day, -48, CURRENT_TIMESTAMP()), 45.2, 85.3, 1.2, 98.90),
 ('TOWER_RUR_101', '3G', 'Rural_South', DATEADD(day, -47, CURRENT_TIMESTAMP()), 48.7, 78.9, 1.5, 98.85),
 ('TOWER_RUR_205', '3G', 'Rural_West', DATEADD(day, -50, CURRENT_TIMESTAMP()), 52.1, 72.1, 1.8, 98.75),
-('TOWER_RUR_205', '3G', 'Rural_West', DATEADD(day, -49, CURRENT_TIMESTAMP()), 49.3, 81.4, 1.6, 98.80);
+('TOWER_RUR_205', '3G', 'Rural_West', DATEADD(day, -49, CURRENT_TIMESTAMP()), 49.3, 81.4, 1.6, 98.80),
+
+-- EXPANDED SAMPLE DATA: Additional Network Performance Records
+-- 5G Ultra-High Performance (Major Cities)
+('TOWER_5G_NYC_001', '5G_ULTRA', 'Northeast', DATEADD(day, -60, CURRENT_TIMESTAMP()), 8.2, 1250.8, 0.05, 99.98),
+('TOWER_5G_NYC_001', '5G_ULTRA', 'Northeast', DATEADD(day, -59, CURRENT_TIMESTAMP()), 7.8, 1320.5, 0.04, 99.99),
+('TOWER_5G_NYC_002', '5G_ULTRA', 'Northeast', DATEADD(day, -58, CURRENT_TIMESTAMP()), 9.1, 1180.9, 0.06, 99.97),
+('TOWER_5G_LA_001', '5G_ULTRA', 'West_Coast', DATEADD(day, -57, CURRENT_TIMESTAMP()), 8.5, 1290.3, 0.05, 99.98),
+('TOWER_5G_LA_002', '5G_ULTRA', 'West_Coast', DATEADD(day, -56, CURRENT_TIMESTAMP()), 7.9, 1350.7, 0.04, 99.99),
+('TOWER_5G_CHI_001', '5G_ULTRA', 'Midwest', DATEADD(day, -55, CURRENT_TIMESTAMP()), 9.3, 1220.4, 0.07, 99.96),
+('TOWER_5G_MIA_001', '5G_ULTRA', 'Southeast', DATEADD(day, -54, CURRENT_TIMESTAMP()), 8.7, 1270.6, 0.05, 99.98),
+
+-- Standard 5G Network (Suburban Areas)
+('TOWER_5G_SUB_101', '5G', 'Northeast', DATEADD(day, -53, CURRENT_TIMESTAMP()), 12.4, 850.2, 0.15, 99.85),
+('TOWER_5G_SUB_102', '5G', 'Northeast', DATEADD(day, -52, CURRENT_TIMESTAMP()), 11.8, 890.7, 0.12, 99.88),
+('TOWER_5G_SUB_201', '5G', 'West_Coast', DATEADD(day, -51, CURRENT_TIMESTAMP()), 13.1, 820.5, 0.18, 99.82),
+('TOWER_5G_SUB_301', '5G', 'Midwest', DATEADD(day, -50, CURRENT_TIMESTAMP()), 12.9, 875.3, 0.16, 99.84),
+('TOWER_5G_SUB_401', '5G', 'Southeast', DATEADD(day, -49, CURRENT_TIMESTAMP()), 11.5, 910.8, 0.11, 99.89),
+('TOWER_5G_SUB_501', '5G', 'Southwest', DATEADD(day, -48, CURRENT_TIMESTAMP()), 13.5, 800.9, 0.19, 99.81),
+
+-- 4G LTE Extended Coverage
+('TOWER_4G_EXT_101', '4G_LTE', 'Northeast', DATEADD(day, -47, CURRENT_TIMESTAMP()), 18.7, 520.4, 0.25, 99.75),
+('TOWER_4G_EXT_102', '4G_LTE', 'Northeast', DATEADD(day, -46, CURRENT_TIMESTAMP()), 19.2, 510.8, 0.28, 99.72),
+('TOWER_4G_EXT_201', '4G_LTE', 'West_Coast', DATEADD(day, -45, CURRENT_TIMESTAMP()), 17.9, 545.6, 0.22, 99.78),
+('TOWER_4G_EXT_301', '4G_LTE', 'Midwest', DATEADD(day, -44, CURRENT_TIMESTAMP()), 20.1, 490.2, 0.31, 99.69),
+('TOWER_4G_EXT_401', '4G_LTE', 'Southeast', DATEADD(day, -43, CURRENT_TIMESTAMP()), 18.3, 530.7, 0.24, 99.76),
+('TOWER_4G_EXT_501', '4G_LTE', 'Southwest', DATEADD(day, -42, CURRENT_TIMESTAMP()), 21.4, 470.3, 0.35, 99.65),
+('TOWER_4G_EXT_601', '4G_LTE', 'Mountain', DATEADD(day, -41, CURRENT_TIMESTAMP()), 22.8, 445.9, 0.42, 99.58),
+
+-- Rural 3G Extended
+('TOWER_3G_RUR_301', '3G', 'Rural_Northeast', DATEADD(day, -40, CURRENT_TIMESTAMP()), 55.7, 65.8, 2.1, 98.45),
+('TOWER_3G_RUR_302', '3G', 'Rural_Northeast', DATEADD(day, -39, CURRENT_TIMESTAMP()), 58.2, 58.9, 2.5, 98.20),
+('TOWER_3G_RUR_401', '3G', 'Rural_West', DATEADD(day, -38, CURRENT_TIMESTAMP()), 62.1, 52.4, 2.8, 98.10),
+('TOWER_3G_RUR_501', '3G', 'Rural_South', DATEADD(day, -37, CURRENT_TIMESTAMP()), 59.4, 61.7, 2.3, 98.35),
+('TOWER_3G_RUR_601', '3G', 'Rural_Mountain', DATEADD(day, -36, CURRENT_TIMESTAMP()), 67.8, 45.2, 3.2, 97.85),
+
+-- WiFi Hotspots (Public Areas)
+('WIFI_HOT_001', 'WIFI', 'Urban_Centers', DATEADD(day, -35, CURRENT_TIMESTAMP()), 25.3, 180.5, 0.8, 98.95),
+('WIFI_HOT_002', 'WIFI', 'Urban_Centers', DATEADD(day, -34, CURRENT_TIMESTAMP()), 28.7, 165.2, 1.1, 98.85),
+('WIFI_HOT_201', 'WIFI', 'Transportation', DATEADD(day, -33, CURRENT_TIMESTAMP()), 35.4, 120.8, 1.5, 98.50),
+('WIFI_HOT_301', 'WIFI', 'Commercial', DATEADD(day, -32, CURRENT_TIMESTAMP()), 22.1, 195.7, 0.6, 99.15),
+
+-- mmWave 5G (Ultra-Dense Urban)
+('TOWER_MMW_001', '5G_MMWAVE', 'Manhattan', DATEADD(day, -31, CURRENT_TIMESTAMP()), 5.2, 2850.4, 0.02, 99.99),
+('TOWER_MMW_002', '5G_MMWAVE', 'Manhattan', DATEADD(day, -30, CURRENT_TIMESTAMP()), 4.8, 3120.7, 0.01, 99.99),
+('TOWER_MMW_101', '5G_MMWAVE', 'Downtown_LA', DATEADD(day, -29, CURRENT_TIMESTAMP()), 5.5, 2750.8, 0.03, 99.98),
+('TOWER_MMW_201', '5G_MMWAVE', 'Chicago_Loop', DATEADD(day, -28, CURRENT_TIMESTAMP()), 5.9, 2650.3, 0.04, 99.97),
+
+-- International Roaming Partners
+('TOWER_INTL_001', '4G_LTE', 'International', DATEADD(day, -27, CURRENT_TIMESTAMP()), 85.4, 125.6, 2.5, 97.80),
+('TOWER_INTL_002', '5G', 'International', DATEADD(day, -26, CURRENT_TIMESTAMP()), 45.2, 380.9, 1.2, 98.90),
+
+-- Edge Computing Nodes
+('EDGE_5G_001', '5G_EDGE', 'Smart_Cities', DATEADD(day, -25, CURRENT_TIMESTAMP()), 6.8, 1850.4, 0.08, 99.95),
+('EDGE_5G_002', '5G_EDGE', 'Smart_Cities', DATEADD(day, -24, CURRENT_TIMESTAMP()), 7.2, 1790.8, 0.09, 99.94),
+
+-- Performance during Peak Hours (Recent Data)
+('TOWER_5G_NYC_001', '5G_ULTRA', 'Northeast', DATEADD(hour, -12, CURRENT_TIMESTAMP()), 12.1, 980.5, 0.15, 99.92),
+('TOWER_5G_LA_001', '5G_ULTRA', 'West_Coast', DATEADD(hour, -10, CURRENT_TIMESTAMP()), 11.8, 1020.7, 0.12, 99.94),
+('TOWER_4G_EXT_101', '4G_LTE', 'Northeast', DATEADD(hour, -8, CURRENT_TIMESTAMP()), 24.5, 420.3, 0.45, 99.55),
+('TOWER_5G_SUB_101', '5G', 'Northeast', DATEADD(hour, -6, CURRENT_TIMESTAMP()), 16.8, 680.9, 0.28, 99.72),
+
+-- Weather Impact Testing
+('TOWER_WTH_001', '5G', 'Storm_Zone', DATEADD(day, -20, CURRENT_TIMESTAMP()), 18.9, 650.4, 0.55, 99.45),
+('TOWER_WTH_002', '4G_LTE', 'Storm_Zone', DATEADD(day, -19, CURRENT_TIMESTAMP()), 28.7, 380.2, 0.85, 99.15),
+
+-- Backup Networks (Disaster Recovery)
+('TOWER_BCK_001', 'BACKUP_4G', 'Emergency_Zone', DATEADD(day, -18, CURRENT_TIMESTAMP()), 35.6, 280.7, 1.2, 98.80),
+('TOWER_BCK_002', 'BACKUP_5G', 'Emergency_Zone', DATEADD(day, -17, CURRENT_TIMESTAMP()), 22.4, 450.8, 0.68, 99.32),
+
+-- Private Network Deployments
+('TOWER_PVT_001', '5G_PRIVATE', 'Enterprise', DATEADD(day, -16, CURRENT_TIMESTAMP()), 8.9, 1180.5, 0.08, 99.96),
+('TOWER_PVT_002', '5G_PRIVATE', 'Manufacturing', DATEADD(day, -15, CURRENT_TIMESTAMP()), 9.2, 1150.8, 0.09, 99.95),
+
+-- Recent Performance Trend (Last Week)
+('TOWER_5G_NYC_001', '5G_ULTRA', 'Northeast', DATEADD(day, -7, CURRENT_TIMESTAMP()), 8.5, 1280.3, 0.06, 99.97),
+('TOWER_5G_NYC_001', '5G_ULTRA', 'Northeast', DATEADD(day, -6, CURRENT_TIMESTAMP()), 8.1, 1305.7, 0.05, 99.98),
+('TOWER_5G_NYC_001', '5G_ULTRA', 'Northeast', DATEADD(day, -5, CURRENT_TIMESTAMP()), 7.9, 1340.2, 0.04, 99.99),
+('TOWER_5G_NYC_001', '5G_ULTRA', 'Northeast', DATEADD(day, -4, CURRENT_TIMESTAMP()), 8.3, 1295.8, 0.05, 99.98),
+('TOWER_5G_NYC_001', '5G_ULTRA', 'Northeast', DATEADD(day, -3, CURRENT_TIMESTAMP()), 8.7, 1265.4, 0.07, 99.96),
+('TOWER_5G_NYC_001', '5G_ULTRA', 'Northeast', DATEADD(day, -2, CURRENT_TIMESTAMP()), 8.0, 1315.9, 0.04, 99.99),
+('TOWER_5G_NYC_001', '5G_ULTRA', 'Northeast', DATEADD(day, -1, CURRENT_TIMESTAMP()), 7.8, 1355.1, 0.03, 99.99);
 
 -- 2. CUSTOMER USAGE TABLE
 CREATE OR REPLACE TABLE {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.CUSTOMER_USAGE (
@@ -195,7 +276,134 @@ INSERT INTO {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.CUSTOMER_USAGE VAL
 ('CUST_2005678', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 31, 61.7, 510, 195, 125.99),
 ('CUST_4012345', 'PREMIUM_DATA', 'SMARTPHONE', CURRENT_DATE() - 32, 24.1, 340, 95, 65.50),
 ('CUST_5067890', 'BASIC_MOBILE', 'SMARTPHONE', CURRENT_DATE() - 32, 14.5, 420, 145, 45.99),
-('CUST_8090123', 'FAMILY_PLAN', 'SMARTPHONE', CURRENT_DATE() - 31, 38.7, 920, 285, 95.99);
+('CUST_8090123', 'FAMILY_PLAN', 'SMARTPHONE', CURRENT_DATE() - 31, 38.7, 920, 285, 95.99),
+
+-- EXPANDED SAMPLE DATA: Additional Customer Usage Records
+-- Business Enterprise Customers
+('CUST_BIZ_1001', 'ENTERPRISE_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 60, 78.5, 1250, 89, 175.99),
+('CUST_BIZ_1001', 'ENTERPRISE_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 59, 82.3, 1180, 102, 175.99),
+('CUST_BIZ_1001', 'ENTERPRISE_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 58, 75.8, 1320, 76, 175.99),
+('CUST_BIZ_1002', 'ENTERPRISE_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 57, 68.9, 980, 145, 175.99),
+('CUST_BIZ_1003', 'ENTERPRISE_DATA', 'TABLET', CURRENT_DATE() - 56, 45.2, 0, 0, 85.99),
+('CUST_BIZ_1004', 'ENTERPRISE_DATA', 'LAPTOP_MODEM', CURRENT_DATE() - 55, 120.7, 0, 0, 125.99),
+
+-- Senior Citizen Plans
+('CUST_SEN_2001', 'SENIOR_BASIC', 'SMARTPHONE', CURRENT_DATE() - 54, 8.5, 180, 45, 29.99),
+('CUST_SEN_2001', 'SENIOR_BASIC', 'SMARTPHONE', CURRENT_DATE() - 53, 6.8, 160, 38, 29.99),
+('CUST_SEN_2002', 'SENIOR_BASIC', 'SMARTPHONE', CURRENT_DATE() - 52, 12.3, 220, 52, 29.99),
+('CUST_SEN_2003', 'SENIOR_PLUS', 'SMARTPHONE', CURRENT_DATE() - 51, 18.7, 340, 78, 39.99),
+('CUST_SEN_2004', 'SENIOR_PLUS', 'SMARTPHONE', CURRENT_DATE() - 50, 15.2, 290, 65, 39.99),
+
+-- International Travelers
+('CUST_INT_3001', 'GLOBAL_ROAMING', 'SMARTPHONE', CURRENT_DATE() - 49, 35.4, 450, 120, 89.99),
+('CUST_INT_3002', 'GLOBAL_ROAMING', 'SMARTPHONE', CURRENT_DATE() - 48, 42.8, 380, 98, 89.99),
+('CUST_INT_3003', 'INTERNATIONAL_DATA', 'TABLET', CURRENT_DATE() - 47, 65.9, 0, 0, 75.99),
+
+-- Heavy Data Users (Gamers, Streamers)
+('CUST_GAM_4001', 'UNLIMITED_5G_PLUS', 'SMARTPHONE', CURRENT_DATE() - 46, 185.7, 320, 156, 149.99),
+('CUST_GAM_4001', 'UNLIMITED_5G_PLUS', 'SMARTPHONE', CURRENT_DATE() - 45, 198.4, 280, 142, 149.99),
+('CUST_GAM_4002', 'UNLIMITED_5G_PLUS', 'SMARTPHONE', CURRENT_DATE() - 44, 175.8, 390, 178, 149.99),
+('CUST_STR_4003', 'UNLIMITED_5G_PLUS', 'SMARTPHONE', CURRENT_DATE() - 43, 165.2, 410, 89, 149.99),
+('CUST_STR_4004', 'UNLIMITED_5G_PLUS', 'TABLET', CURRENT_DATE() - 42, 220.5, 0, 0, 99.99),
+
+-- IoT and Connected Device Customers
+('CUST_IOT_5001', 'IOT_CONNECT', 'SMART_WATCH', CURRENT_DATE() - 41, 0.8, 5, 25, 12.99),
+('CUST_IOT_5002', 'IOT_CONNECT', 'VEHICLE_MODEM', CURRENT_DATE() - 40, 5.2, 0, 0, 19.99),
+('CUST_IOT_5003', 'IOT_CONNECT', 'HOME_SECURITY', CURRENT_DATE() - 39, 2.1, 0, 0, 15.99),
+('CUST_IOT_5004', 'IOT_CONNECT', 'AGRICULTURE_SENSOR', CURRENT_DATE() - 38, 1.3, 0, 0, 9.99),
+('CUST_IOT_5005', 'IOT_INDUSTRIAL', 'MANUFACTURING_DEVICE', CURRENT_DATE() - 37, 8.7, 0, 0, 45.99),
+
+-- Prepaid Customers
+('CUST_PRE_6001', 'PREPAID_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 36, 25.8, 350, 125, 55.00),
+('CUST_PRE_6002', 'PREPAID_BASIC', 'SMARTPHONE', CURRENT_DATE() - 35, 12.4, 180, 89, 35.00),
+('CUST_PRE_6003', 'PREPAID_DATA', 'SMARTPHONE', CURRENT_DATE() - 34, 18.9, 120, 45, 25.00),
+('CUST_PRE_6004', 'PREPAID_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 33, 28.6, 420, 156, 55.00),
+
+-- Family Plans (Multiple Lines)
+('CUST_FAM_7001', 'FAMILY_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 32, 45.8, 680, 234, 180.99),
+('CUST_FAM_7002', 'FAMILY_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 31, 52.3, 720, 198, 180.99),
+('CUST_FAM_7003', 'FAMILY_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 30, 38.9, 590, 312, 180.99),
+('CUST_FAM_7004', 'FAMILY_UNLIMITED', 'TABLET', CURRENT_DATE() - 29, 28.4, 0, 0, 180.99),
+('CUST_FAM_7005', 'FAMILY_BASIC', 'SMARTPHONE', CURRENT_DATE() - 28, 22.6, 380, 156, 120.99),
+
+-- Student Plans
+('CUST_STU_8001', 'STUDENT_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 27, 35.7, 450, 289, 45.99),
+('CUST_STU_8002', 'STUDENT_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 26, 42.1, 520, 315, 45.99),
+('CUST_STU_8003', 'STUDENT_BASIC', 'SMARTPHONE', CURRENT_DATE() - 25, 18.9, 245, 156, 25.99),
+('CUST_STU_8004', 'STUDENT_DATA', 'TABLET', CURRENT_DATE() - 24, 25.4, 0, 0, 35.99),
+
+-- Rural Customers (Lower usage patterns)
+('CUST_RUR_9001', 'RURAL_BASIC', 'SMARTPHONE', CURRENT_DATE() - 23, 8.5, 280, 89, 39.99),
+('CUST_RUR_9002', 'RURAL_BASIC', 'SMARTPHONE', CURRENT_DATE() - 22, 6.8, 320, 78, 39.99),
+('CUST_RUR_9003', 'RURAL_PLUS', 'SMARTPHONE', CURRENT_DATE() - 21, 15.2, 450, 125, 49.99),
+('CUST_RUR_9004', 'RURAL_PLUS', 'SMARTPHONE', CURRENT_DATE() - 20, 12.6, 380, 98, 49.99),
+
+-- Small Business Customers
+('CUST_SMB_A001', 'SMALL_BIZ_PLAN', 'SMARTPHONE', CURRENT_DATE() - 19, 32.8, 720, 156, 65.99),
+('CUST_SMB_A002', 'SMALL_BIZ_PLAN', 'SMARTPHONE', CURRENT_DATE() - 18, 29.4, 680, 142, 65.99),
+('CUST_SMB_A003', 'SMALL_BIZ_DATA', 'TABLET', CURRENT_DATE() - 17, 45.7, 0, 0, 55.99),
+('CUST_SMB_A004', 'SMALL_BIZ_HOTSPOT', 'HOTSPOT_DEVICE', CURRENT_DATE() - 16, 78.9, 0, 0, 75.99),
+
+-- Mobile Virtual Network Operator (MVNO) Customers
+('CUST_MVN_B001', 'MVNO_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 15, 38.5, 520, 178, 49.99),
+('CUST_MVN_B002', 'MVNO_BASIC', 'SMARTPHONE', CURRENT_DATE() - 14, 22.8, 340, 89, 29.99),
+('CUST_MVN_B003', 'MVNO_DATA', 'TABLET', CURRENT_DATE() - 13, 31.2, 0, 0, 35.99),
+
+-- First Responder Plans
+('CUST_FR_C001', 'FIRST_RESPONDER', 'SMARTPHONE', CURRENT_DATE() - 12, 48.9, 890, 125, 55.99),
+('CUST_FR_C002', 'FIRST_RESPONDER', 'SMARTPHONE', CURRENT_DATE() - 11, 52.3, 950, 98, 55.99),
+('CUST_FR_C003', 'FIRST_RESPONDER_DATA', 'TABLET', CURRENT_DATE() - 10, 35.7, 0, 0, 45.99),
+
+-- High-Value VIP Customers
+('CUST_VIP_D001', 'VIP_PREMIUM', 'SMARTPHONE', CURRENT_DATE() - 9, 125.8, 1250, 345, 299.99),
+('CUST_VIP_D002', 'VIP_PREMIUM', 'SMARTPHONE', CURRENT_DATE() - 8, 132.4, 1180, 298, 299.99),
+('CUST_VIP_D003', 'VIP_PREMIUM', 'TABLET', CURRENT_DATE() - 7, 89.7, 0, 0, 199.99),
+
+-- Recent Activity (Last Week for Fresh Analytics)
+('CUST_1001234', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 6, 49.2, 650, 220, 120.75),
+('CUST_1001234', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 5, 51.8, 705, 255, 120.75),
+('CUST_2005678', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 4, 59.4, 485, 175, 125.99),
+('CUST_GAM_4001', 'UNLIMITED_5G_PLUS', 'SMARTPHONE', CURRENT_DATE() - 3, 192.3, 295, 167, 149.99),
+('CUST_FAM_7001', 'FAMILY_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 2, 47.6, 695, 245, 180.99),
+('CUST_VIP_D001', 'VIP_PREMIUM', 'SMARTPHONE', CURRENT_DATE() - 1, 128.9, 1290, 320, 299.99),
+
+-- Weekend Usage Patterns
+('CUST_WKD_E001', 'WEEKEND_WARRIOR', 'SMARTPHONE', CURRENT_DATE() - 7, 85.4, 180, 320, 79.99),
+('CUST_WKD_E002', 'WEEKEND_WARRIOR', 'SMARTPHONE', CURRENT_DATE() - 14, 92.7, 165, 285, 79.99),
+
+-- Data-Only Plans
+('CUST_DAO_F001', 'DATA_ONLY_50GB', 'TABLET', CURRENT_DATE() - 21, 48.9, 0, 0, 59.99),
+('CUST_DAO_F002', 'DATA_ONLY_100GB', 'LAPTOP_MODEM', CURRENT_DATE() - 28, 95.7, 0, 0, 89.99),
+('CUST_DAO_F003', 'DATA_ONLY_UNLIMITED', 'HOTSPOT_DEVICE', CURRENT_DATE() - 35, 275.8, 0, 0, 129.99),
+
+-- Monthly trends for the same customers to show usage patterns
+('CUST_1001234', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 30, 46.5, 625, 210, 120.75),
+('CUST_1001234', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 29, 48.9, 670, 235, 120.75),
+('CUST_1001234', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 28, 44.7, 595, 198, 120.75),
+('CUST_2005678', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 27, 57.8, 465, 165, 125.99),
+('CUST_2005678', 'UNLIMITED_5G', 'SMARTPHONE', CURRENT_DATE() - 26, 61.2, 505, 185, 125.99),
+('CUST_GAM_4001', 'UNLIMITED_5G_PLUS', 'SMARTPHONE', CURRENT_DATE() - 25, 180.5, 310, 148, 149.99),
+('CUST_GAM_4001', 'UNLIMITED_5G_PLUS', 'SMARTPHONE', CURRENT_DATE() - 24, 188.9, 295, 162, 149.99),
+('CUST_FAM_7001', 'FAMILY_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 23, 43.2, 665, 224, 180.99),
+('CUST_FAM_7001', 'FAMILY_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 22, 46.8, 705, 248, 180.99),
+
+-- Edge cases and interesting patterns
+('CUST_LOW_G001', 'BASIC_MOBILE', 'FEATURE_PHONE', CURRENT_DATE() - 45, 0.5, 180, 25, 19.99),
+('CUST_HIG_G002', 'UNLIMITED_5G_PLUS', 'SMARTPHONE', CURRENT_DATE() - 38, 485.7, 2850, 1205, 149.99),
+('CUST_ZER_G003', 'EMERGENCY_ONLY', 'SMARTPHONE', CURRENT_DATE() - 52, 0.0, 15, 2, 9.99),
+
+-- Corporate Fleet Management
+('CUST_FLT_H001', 'FLEET_MANAGEMENT', 'VEHICLE_MODEM', CURRENT_DATE() - 40, 15.8, 0, 0, 25.99),
+('CUST_FLT_H002', 'FLEET_MANAGEMENT', 'VEHICLE_MODEM', CURRENT_DATE() - 39, 18.2, 0, 0, 25.99),
+('CUST_FLT_H003', 'FLEET_TRACKING', 'GPS_DEVICE', CURRENT_DATE() - 38, 2.4, 0, 0, 12.99),
+
+-- Seasonal Users (Tourists, Temporary)
+('CUST_SEA_I001', 'TOURIST_PLAN', 'SMARTPHONE', CURRENT_DATE() - 35, 28.4, 120, 45, 39.99),
+('CUST_SEA_I002', 'TEMPORARY_UNLIMITED', 'SMARTPHONE', CURRENT_DATE() - 30, 65.7, 380, 156, 69.99),
+
+-- Government Accounts
+('CUST_GOV_J001', 'GOVERNMENT_PLAN', 'SMARTPHONE', CURRENT_DATE() - 25, 42.8, 580, 89, 59.99),
+('CUST_GOV_J002', 'GOVERNMENT_DATA', 'TABLET', CURRENT_DATE() - 24, 28.6, 0, 0, 45.99);
 
 -- 3. SERVICE QUALITY METRICS TABLE
 CREATE OR REPLACE TABLE {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.SERVICE_QUALITY_METRICS (
@@ -219,7 +427,99 @@ INSERT INTO {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.SERVICE_QUALITY_ME
 ('VIDEO_STREAMING', 'RURAL', DATEADD(hour, -18, CURRENT_TIMESTAMP()), 0.0, 96.1, 3.4),
 ('VIDEO_STREAMING', 'URBAN', DATEADD(hour, -3, CURRENT_TIMESTAMP()), 0.0, 99.1, 4.6),
 ('VIDEO_STREAMING', 'URBAN', DATEADD(hour, -2, CURRENT_TIMESTAMP()), 0.0, 98.9, 4.5),
-('VIDEO_STREAMING', 'URBAN', DATEADD(hour, -1, CURRENT_TIMESTAMP()), 0.0, 99.3, 4.7);
+('VIDEO_STREAMING', 'URBAN', DATEADD(hour, -1, CURRENT_TIMESTAMP()), 0.0, 99.3, 4.7),
+
+-- EXPANDED SAMPLE DATA: Additional Service Quality Metrics
+-- 5G Network Quality Across Different Areas
+('5G_DATA_SESSION', 'URBAN', DATEADD(hour, -48, CURRENT_TIMESTAMP()), 0.0, 99.8, 4.8),
+('5G_DATA_SESSION', 'URBAN', DATEADD(hour, -47, CURRENT_TIMESTAMP()), 0.0, 99.9, 4.9),
+('5G_DATA_SESSION', 'SUBURBAN', DATEADD(hour, -46, CURRENT_TIMESTAMP()), 0.0, 99.2, 4.3),
+('5G_DATA_SESSION', 'SUBURBAN', DATEADD(hour, -45, CURRENT_TIMESTAMP()), 0.0, 99.5, 4.5),
+('5G_DATA_SESSION', 'RURAL', DATEADD(hour, -44, CURRENT_TIMESTAMP()), 0.0, 97.8, 3.9),
+('5G_DATA_SESSION', 'RURAL', DATEADD(hour, -43, CURRENT_TIMESTAMP()), 0.0, 98.1, 4.0),
+
+-- Voice Quality Metrics by Region
+('VOICE_CALL', 'SUBURBAN', DATEADD(hour, -42, CURRENT_TIMESTAMP()), 0.7, 98.0, 4.0),
+('VOICE_CALL', 'SUBURBAN', DATEADD(hour, -41, CURRENT_TIMESTAMP()), 0.6, 98.3, 4.1),
+('VOICE_CALL', 'RURAL', DATEADD(hour, -40, CURRENT_TIMESTAMP()), 1.2, 96.8, 3.6),
+('VOICE_CALL', 'RURAL', DATEADD(hour, -39, CURRENT_TIMESTAMP()), 1.1, 97.1, 3.7),
+('VOICE_CALL', 'MOUNTAIN', DATEADD(hour, -38, CURRENT_TIMESTAMP()), 1.8, 95.2, 3.2),
+('VOICE_CALL', 'MOUNTAIN', DATEADD(hour, -37, CURRENT_TIMESTAMP()), 1.6, 95.8, 3.4),
+
+-- Video Conference Quality
+('VIDEO_CONFERENCE', 'URBAN', DATEADD(hour, -36, CURRENT_TIMESTAMP()), 0.1, 99.1, 4.6),
+('VIDEO_CONFERENCE', 'URBAN', DATEADD(hour, -35, CURRENT_TIMESTAMP()), 0.2, 98.9, 4.5),
+('VIDEO_CONFERENCE', 'SUBURBAN', DATEADD(hour, -34, CURRENT_TIMESTAMP()), 0.3, 98.2, 4.2),
+('VIDEO_CONFERENCE', 'SUBURBAN', DATEADD(hour, -33, CURRENT_TIMESTAMP()), 0.4, 98.0, 4.1),
+('VIDEO_CONFERENCE', 'RURAL', DATEADD(hour, -32, CURRENT_TIMESTAMP()), 0.8, 96.5, 3.5),
+
+-- Gaming and Low-Latency Services
+('GAMING', 'URBAN', DATEADD(hour, -31, CURRENT_TIMESTAMP()), 0.0, 99.6, 4.7),
+('GAMING', 'URBAN', DATEADD(hour, -30, CURRENT_TIMESTAMP()), 0.0, 99.7, 4.8),
+('GAMING', 'SUBURBAN', DATEADD(hour, -29, CURRENT_TIMESTAMP()), 0.1, 98.8, 4.3),
+('GAMING', 'SUBURBAN', DATEADD(hour, -28, CURRENT_TIMESTAMP()), 0.1, 98.9, 4.4),
+('GAMING', 'RURAL', DATEADD(hour, -27, CURRENT_TIMESTAMP()), 0.5, 96.2, 3.4),
+
+-- IoT Device Performance
+('IOT_CONNECTIVITY', 'URBAN', DATEADD(hour, -26, CURRENT_TIMESTAMP()), 0.0, 99.9, 4.5),
+('IOT_CONNECTIVITY', 'SUBURBAN', DATEADD(hour, -25, CURRENT_TIMESTAMP()), 0.1, 99.7, 4.3),
+('IOT_CONNECTIVITY', 'RURAL', DATEADD(hour, -24, CURRENT_TIMESTAMP()), 0.2, 99.2, 4.0),
+('IOT_CONNECTIVITY', 'INDUSTRIAL', DATEADD(hour, -23, CURRENT_TIMESTAMP()), 0.0, 99.8, 4.6),
+
+-- SMS and Messaging Services
+('SMS_MMS', 'URBAN', DATEADD(hour, -22, CURRENT_TIMESTAMP()), 0.0, 99.9, 4.8),
+('SMS_MMS', 'SUBURBAN', DATEADD(hour, -21, CURRENT_TIMESTAMP()), 0.0, 99.8, 4.7),
+('SMS_MMS', 'RURAL', DATEADD(hour, -20, CURRENT_TIMESTAMP()), 0.1, 99.5, 4.4),
+('INSTANT_MESSAGING', 'URBAN', DATEADD(hour, -19, CURRENT_TIMESTAMP()), 0.0, 99.7, 4.6),
+('INSTANT_MESSAGING', 'SUBURBAN', DATEADD(hour, -18, CURRENT_TIMESTAMP()), 0.0, 99.5, 4.4),
+
+-- Cloud and Enterprise Services
+('CLOUD_SYNC', 'BUSINESS_DISTRICT', DATEADD(hour, -17, CURRENT_TIMESTAMP()), 0.0, 99.4, 4.5),
+('CLOUD_SYNC', 'BUSINESS_DISTRICT', DATEADD(hour, -16, CURRENT_TIMESTAMP()), 0.0, 99.6, 4.6),
+('VPN_CONNECTION', 'ENTERPRISE_ZONE', DATEADD(hour, -15, CURRENT_TIMESTAMP()), 0.1, 98.9, 4.3),
+('VPN_CONNECTION', 'ENTERPRISE_ZONE', DATEADD(hour, -14, CURRENT_TIMESTAMP()), 0.1, 99.1, 4.4),
+
+-- Emergency Services Quality
+('EMERGENCY_CALL', 'URBAN', DATEADD(hour, -13, CURRENT_TIMESTAMP()), 0.0, 99.99, 4.95),
+('EMERGENCY_CALL', 'SUBURBAN', DATEADD(hour, -12, CURRENT_TIMESTAMP()), 0.0, 99.98, 4.92),
+('EMERGENCY_CALL', 'RURAL', DATEADD(hour, -11, CURRENT_TIMESTAMP()), 0.1, 99.95, 4.85),
+('EMERGENCY_SMS', 'DISASTER_ZONE', DATEADD(hour, -10, CURRENT_TIMESTAMP()), 0.0, 99.9, 4.8),
+
+-- International Roaming Quality
+('ROAMING_DATA', 'INTERNATIONAL', DATEADD(hour, -9, CURRENT_TIMESTAMP()), 2.5, 94.8, 3.2),
+('ROAMING_VOICE', 'INTERNATIONAL', DATEADD(hour, -8, CURRENT_TIMESTAMP()), 3.2, 93.5, 3.0),
+('ROAMING_SMS', 'INTERNATIONAL', DATEADD(hour, -7, CURRENT_TIMESTAMP()), 1.8, 96.2, 3.8),
+
+-- Peak Hour Performance
+('DATA_SESSION', 'URBAN', DATEADD(hour, -6, CURRENT_TIMESTAMP()), 0.2, 97.5, 4.0),
+('DATA_SESSION', 'URBAN', DATEADD(hour, -5, CURRENT_TIMESTAMP()), 0.3, 97.2, 3.9),
+('VOICE_CALL', 'URBAN', DATEADD(hour, -4, CURRENT_TIMESTAMP()), 1.2, 97.8, 4.1),
+('VIDEO_STREAMING', 'SUBURBAN', DATEADD(hour, -3, CURRENT_TIMESTAMP()), 0.2, 97.9, 4.0),
+
+-- WiFi Offload Quality
+('WIFI_OFFLOAD', 'COMMERCIAL', DATEADD(hour, -25, CURRENT_TIMESTAMP()), 0.8, 96.5, 3.8),
+('WIFI_OFFLOAD', 'RESIDENTIAL', DATEADD(hour, -24, CURRENT_TIMESTAMP()), 1.2, 95.2, 3.5),
+('WIFI_OFFLOAD', 'TRANSPORTATION', DATEADD(hour, -23, CURRENT_TIMESTAMP()), 2.1, 92.8, 3.1),
+
+-- Edge Computing Services
+('EDGE_COMPUTING', 'SMART_CITY', DATEADD(hour, -22, CURRENT_TIMESTAMP()), 0.0, 99.5, 4.7),
+('EDGE_COMPUTING', 'INDUSTRIAL', DATEADD(hour, -21, CURRENT_TIMESTAMP()), 0.1, 99.3, 4.5),
+('AUGMENTED_REALITY', 'ENTERTAINMENT', DATEADD(hour, -20, CURRENT_TIMESTAMP()), 0.2, 98.8, 4.2),
+
+-- Weather Impact on Service Quality
+('DATA_SESSION', 'STORM_AFFECTED', DATEADD(day, -2, CURRENT_TIMESTAMP()), 1.5, 94.2, 3.3),
+('VOICE_CALL', 'STORM_AFFECTED', DATEADD(day, -2, CURRENT_TIMESTAMP()), 2.8, 92.5, 3.0),
+('SMS_MMS', 'STORM_AFFECTED', DATEADD(day, -2, CURRENT_TIMESTAMP()), 0.8, 96.8, 3.8),
+
+-- Special Event Coverage
+('DATA_SESSION', 'EVENT_VENUE', DATEADD(day, -1, CURRENT_TIMESTAMP()), 0.8, 96.8, 3.9),
+('VOICE_CALL', 'EVENT_VENUE', DATEADD(day, -1, CURRENT_TIMESTAMP()), 1.5, 95.5, 3.6),
+('VIDEO_STREAMING', 'EVENT_VENUE', DATEADD(day, -1, CURRENT_TIMESTAMP()), 1.2, 96.2, 3.7),
+
+-- Network Slicing Performance
+('5G_SLICE_ENHANCED', 'URBAN', DATEADD(hour, -12, CURRENT_TIMESTAMP()), 0.0, 99.9, 4.9),
+('5G_SLICE_MASSIVE_IOT', 'INDUSTRIAL', DATEADD(hour, -11, CURRENT_TIMESTAMP()), 0.1, 99.7, 4.3),
+('5G_SLICE_URLLC', 'AUTONOMOUS_ZONE', DATEADD(hour, -10, CURRENT_TIMESTAMP()), 0.0, 99.95, 4.95);
 
 -- 4. NETWORK INCIDENTS TABLE
 CREATE OR REPLACE TABLE {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NETWORK_INCIDENTS (
@@ -241,7 +541,68 @@ INSERT INTO {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NETWORK_INCIDENTS 
 ('INC_2025_045', 'POWER_OUTAGE', 'CRITICAL', 'Texas', DATEADD(day, -3, CURRENT_TIMESTAMP()), DATEADD(day, -2, CURRENT_TIMESTAMP()), 32000, 205, 45000.75),
 ('INC_2025_046', 'EQUIPMENT_MAINTENANCE', 'LOW', 'California', DATEADD(hour, -48, CURRENT_TIMESTAMP()), DATEADD(hour, -46, CURRENT_TIMESTAMP()), 1200, 150, 2500.00),
 ('INC_2025_089', 'FIBER_CUT', 'HIGH', 'Florida', DATEADD(day, -4, CURRENT_TIMESTAMP()), DATEADD(day, -3, CURRENT_TIMESTAMP()), 12500, 165, 22000.30),
-('INC_2025_090', 'CONFIGURATION_ERROR', 'MEDIUM', 'Ohio', DATEADD(day, -5, CURRENT_TIMESTAMP()), DATEADD(hour, -116, CURRENT_TIMESTAMP()), 3400, 95, 5800.15);
+('INC_2025_090', 'CONFIGURATION_ERROR', 'MEDIUM', 'Ohio', DATEADD(day, -5, CURRENT_TIMESTAMP()), DATEADD(hour, -116, CURRENT_TIMESTAMP()), 3400, 95, 5800.15),
+
+-- EXPANDED SAMPLE DATA: Additional Network Incidents
+-- Recent Critical Incidents
+('INC_2025_091', 'DDOS_ATTACK', 'CRITICAL', 'New_York', DATEADD(hour, -72, CURRENT_TIMESTAMP()), DATEADD(hour, -70, CURRENT_TIMESTAMP()), 45000, 120, 85000.50),
+('INC_2025_092', 'DATA_CENTER_FAILURE', 'CRITICAL', 'Virginia', DATEADD(hour, -48, CURRENT_TIMESTAMP()), DATEADD(hour, -44, CURRENT_TIMESTAMP()), 28000, 240, 125000.75),
+('INC_2025_093', 'CABLE_CUT', 'HIGH', 'Georgia', DATEADD(hour, -36, CURRENT_TIMESTAMP()), DATEADD(hour, -32, CURRENT_TIMESTAMP()), 18500, 240, 45000.25),
+
+-- Weather-Related Incidents
+('INC_2025_094', 'HURRICANE_DAMAGE', 'CRITICAL', 'Florida_Keys', DATEADD(day, -7, CURRENT_TIMESTAMP()), DATEADD(day, -5, CURRENT_TIMESTAMP()), 65000, 2880, 250000.00),
+('INC_2025_095', 'TORNADO_DAMAGE', 'CRITICAL', 'Kansas', DATEADD(day, -10, CURRENT_TIMESTAMP()), DATEADD(day, -9, CURRENT_TIMESTAMP()), 12500, 720, 45000.75),
+('INC_2025_096', 'FLOOD_DAMAGE', 'HIGH', 'Louisiana', DATEADD(day, -12, CURRENT_TIMESTAMP()), DATEADD(day, -11, CURRENT_TIMESTAMP()), 22000, 1080, 75000.25),
+('INC_2025_097', 'ICE_STORM', 'HIGH', 'Minnesota', DATEADD(day, -15, CURRENT_TIMESTAMP()), DATEADD(day, -14, CURRENT_TIMESTAMP()), 15800, 960, 38000.50),
+('INC_2025_098', 'WILDFIRE_EVACUATION', 'CRITICAL', 'California_North', DATEADD(day, -20, CURRENT_TIMESTAMP()), DATEADD(day, -18, CURRENT_TIMESTAMP()), 35000, 2160, 125000.00),
+
+-- Cyber Security Incidents
+('INC_2025_099', 'RANSOMWARE_ATTEMPT', 'HIGH', 'Corporate_Network', DATEADD(day, -8, CURRENT_TIMESTAMP()), DATEADD(day, -7, CURRENT_TIMESTAMP()), 2500, 180, 15000.00),
+('INC_2025_100', 'PHISHING_ATTACK', 'MEDIUM', 'Customer_Portal', DATEADD(day, -6, CURRENT_TIMESTAMP()), DATEADD(hour, -138, CURRENT_TIMESTAMP()), 850, 45, 2500.00),
+('INC_2025_101', 'DATA_BREACH_ATTEMPT', 'HIGH', 'Billing_System', DATEADD(hour, -84, CURRENT_TIMESTAMP()), DATEADD(hour, -82, CURRENT_TIMESTAMP()), 1200, 120, 8500.00),
+
+-- Infrastructure Failures
+('INC_2025_102', 'COOLING_SYSTEM_FAILURE', 'HIGH', 'Arizona_DC', DATEADD(day, -4, CURRENT_TIMESTAMP()), DATEADD(day, -3, CURRENT_TIMESTAMP()), 8900, 480, 28000.75),
+('INC_2025_103', 'GENERATOR_FAILURE', 'MEDIUM', 'Backup_Site_TX', DATEADD(hour, -96, CURRENT_TIMESTAMP()), DATEADD(hour, -92, CURRENT_TIMESTAMP()), 3200, 240, 12000.50),
+('INC_2025_104', 'ROUTER_OVERHEATING', 'LOW', 'Nevada', DATEADD(hour, -60, CURRENT_TIMESTAMP()), DATEADD(hour, -58, CURRENT_TIMESTAMP()), 1800, 120, 4500.25),
+('INC_2025_105', 'SWITCH_FAILURE', 'MEDIUM', 'Colorado', DATEADD(hour, -108, CURRENT_TIMESTAMP()), DATEADD(hour, -104, CURRENT_TIMESTAMP()), 5600, 240, 18000.00),
+
+-- Software and Configuration Issues
+('INC_2025_106', 'SOFTWARE_UPDATE_FAILED', 'MEDIUM', 'Michigan', DATEADD(day, -9, CURRENT_TIMESTAMP()), DATEADD(day, -8, CURRENT_TIMESTAMP()), 7200, 180, 22000.50),
+('INC_2025_107', 'DATABASE_CORRUPTION', 'HIGH', 'Illinois', DATEADD(hour, -120, CURRENT_TIMESTAMP()), DATEADD(hour, -115, CURRENT_TIMESTAMP()), 9800, 300, 35000.75),
+('INC_2025_108', 'LOAD_BALANCER_ERROR', 'MEDIUM', 'Washington', DATEADD(hour, -72, CURRENT_TIMESTAMP()), DATEADD(hour, -69, CURRENT_TIMESTAMP()), 4500, 180, 15000.25),
+('INC_2025_109', 'DNS_RESOLUTION_FAILURE', 'HIGH', 'Oregon', DATEADD(hour, -156, CURRENT_TIMESTAMP()), DATEADD(hour, -152, CURRENT_TIMESTAMP()), 12000, 240, 42000.00),
+
+-- Vendor and Third-Party Issues
+('INC_2025_110', 'VENDOR_OUTAGE', 'HIGH', 'Multi_State', DATEADD(day, -11, CURRENT_TIMESTAMP()), DATEADD(day, -10, CURRENT_TIMESTAMP()), 25000, 420, 85000.50),
+('INC_2025_111', 'CLOUD_PROVIDER_ISSUE', 'MEDIUM', 'East_Coast', DATEADD(hour, -144, CURRENT_TIMESTAMP()), DATEADD(hour, -140, CURRENT_TIMESTAMP()), 8500, 240, 28000.75),
+('INC_2025_112', 'ISP_ROUTING_ERROR', 'LOW', 'Utah', DATEADD(hour, -48, CURRENT_TIMESTAMP()), DATEADD(hour, -46, CURRENT_TIMESTAMP()), 2800, 120, 8500.00),
+
+-- Planned Maintenance Issues
+('INC_2025_113', 'MAINTENANCE_OVERRUN', 'LOW', 'Idaho', DATEADD(day, -13, CURRENT_TIMESTAMP()), DATEADD(day, -12, CURRENT_TIMESTAMP()), 1500, 300, 4500.00),
+('INC_2025_114', 'UNEXPECTED_DOWNTIME', 'MEDIUM', 'Montana', DATEADD(hour, -168, CURRENT_TIMESTAMP()), DATEADD(hour, -164, CURRENT_TIMESTAMP()), 3800, 240, 12000.25),
+
+-- Capacity and Traffic Issues
+('INC_2025_115', 'TRAFFIC_SPIKE', 'MEDIUM', 'Stadium_Event', DATEADD(hour, -24, CURRENT_TIMESTAMP()), DATEADD(hour, -21, CURRENT_TIMESTAMP()), 15000, 180, 28000.50),
+('INC_2025_116', 'BANDWIDTH_EXHAUSTION', 'HIGH', 'Business_District', DATEADD(hour, -18, CURRENT_TIMESTAMP()), DATEADD(hour, -15, CURRENT_TIMESTAMP()), 8900, 180, 22000.75),
+('INC_2025_117', 'CONGESTION_OVERLOAD', 'MEDIUM', 'Airport_Hub', DATEADD(hour, -12, CURRENT_TIMESTAMP()), DATEADD(hour, -10, CURRENT_TIMESTAMP()), 6500, 120, 18000.00),
+
+-- Equipment Theft and Vandalism
+('INC_2025_118', 'EQUIPMENT_THEFT', 'HIGH', 'Remote_Tower_Site', DATEADD(day, -16, CURRENT_TIMESTAMP()), DATEADD(day, -14, CURRENT_TIMESTAMP()), 4500, 2880, 35000.00),
+('INC_2025_119', 'VANDALISM', 'MEDIUM', 'Urban_Cell_Site', DATEADD(day, -14, CURRENT_TIMESTAMP()), DATEADD(day, -13, CURRENT_TIMESTAMP()), 2800, 720, 15000.50),
+
+-- Environmental Issues
+('INC_2025_120', 'DUST_STORM_DAMAGE', 'MEDIUM', 'Arizona', DATEADD(day, -18, CURRENT_TIMESTAMP()), DATEADD(day, -17, CURRENT_TIMESTAMP()), 8200, 480, 25000.75),
+('INC_2025_121', 'EARTHQUAKE_DAMAGE', 'CRITICAL', 'California_South', DATEADD(day, -25, CURRENT_TIMESTAMP()), DATEADD(day, -23, CURRENT_TIMESTAMP()), 75000, 2880, 350000.00),
+
+-- Vehicle Accidents and Physical Damage
+('INC_2025_122', 'VEHICLE_COLLISION', 'HIGH', 'Highway_Tower', DATEADD(hour, -96, CURRENT_TIMESTAMP()), DATEADD(hour, -90, CURRENT_TIMESTAMP()), 6800, 360, 22000.50),
+('INC_2025_123', 'CONSTRUCTION_DAMAGE', 'MEDIUM', 'Urban_Fiber', DATEADD(day, -6, CURRENT_TIMESTAMP()), DATEADD(day, -5, CURRENT_TIMESTAMP()), 3200, 480, 12000.75),
+
+-- Recent Minor Incidents (Last 24 Hours)
+('INC_2025_124', 'ANTENNA_MISALIGNMENT', 'LOW', 'Nebraska', DATEADD(hour, -6, CURRENT_TIMESTAMP()), DATEADD(hour, -4, CURRENT_TIMESTAMP()), 850, 120, 2500.00),
+('INC_2025_125', 'BACKUP_BATTERY_FAILURE', 'LOW', 'Remote_Site_WY', DATEADD(hour, -3, CURRENT_TIMESTAMP()), DATEADD(hour, -2, CURRENT_TIMESTAMP()), 450, 60, 1200.00),
+('INC_2025_126', 'ALARM_MALFUNCTION', 'LOW', 'Monitoring_Center', DATEADD(hour, -1, CURRENT_TIMESTAMP()), CURRENT_TIMESTAMP(), 0, 60, 500.00);
 
 -- 5. NETWORK REPORTS PARSED (Document AI Results)
 CREATE OR REPLACE TABLE {{env.DATAOPS_DATABASE }}.{{env.DOCUMENT_AI_SCHEMA}}.NETWORK_REPORTS_PARSED (
@@ -290,7 +651,68 @@ INSERT INTO {{ env.DATAOPS_DATABASE }}.{{ env.EVENT_SCHEMA }}.NETWORK_DOCUMENTAT
 'maintenance,windows,planning,notifications,emergency', CURRENT_DATE() - 15),
 ('DOC_005', 'NETWORK_PLANNING', '5G Network Expansion Guidelines',
 '5G network expansion should prioritize high-density urban areas and business districts. Site selection criteria include population density, existing infrastructure, fiber backhaul availability, and regulatory compliance. Expected coverage radius for 5G sites is 1-3 km in urban areas, 5-10 km in suburban areas.',
-'5G,expansion,planning,coverage,infrastructure', CURRENT_DATE() - 10);
+'5G,expansion,planning,coverage,infrastructure', CURRENT_DATE() - 10),
+
+-- EXPANDED SAMPLE DATA: Additional Network Documentation
+('DOC_006', 'SECURITY', 'Cybersecurity Framework for Telco Networks',
+'Comprehensive cybersecurity framework includes multi-layered defense strategies: 1) Network segmentation and zero-trust architecture, 2) Real-time threat monitoring with AI-powered detection, 3) Encrypted communications using quantum-resistant algorithms, 4) Regular penetration testing and vulnerability assessments. Critical infrastructure requires 24/7 SOC monitoring with automated incident response capabilities.',
+'security,cybersecurity,threat,monitoring,encryption,SOC', CURRENT_DATE() - 5),
+
+('DOC_007', 'OPTIMIZATION', 'Network Performance Optimization Techniques',
+'Advanced optimization techniques for modern telecom networks: Traffic engineering using MPLS and SD-WAN, dynamic spectrum allocation for 5G networks, edge computing deployment for reduced latency, AI-driven predictive maintenance, and automated load balancing algorithms. Monitor KPIs including latency, throughput, packet loss, and jitter for optimal user experience.',
+'optimization,performance,traffic,engineering,AI,edge,computing', CURRENT_DATE() - 8),
+
+('DOC_008', 'DISASTER_RECOVERY', 'Business Continuity and Disaster Recovery Plan',
+'Disaster recovery protocols ensure network resilience: Primary data centers with geographically distributed backups, automatic failover systems with <30 second recovery times, emergency communication channels for first responders, backup power systems with 72-hour capacity, and mobile cell sites for rapid deployment. Regular DR testing conducted quarterly.',
+'disaster,recovery,backup,failover,emergency,continuity', CURRENT_DATE() - 12),
+
+('DOC_009', 'IOT_INTEGRATION', 'IoT Device Management and Integration',
+'IoT ecosystem management covering device onboarding, authentication, and lifecycle management. Supports massive IoT deployments with up to 1 million devices per square kilometer using NB-IoT and LTE-M technologies. Device security includes PKI certificates, secure boot, and over-the-air updates. Network slicing ensures QoS isolation for critical IoT applications.',
+'IoT,devices,NB-IoT,LTE-M,security,slicing,massive', CURRENT_DATE() - 15),
+
+('DOC_010', 'CUSTOMER_ANALYTICS', 'Customer Experience Analytics and Insights',
+'Customer analytics platform provides real-time insights into user behavior, service quality perception, and network performance impact on customer satisfaction. Machine learning models predict churn risk, optimize service recommendations, and identify network issues before customer complaints. Dashboard includes NPS scores, usage patterns, and revenue analytics.',
+'customer,analytics,experience,churn,satisfaction,ML', CURRENT_DATE() - 18),
+
+('DOC_011', 'EDGE_COMPUTING', 'Edge Computing Deployment Guide',
+'Multi-access Edge Computing (MEC) deployment strategies for ultra-low latency applications. Edge nodes support AR/VR, autonomous vehicles, and industrial IoT with <10ms latency requirements. Infrastructure includes containerized workloads, kubernetes orchestration, and APIs for third-party applications. Edge-to-cloud data synchronization ensures consistency.',
+'edge,computing,MEC,latency,AR,VR,autonomous,kubernetes', CURRENT_DATE() - 22),
+
+('DOC_012', 'QUALITY_ASSURANCE', 'Service Quality Monitoring and SLA Management',
+'Comprehensive quality assurance framework monitors end-to-end service quality across voice, data, and video services. Automated testing includes call quality analysis, data throughput measurements, and video streaming quality metrics. SLA management tracks availability (99.9%), latency (<50ms), and customer satisfaction scores (>4.0/5.0).',
+'quality,SLA,monitoring,voice,data,video,availability', CURRENT_DATE() - 25),
+
+('DOC_013', 'CAPACITY_PLANNING', 'Network Capacity Planning and Forecasting',
+'Predictive capacity planning using AI/ML models to forecast traffic growth, identify bottlenecks, and optimize resource allocation. Analysis includes historical usage trends, seasonal patterns, special events impact, and demographic changes. Automated scaling recommendations for network infrastructure and spectrum allocation.',
+'capacity,planning,forecasting,AI,ML,traffic,scaling', CURRENT_DATE() - 28),
+
+('DOC_014', 'COMPLIANCE', 'Regulatory Compliance and Standards',
+'Regulatory compliance framework covering FCC regulations, GDPR data protection, HIPAA healthcare requirements, and industry standards (3GPP, ETSI, IEEE). Regular audits ensure compliance with emergency alert systems, accessibility requirements, and consumer protection laws. Documentation includes compliance checklists and audit trails.',
+'compliance,regulatory,FCC,GDPR,HIPAA,standards,audit', CURRENT_DATE() - 32),
+
+('DOC_015', 'AUTOMATION', 'Network Automation and Orchestration',
+'End-to-end network automation using SDN/NFV technologies, intent-based networking, and AI-driven operations. Automated workflows include service provisioning, fault detection and remediation, performance optimization, and security policy enforcement. Zero-touch provisioning reduces deployment time from hours to minutes.',
+'automation,orchestration,SDN,NFV,intent,AI,zero-touch', CURRENT_DATE() - 35),
+
+('DOC_016', 'ROAMING', 'International Roaming Configuration Guide',
+'International roaming setup and optimization covering bilateral agreements, technical configurations, and quality assurance. Includes GSMA guidelines compliance, steering of roaming, and fraud prevention mechanisms. Real-time monitoring of roaming traffic quality and revenue assurance processes.',
+'roaming,international,GSMA,agreements,fraud,revenue', CURRENT_DATE() - 38),
+
+('DOC_017', 'SPECTRUM', 'Spectrum Management and Optimization',
+'Dynamic spectrum management for efficient frequency allocation across 2G, 3G, 4G, and 5G technologies. Includes carrier aggregation strategies, spectrum sharing protocols, and interference mitigation techniques. Cognitive radio implementation for opportunistic spectrum usage and coordination with regulatory authorities.',
+'spectrum,management,frequency,aggregation,interference,cognitive', CURRENT_DATE() - 42),
+
+('DOC_018', 'TESTING', 'Network Testing and Validation Procedures',
+'Comprehensive testing framework for new services and network upgrades: Unit testing, integration testing, performance testing, and acceptance testing. Automated test suites for regression testing, load testing, and security vulnerability assessments. Test environment management and CI/CD pipeline integration.',
+'testing,validation,performance,security,automation,CI/CD', CURRENT_DATE() - 45),
+
+('DOC_019', 'MIGRATION', '5G Network Migration and Modernization',
+'Step-by-step guide for migrating from legacy networks to 5G infrastructure. Includes spectrum refarming strategies, equipment replacement schedules, and service continuity plans. Dual-mode operation during transition periods and customer communication strategies for service improvements.',
+'migration,5G,modernization,spectrum,refarming,transition', CURRENT_DATE() - 48),
+
+('DOC_020', 'ENERGY', 'Green Network Initiative and Energy Efficiency',
+'Sustainability initiatives for reducing network carbon footprint: Energy-efficient equipment deployment, renewable energy integration, intelligent power management, and carbon offset programs. Green network design principles and environmental impact measurement frameworks.',
+'green,energy,efficiency,sustainability,renewable,carbon', CURRENT_DATE() - 52);
 
 
 -- If data sharing enambled, create a database from the share
